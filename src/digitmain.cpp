@@ -241,13 +241,12 @@
 #include <windows.h>
 #endif
 
-#include <q3vbox.h>
-#include <q3accel.h>
 #include <q3dragobject.h>
 #include <qclipboard.h>
 #include <qmenubar.h>
 #include <qtooltip.h>
 //Added by qt3to4:
+#include <QWhatsThis>
 #include <QMoveEvent>
 #include <QResizeEvent>
 #include <QLabel>
@@ -258,12 +257,11 @@
 #include <QKeyEvent>
 #include <QEvent>
 #include <QDropEvent>
-#include <Q3PopupMenu>
 #include <Q3PtrList>
 #include <QMdiArea>
 #include <QMdiSubWindow>
 #include <QDesktopWidget>
-
+#include <QFileDialog>
 #include "digitview.h"
 #include "digitdoc.h"
 #include "digitmain.h"
@@ -877,7 +875,7 @@ void DigitMain::initGeometryInfo()
 void DigitMain::initMenuBar()
 {
   // menuBar entry fileMenu
-  fileMenu = new Q3PopupMenu();
+  fileMenu = new QMenu();
   CHECK_PTR_ENGAUGE(fileMenu);
   fileImport->addTo(fileMenu);
   fileOpen->addTo(fileMenu);
@@ -903,7 +901,7 @@ void DigitMain::initMenuBar()
   connect(&m_mruDocuments, SIGNAL(mruChosen(QString)), this, SLOT(slotFileOpenRecent(QString)));
 
   // menuBar entry editMenu
-  editMenu = new Q3PopupMenu();
+  editMenu = new QMenu();
   CHECK_PTR_ENGAUGE(editMenu);
   editCut->addTo(editMenu);
   editCopy->addTo(editMenu);
@@ -911,7 +909,7 @@ void DigitMain::initMenuBar()
   editPasteAsNew->addTo(editMenu);
 
   // menuBar entry viewMenu
-  viewMenu = new Q3PopupMenu();
+  viewMenu = new QMenu();
   CHECK_PTR_ENGAUGE(viewMenu);
   viewMenu->setCheckable(true);
   viewFileToolBar->addTo(viewMenu);
@@ -938,7 +936,7 @@ void DigitMain::initMenuBar()
   viewMeasureGeometry->addTo(viewMenu);
 
   // menuBar entry digitizeMenu
-  digitizeMenu = new Q3PopupMenu();
+  digitizeMenu = new QMenu();
   CHECK_PTR_ENGAUGE(digitizeMenu);
   digitizeSelect->addTo(digitizeMenu);
   digitizeMenu->insertSeparator();
@@ -952,7 +950,7 @@ void DigitMain::initMenuBar()
   digitizeMeasure->addTo(digitizeMenu);
 
   // menuBar entry settingsMenu
-  settingsMenu = new Q3PopupMenu();
+  settingsMenu = new QMenu();
   CHECK_PTR_ENGAUGE(settingsMenu);
   settingsCoordSys->addTo(settingsMenu);
   settingsMenu->insertSeparator();
@@ -973,13 +971,13 @@ void DigitMain::initMenuBar()
   settingsSessions->addTo(settingsMenu);
 
   // menuBar entry windowMenu
-  windowMenu = new Q3PopupMenu(this);
+  windowMenu = new QMenu(this);
   CHECK_PTR_ENGAUGE(windowMenu);
   windowMenu->setCheckable(true);
   connect(windowMenu, SIGNAL(aboutToShow()), this, SLOT(slotMenuPreactivated()));
 
   // menuBar entry helpMenu
-  helpMenu = new Q3PopupMenu();
+  helpMenu = new QMenu();
   CHECK_PTR_ENGAUGE(helpMenu);
   helpAboutApp->addTo(helpMenu);
   helpMenu->insertSeparator();
@@ -2194,7 +2192,7 @@ bool DigitMain::documentSaveAs(DigitDoc* doc)
 
   if (doc)
   {
-    QString filename = Q3FileDialog::getSaveFileName(doc->savePath(), DigitDoc::filterOpenSave(), this,
+    QString filename = QFileDialog::getSaveFileName(doc->savePath(), DigitDoc::filterOpenSave(), this,
       "save", QString(tr("Save")));
     if (!filename.isEmpty())
     {
@@ -2246,7 +2244,7 @@ void DigitMain::slotFileImport()
 {
   slotStatusNormalMsg(QString(tr("Opening image file...")));
 
-  QString filename = Q3FileDialog::getOpenFileName(0, DigitDoc::filterImport(), this,
+  QString filename = QFileDialog::getOpenFileName(0, DigitDoc::filterImport(), this,
     tr("import"), QString(tr("Import")));
 
   if (!filename.isEmpty())
@@ -2263,7 +2261,7 @@ void DigitMain::slotFileOpen()
 {
   slotStatusNormalMsg(QString(tr("Opening document file...")));
 
-  QString filename = Q3FileDialog::getOpenFileName(0, DigitDoc::filterOpenSave(), this,
+  QString filename = QFileDialog::getOpenFileName(0, DigitDoc::filterOpenSave(), this,
     "open", QString(tr("Open")));
 
   if (!filename.isEmpty())
@@ -2354,7 +2352,7 @@ void DigitMain::slotFileExportAs()
   DigitDoc* doc = activeDocument();
   if (doc)
   {
-    QString filename = Q3FileDialog::getSaveFileName(doc->exportPath(), 0, this, "export as",
+    QString filename = QFileDialog::getSaveFileName(doc->exportPath(), 0, this, "export as",
       QString(tr("Export")));
     if (!filename.isEmpty())
     {

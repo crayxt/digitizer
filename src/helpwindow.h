@@ -18,11 +18,10 @@
 #include <qdir.h>
 //Added by qt3to4:
 #include <QResizeEvent>
-#include <Q3PopupMenu>
+#include <QMenu>
 #include <QMoveEvent>
 
 class QComboBox;
-class Q3PopupMenu;
 
 class HelpWindow : public Q3MainWindow
 {
@@ -63,7 +62,7 @@ class HelpWindow : public Q3MainWindow
     QString selectedURL;
     QStringList history, bookmarks;
     QMap<int, QString> mHistory, mBookmarks;
-    Q3PopupMenu *hist, *bookm;
+    QMenu *hist, *bookm;
     
 };
 

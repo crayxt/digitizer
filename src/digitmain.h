@@ -124,12 +124,8 @@
 #include <qaction.h>
 #include <qworkspace.h>
 #include <qstatusbar.h>
-#include <q3whatsthis.h>
-#include <q3popupmenu.h>
-#include <q3accel.h>
 #include <qtoolbutton.h>
 #include <qmessagebox.h>
-#include <q3filedialog.h>
 #include <qprinter.h>
 #include <qstring.h>
 #include <qpixmap.h>
@@ -145,6 +141,7 @@
 #include <QMoveEvent>
 #include <QToolBar>
 #include <QMdiArea>
+#include <QFileDialog>
 
 #include "digitdef.h"
 #include "geometrywindowitem.h"
@@ -462,19 +459,19 @@ class DigitMain : public QMainWindow
     bool clipboardContainsUris();
     
     // file menu contains all items of the menubar entry "File"
-    Q3PopupMenu* fileMenu;
+    QMenu* fileMenu;
     // edit menu contains all items of the menubar entry "Edit"
-    Q3PopupMenu* editMenu;
+    QMenu* editMenu;
     // view menu contains all items of the menubar entry "View"
-    Q3PopupMenu* viewMenu;
+    QMenu* viewMenu;
     // digitize menu contains all items of the menubar entry "Digitize"
-    Q3PopupMenu* digitizeMenu;
+    QMenu* digitizeMenu;
     // settings menu contains all items of the menubar entry "Settings"
-    Q3PopupMenu* settingsMenu;
+    QMenu* settingsMenu;
     // view menu contains all items of the menubar entry "Help"
-    Q3PopupMenu* helpMenu;
+    QMenu* helpMenu;
     // window menu
-    Q3PopupMenu* windowMenu;
+    QMenu* windowMenu;
 
     QToolBar* fileToolbar;
     QToolBar* selectToolbar;
