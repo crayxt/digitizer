@@ -316,58 +316,31 @@ QAction* createAction(QObject * parent, const char * name = 0)
 }
 QAction* createAction(const QString & menuText, QKeySequence accel, QObject * parent, const char * name = 0 )
 {
-	QAction *f = createAction(parent, name);
+	QAction *f = createAction(parent, menuText);
 	f->setShortcut(accel);
 	f->setText(menuText);
 	return f;
 }
-QAction* createAction( const QIconSet & icon, const QString & menuText, QKeySequence accel, QObject * parent, const char * name = 0 )
+QAction* createAction( const QIconSet & icon, const QString & menuText, const QString & accel, QObject * parent, const char * name = 0 )
 {
 	QAction *f = createAction(menuText, accel, parent, name);
 	f->setIcon(icon);
 	return f;
 }
-QAction* createAction( const QString & text, const QIconSet & icon, const QString &, QKeySequence accel, QObject * parent, const char * name = 0, bool toggle = FALSE )
+QAction* createAction( const QString & text, const QIconSet & icon, const QString &, const QString& accel, QObject * parent, const char * name = 0, bool toggle = FALSE )
 {
 	QAction *f = createAction(icon, text, accel, parent, name);
 	f->setCheckable(toggle);
 	return f;
 }
+
 QAction* createAction( const QString & text, const QString &, QKeySequence accel, QObject * parent, const char * name = 0, bool toggle = FALSE )
 {
 	QAction *f = createAction(text, accel, parent, name);
 	f->setCheckable(toggle);
 	return f;
 }
-QAction* createAction( QObject * parent, const char * name, bool toggle ) 
-{
-	QAction *f = createAction(parent, name);
-	f->setCheckable(toggle);
-	return f;
-}
 
-//QAction* createAction(const QString& text, const QIcon& icon , const QString &menuText , QKeySequence keySeq, const DigitMain* digMain, int i , bool toogle )
-//{
-//	QAction *f = createAction(text, NULL);
-//	f->setIcon(icon);
-//	f->setShortcut(keySeq);
-//	f->setCheckable(toogle);
-//	return f;
-//}
-//
-//
-//QAction* createAction(const QString& name, const QString& s,int key , QObject* parent, int foo=0, bool bar=false)
-//{
-//	return createAction(name, parent);
-//}
-//
-//
-//QAction* createAction(const QString& name, const QPixmap& icon, const QString& s, int key , QObject* parent, int foo=0, bool bar=false)
-//{
-//	QAction *f = createAction(name, s, key, parent);
-//	f->setIcon(icon);
-//	return f;
-//}
 
 extern QDir cmdManualDirectory;
 extern bool cmdOnlyBmp;
@@ -462,13 +435,13 @@ void DigitMain::initActions()
   QIcon matchIcons(pixmapMatchSmall);
   QIcon measureIcons(pixmapMeasureSmall);
 
-  fileImport = createAction(tr("Import File"), importIcon, tr("&Import"), Q3Accel::stringToKey(tr("Ctrl+I")), this);
+  fileImport = createAction(tr("&Import File"), importIcon, tr("&Import"), tr("Ctrl+I"), this);
   CHECK_PTR_ENGAUGE(fileImport);
   fileImport->setStatusTip(tr("Creates a new document by importing an image"));
   fileImport->setWhatsThis(tr("New File\n\nCreates a new document by importing an image"));
   connect(fileImport, SIGNAL(activated()), this, SLOT(slotFileImport()));
 
-  fileOpen = createAction(tr("Open Document"), openIcon, tr("&Open..."), 0, this);
+  fileOpen = createAction(tr("&Open Document"), openIcon, tr("&Open..."), 0, this);
   CHECK_PTR_ENGAUGE(fileOpen);
   fileOpen->setStatusTip(tr("Opens an existing document"));
   fileOpen->setWhatsThis(tr("Open Document\n\nOpens an existing document"));
@@ -479,25 +452,25 @@ void DigitMain::initActions()
   fileOpenRecent->setStatusTip(tr("Opens a recent document"));
   fileOpenRecent->setWhatsThis(tr("Open File\n\nOpens a recent document"));
 
-  fileClose = createAction(tr("Close Document"), tr("&Close"), Q3Accel::stringToKey(tr("Ctrl+W")), this);
+  fileClose = createAction(tr("&Close Document"), tr("&Close"), tr("Ctrl+W"), this);
   CHECK_PTR_ENGAUGE(fileClose);
   fileClose->setStatusTip(tr("Closes the current document"));
   fileClose->setWhatsThis(tr("Close Document\n\nCloses the current document"));
   connect(fileClose, SIGNAL(activated()), this, SLOT(slotFileClose()));
 
-  fileSave = createAction(tr("Save Document"), saveIcon, tr("&Save"), Q3Accel::stringToKey(tr("Ctrl+S")), this);
+  fileSave = createAction(tr("&Save Document"), saveIcon, tr("&Save"), tr("Ctrl+S"), this);
   CHECK_PTR_ENGAUGE(fileSave);
   fileSave->setStatusTip(tr("Saves the current document"));
   fileSave->setWhatsThis(tr("Save Document\n\nSaves the current document"));
   connect(fileSave, SIGNAL(activated()), this, SLOT(slotFileSave()));
 
-  fileSaveAs = createAction(tr("Save Document As"), tr("Save &as..."), Q3Accel::stringToKey(tr("Ctrl+A")), this);
+  fileSaveAs = createAction(tr("Save Document &As"), tr("Save &as..."), tr("Ctrl+A"), this);
   CHECK_PTR_ENGAUGE(fileSaveAs);
   fileSaveAs->setStatusTip(tr("Saves the current document under a new filename"));
   fileSaveAs->setWhatsThis(tr("Save As\n\nSaves the current document under a new filename"));
   connect(fileSaveAs, SIGNAL(activated()), this, SLOT(slotFileSaveAs()));
 
-  fileExport = createAction(tr("Export File"), exportIcon, tr("&Export"), Q3Accel::stringToKey(tr("Ctrl+E")), this);
+  fileExport = createAction(tr("&Export File"), exportIcon, tr("&Export"), tr("Ctrl+E"), this);
   CHECK_PTR_ENGAUGE(fileExport);
   fileExport->setStatusTip(tr("Exports the current document into a text file"));
   fileExport->setWhatsThis(tr("Export File\n\nExports the current document into a text file"));
@@ -509,56 +482,56 @@ void DigitMain::initActions()
   fileExportAs->setWhatsThis(tr("Export As\n\nExports the current document into a text file under a new filename"));
   connect(fileExportAs, SIGNAL(activated()), this, SLOT(slotFileExportAs()));
 
-  filePrint = createAction(tr("Print File"), tr("&Print"), Q3Accel::stringToKey(tr("Ctrl+P")), this);
+  filePrint = createAction(tr("&Print File"), tr("&Print"), tr("Ctrl+P"), this);
   CHECK_PTR_ENGAUGE(filePrint);
   filePrint->setStatusTip(tr("Prints out the current document"));
   filePrint->setWhatsThis(tr("Print File\n\nPrints out the current document"));
   connect(filePrint, SIGNAL(activated()), this, SLOT(slotFilePrint()));
 
-  fileExit = createAction(tr("Exit"), tr("E&xit"), Q3Accel::stringToKey(tr("Ctrl+Q")), this);
+  fileExit = createAction(tr("E&xit"), tr("E&xit"), tr("Ctrl+Q"), this);
   CHECK_PTR_ENGAUGE(fileExit);
   fileExit->setStatusTip(tr("Quits the application"));
   fileExit->setWhatsThis(tr("Exit\n\nQuits the application"));
   connect(fileExit, SIGNAL(activated()), this, SLOT(slotFileExit()));
 
-  editUndo = createAction(tr("Undo"), tr("&Undo"), Q3Accel::stringToKey(tr("Ctrl+U")), this);
+  editUndo = createAction(tr("&Undo"), tr("&Undo"), tr("Ctrl+U"), this);
   CHECK_PTR_ENGAUGE(editUndo);
   editUndo->setStatusTip(tr("Undoes the previous action"));
   editUndo->setWhatsThis(tr("Undo\n\nUndoes the previous action"));
   connect(editUndo, SIGNAL(activated()), this, SLOT(slotEditUndo()));
 
-  editRedo = createAction(tr("Redo"), tr("&Redo"), Q3Accel::stringToKey(tr("Ctrl+R")), this);
+  editRedo = createAction(tr("&Redo"), tr("&Redo"), tr("Ctrl+R"), this);
   CHECK_PTR_ENGAUGE(editRedo);
   editRedo->setStatusTip(tr("Redoes the next action"));
   editRedo->setWhatsThis(tr("Redo\n\nRedoes the next action"));
   connect(editRedo, SIGNAL(activated()), this, SLOT(slotEditRedo()));
 
-  editCut = createAction(tr("Cut"), tr("Cu&t"), Q3Accel::stringToKey(globalKeyCut), this);
+  editCut = createAction(tr("Cu&t"), tr("Cu&t"), globalKeyCut, this);
   CHECK_PTR_ENGAUGE(editCut);
   editCut->setStatusTip(tr("Cuts the selected section and puts it to the clipboard"));
   editCut->setWhatsThis(tr("Cut\n\nCuts the selected section and puts it to the clipboard"));
   connect(editCut, SIGNAL(activated()), this, SLOT(slotEditCut()));
 
-  editCopy = createAction(tr("Copy"), tr("&Copy"), Q3Accel::stringToKey(globalKeyCopy), this);
+  editCopy = createAction(tr("&Copy"), tr("&Copy"), globalKeyCopy, this);
   CHECK_PTR_ENGAUGE(editCopy);
   editCopy->setStatusTip(tr("Copies the selected section to the clipboard"));
   editCopy->setWhatsThis(tr("Copy\n\nCopies the selected section to the clipboard"));
   connect(editCopy, SIGNAL(activated()), this, SLOT(slotEditCopy()));
 
-  editPaste = createAction(tr("Paste"), tr("&Paste"), Q3Accel::stringToKey(globalKeyPaste), this);
+  editPaste = createAction(tr("&Paste"), tr("&Paste"), globalKeyPaste, this);
   CHECK_PTR_ENGAUGE(editPaste);
   editPaste->setStatusTip(tr("Pastes the clipboard contents to actual position"));
   editPaste->setWhatsThis(tr("Paste\n\nPastes the clipboard contents to actual position"));
   connect(editPaste, SIGNAL(activated()), this, SLOT(slotEditPaste()));
 
-  editPasteAsNew = createAction(tr("Paste As New"), tr("Paste As &New"), Q3Accel::stringToKey("Ctrl+N"), this);
+  editPasteAsNew = createAction(tr("Paste As &New"), tr("Paste As &New"), tr("Ctrl+N"), this);
   CHECK_PTR_ENGAUGE(editPasteAsNew);
   editPasteAsNew->setStatusTip(tr("Pastes the image in the clipboard as a new document"));
   editPasteAsNew->setWhatsThis(tr("Paste As New\n\nPastes the image in the clipboard as a new document"));
   connect(editPasteAsNew, SIGNAL(activated()), this, SLOT(slotEditPasteAsNew()));
   connect(QApplication::clipboard(), SIGNAL(dataChanged()), this, SLOT(slotClipboardChanged()));
 
-  viewFileToolBar = createAction(tr("File Toolbar"), tr("File Tool&bar"), 0, this, 0, true);
+  viewFileToolBar = createAction(tr("File Tool&bar"), tr("File Tool&bar"), 0, this, 0, true);
   CHECK_PTR_ENGAUGE(viewFileToolBar);
   viewFileToolBar->setStatusTip(tr("Enables/disables the file toolbar"));
   viewFileToolBar->setWhatsThis(tr("View File Toolbar\n\nEnables/disables the file toolbar"));
@@ -588,13 +561,13 @@ void DigitMain::initActions()
   viewDigitizeMeasurePointsToolBar->setWhatsThis(tr("View Digitize Measure Points Scale toolbar\n\nEnables/disables the toolbar for digitizing measure points"));
   connect(viewDigitizeMeasurePointsToolBar, SIGNAL(toggled(bool)), this, SLOT(slotViewDigitizeMeasurePointsToolBar(bool)));
 
-  viewZoomToolBar = createAction(tr("Zoom Toolbar"), tr("&Zoom Toolbar"), 0, this, 0, true);
+  viewZoomToolBar = createAction(tr("&Zoom Toolbar"), tr("&Zoom Toolbar"), 0, this, 0, true);
   CHECK_PTR_ENGAUGE(viewZoomToolBar);
   viewZoomToolBar->setStatusTip(tr("Enables/disables the zoom toolbar"));
   viewZoomToolBar->setWhatsThis(tr("View Zoom Toolbar\n\nEnables/disables the zoom toolbar"));
   connect(viewZoomToolBar, SIGNAL(toggled(bool)), this, SLOT(slotViewZoomToolBar(bool)));
 
-  viewStatusBar = createAction(tr("Statusbar"), tr("&Statusbar"), 0, this, 0, true);
+  viewStatusBar = createAction(tr("&Statusbar"), tr("&Statusbar"), 0, this, 0, true);
   CHECK_PTR_ENGAUGE(viewStatusBar);
   viewStatusBar->setStatusTip(tr("Enables/disables the statusbar"));
   viewStatusBar->setWhatsThis(tr("View Statusbar\n\nEnables/disables the statusbar"));
@@ -665,7 +638,7 @@ void DigitMain::initActions()
   viewBackgroundAction->addAction(viewOriginalImage);
   viewBackgroundAction->addAction(viewProcessedImage);
 
-  viewGridDisplay = createAction(tr("Gridlines Display"), tr("&Gridlines Display"), 0, this, 0, true);
+  viewGridDisplay = createAction(tr("&Gridlines Display"), tr("&Gridlines Display"), 0, this, 0, true);
   CHECK_PTR_ENGAUGE(viewGridDisplay);
   viewGridDisplay->setStatusTip(tr("Enables/disables the gridlines display"));
   viewGridDisplay->setWhatsThis(tr("View Gridlines\n\nEnables/disables the gridlines display"));
@@ -685,13 +658,13 @@ void DigitMain::initActions()
     "information window. Lengths and areas of the active measure are displayed"));
   connect(viewMeasureGeometry, SIGNAL(toggled(bool)), this, SLOT(slotViewMeasureGeometry(bool)));
 
-  digitizeSelect = createAction(tr("Select"), selectIcons, tr("&Select"), Q3Accel::stringToKey(tr("Ctrl+S")), this, 0, true);
+  digitizeSelect = createAction(tr("&Select"), selectIcons, tr("&Select"), tr("Ctrl+S"), this, 0, true);
   CHECK_PTR_ENGAUGE(digitizeSelect);
   digitizeSelect->setStatusTip(tr("Select one or more points on screen"));
   digitizeSelect->setWhatsThis(tr("Select\n\nSelect one or more points on screen"));
   connect(digitizeSelect, SIGNAL(toggled(bool)), this, SLOT(slotDigitizeSelect(bool)));
 
-  digitizeAxis = createAction(tr("Axis Point"), axisIcons, tr("&Axis Point"), 0, this, 0, true);
+  digitizeAxis = createAction(tr("&Axis Point"), axisIcons, tr("&Axis Point"), 0, this, 0, true);
   CHECK_PTR_ENGAUGE(digitizeAxis);
   digitizeAxis->setStatusTip(tr("Digitizes an axis point"));
   digitizeAxis->setWhatsThis(tr("Digitize Axis Point\n\nDigitizes an axis point by placing a new point "
@@ -699,7 +672,7 @@ void DigitMain::initActions()
     "required to define the coordinates"));
   connect(digitizeAxis, SIGNAL(toggled(bool)), this, SLOT(slotDigitizeAxis(bool)));
 
-  digitizeScale = createAction(tr("Scale Bar"), scaleIcons, tr("&Scale Bar"), 0, this, 0, true);
+  digitizeScale = createAction(tr("&Scale Bar"), scaleIcons, tr("&Scale Bar"), 0, this, 0, true);
   CHECK_PTR_ENGAUGE(digitizeScale);
   digitizeScale->setStatusTip(tr("Digitizes a scale bar"));
   digitizeScale->setWhatsThis(tr("Digitize Scale Bar\n\nDigitizes a scale bar by placing a new point "
@@ -708,14 +681,14 @@ void DigitMain::initActions()
     "will be unavailable if log and/or polar coordinates have been selected"));
   connect(digitizeScale, SIGNAL(toggled(bool)), this, SLOT(slotDigitizeScale(bool)));
 
-  digitizeCurve = createAction(tr("Curve Point"), curveIcons, tr("&Curve Point"), 0, this, 0, true);
+  digitizeCurve = createAction(tr("&Curve Point"), curveIcons, tr("&Curve Point"), 0, this, 0, true);
   CHECK_PTR_ENGAUGE(digitizeCurve);
   digitizeCurve->setStatusTip(tr("Digitizes a curve point"));
   digitizeCurve->setWhatsThis(tr("Digitize Curve Point\n\nDigitizes a single curve point under the cursor\n\n"
     "New points will be assigned to the currently active curve"));
   connect(digitizeCurve, SIGNAL(toggled(bool)), this, SLOT(slotDigitizeCurve(bool)));
 
-  digitizeSegment = createAction(tr("Segment Fill"), segmentIcons, tr("&Segment Fill"), 0, this, 0, true);
+  digitizeSegment = createAction(tr("&Segment Fill"), segmentIcons, tr("&Segment Fill"), 0, this, 0, true);
   CHECK_PTR_ENGAUGE(digitizeSegment);
   digitizeSegment->setStatusTip(tr("Digitizes curve points along a curve segment"));
   digitizeSegment->setWhatsThis(tr("Digitize Segment Fill\n\nDigitizes a curve segment by placing curve points "
@@ -723,7 +696,7 @@ void DigitMain::initActions()
     "New points will be assigned to the currently active curve"));
   connect(digitizeSegment, SIGNAL(toggled(bool)), this, SLOT(slotDigitizeSegment(bool)));
 
-  digitizePointMatch = createAction(tr("Point Match"), matchIcons, tr("&Point Match"), 0, this, 0, true);
+  digitizePointMatch = createAction(tr("&Point Match"), matchIcons, tr("&Point Match"), 0, this, 0, true);
   CHECK_PTR_ENGAUGE(digitizePointMatch);
   digitizePointMatch->setStatusTip(tr("Digitizes curve points in a point plot by matching a point"));
   digitizePointMatch->setWhatsThis(tr("Digitize Curve Points by Point Matching\n\nDigitizes curve points in a "
@@ -731,7 +704,7 @@ void DigitMain::initActions()
     "New points will be assigned to the currently active curve"));
   connect(digitizePointMatch, SIGNAL(toggled(bool)), this, SLOT(slotDigitizePointMatch(bool)));
 
-  digitizeMeasure = createAction(tr("Measure Point"), measureIcons, tr("&Measure Point"), 0, this, 0, true);
+  digitizeMeasure = createAction(tr("&Measure Point"), measureIcons, tr("&Measure Point"), 0, this, 0, true);
   CHECK_PTR_ENGAUGE(digitizeMeasure);
   digitizeMeasure->setStatusTip(tr("Digitizes a measure point for measuring length and area"));
   digitizeMeasure->setWhatsThis(tr("Digitize Measure Point\n\nDigitizes a measure point by placing a new point "
@@ -821,19 +794,19 @@ void DigitMain::initActions()
   settingsSessions->setWhatsThis(tr("Sessions Setup\n\nSelect settings to be saved between sessions"));
   connect(settingsSessions, SIGNAL(activated()), this, SLOT(slotSettingsSessions()));
 
-  windowNewWindow = createAction(tr("New Window"), tr("&New Window"), 0, this);
+  windowNewWindow = createAction(tr("&New Window"), tr("&New Window"), 0, this);
   CHECK_PTR_ENGAUGE(windowNewWindow);
   windowNewWindow->setStatusTip(tr("Opens a new view for the current document"));
   windowNewWindow->setWhatsThis(tr("New Window\n\nOpens a new view for the current document"));
   connect(windowNewWindow, SIGNAL(activated()), this, SLOT(slotWindowNewWindow()));
 
-  windowCascade = createAction(tr("Cascade"), tr("&Cascade"), 0, this);
+  windowCascade = createAction(tr("&Cascade"), tr("&Cascade"), 0, this);
   CHECK_PTR_ENGAUGE(windowCascade);
   windowCascade->setStatusTip(tr("Cascades all windows"));
   windowCascade->setWhatsThis(tr("Cascade\n\nCascades all windows"));
   connect(windowCascade, SIGNAL(activated()), workspace, SLOT(cascadeSubWindows()));
 
-  windowTile = createAction(tr("Tile"), tr("&Tile"), 0, this);
+  windowTile = createAction(tr("&Tile"), tr("&Tile"), 0, this);
   CHECK_PTR_ENGAUGE(windowTile);
   windowTile->setStatusTip(tr("Tiles all windows"));
   windowTile->setWhatsThis(tr("Tile\n\nTiles all windows"));
@@ -845,43 +818,43 @@ void DigitMain::initActions()
   windowAction->addAction(windowCascade);
   windowAction->addAction(windowTile);
 
-  helpAboutApp = createAction(tr("About Engauge"), tr("&About Engauge..."), 0, this);
+  helpAboutApp = createAction(tr("&About Engauge"), tr("&About Engauge..."), 0, this);
   CHECK_PTR_ENGAUGE(helpAboutApp);
   helpAboutApp->setStatusTip(tr("About the application"));
   helpAboutApp->setWhatsThis(tr("About Engauge\n\nAbout the application"));
   connect(helpAboutApp, SIGNAL(activated()), this, SLOT(slotHelpAbout()));
 
-  helpUserManual = createAction(tr("User Manual"), tr("&User Manual..."), 0, this);
+  helpUserManual = createAction(tr("&User Manual"), tr("&User Manual..."), 0, this);
   CHECK_PTR_ENGAUGE(helpUserManual);
   helpUserManual->setStatusTip(tr("Browse user manual"));
   helpUserManual->setWhatsThis(tr("User Manual\n\nBrowse user manual"));
   connect(helpUserManual, SIGNAL(activated()), this, SLOT(slotHelpUserManual()));
 
-  helpGlossary = createAction(tr("Glossary"), tr("&Glossary..."), 0, this);
+  helpGlossary = createAction(tr("&Glossary"), tr("&Glossary..."), 0, this);
   CHECK_PTR_ENGAUGE(helpGlossary);
   helpGlossary->setStatusTip(tr("Browse glossary"));
   helpGlossary->setWhatsThis(tr("Glossary\n\nBrowse glossary"));
   connect(helpGlossary, SIGNAL(activated()), this, SLOT(slotHelpGlossary()));
 
-  helpConverter = createAction(tr("Date/Time Converter"), tr("&Date/Time Converter..."), 0, this);
+  helpConverter = createAction(tr("&Date/Time Converter"), tr("&Date/Time Converter..."), 0, this);
   CHECK_PTR_ENGAUGE(helpConverter);
   helpConverter->setStatusTip(tr("Convert dates and times in browser"));
   helpConverter->setWhatsThis(tr("Converter\n\nConvert dates and times in browser"));
   connect(helpConverter, SIGNAL(activated()), this, SLOT(slotConverter()));
                               
-  helpLineGraphTutorial = createAction(tr("Line Graph Tutorial"), tr("&Line Graph Tutorial..."), 0, this);
+  helpLineGraphTutorial = createAction(tr("&Line Graph Tutorial"), tr("&Line Graph Tutorial..."), 0, this);
   CHECK_PTR_ENGAUGE(helpLineGraphTutorial);
   helpLineGraphTutorial->setStatusTip(tr("Browse manual line graph tutorial"));
   helpLineGraphTutorial->setWhatsThis(tr("Line Graph Tutorial\n\nBrowse manual line graph tutorial"));
   connect(helpLineGraphTutorial, SIGNAL(activated()), this, SLOT(slotHelpLineGraphTutorial()));
 
-  helpPointGraphTutorial = createAction(tr("Point Graph Tutorial"), tr("&Point Graph Tutorial..."), 0, this);
+  helpPointGraphTutorial = createAction(tr("&Point Graph Tutorial"), tr("&Point Graph Tutorial..."), 0, this);
   CHECK_PTR_ENGAUGE(helpPointGraphTutorial);
   helpPointGraphTutorial->setStatusTip(tr("Browse manual point graph tutorial"));
   helpPointGraphTutorial->setWhatsThis(tr("Point Graph Tutorial\n\nBrowse manual point graph tutorial"));
   connect(helpPointGraphTutorial, SIGNAL(activated()), this, SLOT(slotHelpPointGraphTutorial()));
 
-  helpMapTutorial = createAction(tr("Map Tutorial"), tr("&Map Tutorial..."), 0, this);
+  helpMapTutorial = createAction(tr("&Map Tutorial"), tr("&Map Tutorial..."), 0, this);
   CHECK_PTR_ENGAUGE(helpMapTutorial);
   helpMapTutorial->setStatusTip(tr("Browse map tutorial"));
   helpMapTutorial->setWhatsThis(tr("Map Tutorial\n\nBrowse map tutorial"));
