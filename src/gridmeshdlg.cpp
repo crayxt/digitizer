@@ -38,11 +38,12 @@
  *                                                                         *
  ***************************************************************************/
 
-#include <q3whatsthis.h>
+
 #include <qtooltip.h>
 //Added by qt3to4:
 #include <QPixmap>
 #include <QLabel>
+#include <QWhatsThis>
 
 #include <math.h>
 
@@ -83,7 +84,7 @@ GridMeshDlg::GridMeshDlg(QString gridType, QString title,
   comboDisableX->setGeometry(110, 20, 100, 30);
   comboDisableX->setEditable(false);
   comboDisableX->insertStringList(GridSetStrings);
-  Q3WhatsThis::add(comboDisableX, QString(tr("Disabled value.\n\nThe X grid lines are specified "
+  QWhatsThis::add(comboDisableX, QString(tr("Disabled value.\n\nThe X grid lines are specified "
     "using only three values at a time. For flexibility, four values are offered so you must chose "
     "which value is disabled. Once disabled, that value is simply updated as the other values change")));
   connect(comboDisableX, SIGNAL(activated(int)), this, SLOT(slotDisableX(int)));
@@ -98,7 +99,7 @@ GridMeshDlg::GridMeshDlg(QString gridType, QString title,
   ASSERT_ENGAUGE(gridSettings != 0);
   if (gridSettings->initialized)
     editCountX->setText(QString("%1").arg(gridSettings->countX));
-  Q3WhatsThis::add(editCountX, QString(tr("Number of X grid lines.\n\nThe number of X grid lines must "
+  QWhatsThis::add(editCountX, QString(tr("Number of X grid lines.\n\nThe number of X grid lines must "
     "be entered as an integer greater than zero")));
   validatorCountX = new QIntValidator(editCountX);
   CHECK_PTR_ENGAUGE(validatorCountX);
@@ -115,7 +116,7 @@ GridMeshDlg::GridMeshDlg(QString gridType, QString title,
   ASSERT_ENGAUGE(gridSettings != 0);
   if (gridSettings->initialized)
     editStartX->setText(QString("%1").arg(gridSettings->startX));
-  Q3WhatsThis::add(editStartX, QString(tr("Value of the first X grid line.\n\nThe start value cannot "
+  QWhatsThis::add(editStartX, QString(tr("Value of the first X grid line.\n\nThe start value cannot "
     "be greater than the stop value")));
   validatorStartX = new QDoubleValidator(editStartX);
   CHECK_PTR_ENGAUGE(validatorStartX);
@@ -132,7 +133,7 @@ GridMeshDlg::GridMeshDlg(QString gridType, QString title,
   ASSERT_ENGAUGE(gridSettings != 0);
   if (gridSettings->initialized)
     editStepX->setText(QString("%1").arg(gridSettings->stepX));
-  Q3WhatsThis::add(editStepX, QString(tr("Difference in value between two successive X grid lines.\n\n"
+  QWhatsThis::add(editStepX, QString(tr("Difference in value between two successive X grid lines.\n\n"
     "The step value must be greater than zero")));
   validatorStepX = new QDoubleValidator(editStepX);
   CHECK_PTR_ENGAUGE(validatorStepX);
@@ -149,7 +150,7 @@ GridMeshDlg::GridMeshDlg(QString gridType, QString title,
   ASSERT_ENGAUGE(gridSettings != 0);
   if (gridSettings->initialized)
     editStopX->setText(QString("%1").arg(gridSettings->stopX));
-  Q3WhatsThis::add(editStopX, QString(tr("Value of the last X grid line.\n\nThe stop value cannot "
+  QWhatsThis::add(editStopX, QString(tr("Value of the last X grid line.\n\nThe stop value cannot "
     "be less than the start value")));
   validatorStopX = new QDoubleValidator(editStopX);
   CHECK_PTR_ENGAUGE(validatorStopX);
@@ -170,7 +171,7 @@ GridMeshDlg::GridMeshDlg(QString gridType, QString title,
   comboDisableY->setGeometry(110, 20, 100, 30);
   comboDisableY->setEditable(false);
   comboDisableY->insertStringList(GridSetStrings);
-  Q3WhatsThis::add(comboDisableY, QString(tr("Disabled value.\n\nThe Y grid lines are specified "
+  QWhatsThis::add(comboDisableY, QString(tr("Disabled value.\n\nThe Y grid lines are specified "
     "using only three values at a time. For flexibility, four values are offered so you must chose "
     "which value is disabled. Once disabled, that value is simply updated as the other values change")));
   connect(comboDisableY, SIGNAL(activated(int)), this, SLOT(slotDisableY(int)));
@@ -185,7 +186,7 @@ GridMeshDlg::GridMeshDlg(QString gridType, QString title,
   ASSERT_ENGAUGE(gridSettings != 0);
   if (gridSettings->initialized)
     editCountY->setText(QString("%1").arg(gridSettings->countY));
-  Q3WhatsThis::add(editCountY, QString(tr("Number of Y grid lines.\n\nThe number of X grid lines must "
+  QWhatsThis::add(editCountY, QString(tr("Number of Y grid lines.\n\nThe number of X grid lines must "
     "be entered as an integer greater than zero")));
   validatorCountY = new QIntValidator(editCountY);
   CHECK_PTR_ENGAUGE(validatorCountY);
@@ -202,7 +203,7 @@ GridMeshDlg::GridMeshDlg(QString gridType, QString title,
   ASSERT_ENGAUGE(gridSettings != 0);
   if (gridSettings->initialized)
     editStartY->setText(QString("%1").arg(gridSettings->startY));
-  Q3WhatsThis::add(editStartY, QString(tr("Value of the first Y grid line.\n\nThe start value cannot "
+  QWhatsThis::add(editStartY, QString(tr("Value of the first Y grid line.\n\nThe start value cannot "
     "be greater than the stop value")));
   validatorStartY = new QDoubleValidator(editStartY);
   CHECK_PTR_ENGAUGE(validatorStartY);
@@ -219,7 +220,7 @@ GridMeshDlg::GridMeshDlg(QString gridType, QString title,
   ASSERT_ENGAUGE(gridSettings != 0);
   if (gridSettings->initialized)
     editStepY->setText(QString("%1").arg(gridSettings->stepY));
-  Q3WhatsThis::add(editStepY, QString(tr("Difference in value between two successive Y grid lines.\n\n"
+  QWhatsThis::add(editStepY, QString(tr("Difference in value between two successive Y grid lines.\n\n"
     "The step value must be greater than zero")));
   validatorStepY = new QDoubleValidator(editStepY);
   CHECK_PTR_ENGAUGE(validatorStepY);
@@ -236,7 +237,7 @@ GridMeshDlg::GridMeshDlg(QString gridType, QString title,
   ASSERT_ENGAUGE(gridSettings != 0);
   if (gridSettings->initialized)
     editStopY->setText(QString("%1").arg(gridSettings->stopY));
-  Q3WhatsThis::add(editStopY, QString(tr("Value of the last Y grid line.\n\nThe stop value cannot "
+  QWhatsThis::add(editStopY, QString(tr("Value of the last Y grid line.\n\nThe stop value cannot "
     "be less than the start value")));
   validatorStopY = new QDoubleValidator(editStopY);
   CHECK_PTR_ENGAUGE(validatorStopY);
@@ -544,5 +545,5 @@ void GridMeshDlg::slotStopY(const QString &text)
 
 void GridMeshDlg::slotWhat()
 {
-  Q3WhatsThis::enterWhatsThisMode();
+  QWhatsThis::enterWhatsThisMode();
 }

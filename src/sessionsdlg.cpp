@@ -38,7 +38,7 @@
  *                                                                         *
  ***************************************************************************/
 
-#include <q3whatsthis.h>
+#include <QWhatsThis>
 #include <qpushbutton.h>
 #include <qtooltip.h>
 //Added by qt3to4:
@@ -66,79 +66,79 @@ SessionsDlg::SessionsDlg(SessionsSettings* sessionsSettings) :
   checkSessions = new QCheckBox(QString(tr("Save the following settings between sessions:")), this);
   CHECK_PTR_ENGAUGE(checkSessions);
   checkSessions->setGeometry(20, 20, 325, 20);
-  Q3WhatsThis::add(checkSessions, QString(tr("Select this to enable saving of settings between sessions")));
+  QWhatsThis::add(checkSessions, QString(tr("Select this to enable saving of settings between sessions")));
   connect(checkSessions, SIGNAL(toggled(bool)), this, SLOT(slotSessions(bool)));
 
   checkCoordinates = new QCheckBox(QString(tr("Coordinates")), this);
   CHECK_PTR_ENGAUGE(checkCoordinates);
   checkCoordinates->setGeometry(50, 50, 130, 20);
-  Q3WhatsThis::add(checkCoordinates, QString(tr("Select this to save coordinates settings between sessions")));
+  QWhatsThis::add(checkCoordinates, QString(tr("Select this to save coordinates settings between sessions")));
   connect(checkCoordinates, SIGNAL(toggled(bool)), this, SLOT(slotCoordinates(bool)));
 
   checkAxes = new QCheckBox(QString(tr("Axes")), this);
   CHECK_PTR_ENGAUGE(checkAxes);
   checkAxes->setGeometry(50, 80, 130, 20);
-  Q3WhatsThis::add(checkAxes, QString(tr("Select this to save axes settings between sessions")));
+  QWhatsThis::add(checkAxes, QString(tr("Select this to save axes settings between sessions")));
   connect(checkAxes, SIGNAL(toggled(bool)), this, SLOT(slotAxes(bool)));
 
   checkScaleBar = new QCheckBox(QString(tr("Scale bar")), this);
   CHECK_PTR_ENGAUGE(checkScaleBar);
   checkScaleBar->setGeometry(50, 110, 130, 20);
-  Q3WhatsThis::add(checkScaleBar, QString(tr("Select this to save scale bar settings between sessions")));
+  QWhatsThis::add(checkScaleBar, QString(tr("Select this to save scale bar settings between sessions")));
   connect(checkScaleBar, SIGNAL(toggled(bool)), this, SLOT(slotScaleBar(bool)));
 
   checkCurves = new QCheckBox(QString(tr("Curves")), this);
   CHECK_PTR_ENGAUGE(checkCurves);
   checkCurves->setGeometry(50, 140, 130, 20);
-  Q3WhatsThis::add(checkCurves, QString(tr("Select this to save curves settings between sessions")));
+  QWhatsThis::add(checkCurves, QString(tr("Select this to save curves settings between sessions")));
   connect(checkCurves, SIGNAL(toggled(bool)), this, SLOT(slotCurves(bool)));
 
   checkSegments = new QCheckBox(QString(tr("Segments")), this);
   CHECK_PTR_ENGAUGE(checkSegments);
   checkSegments->setGeometry(50, 170, 130, 20);
-  Q3WhatsThis::add(checkSegments, QString(tr("Select this to save segments settings between sessions")));
+  QWhatsThis::add(checkSegments, QString(tr("Select this to save segments settings between sessions")));
   connect(checkSegments, SIGNAL(toggled(bool)), this, SLOT(slotSegments(bool)));
 
   checkPointMatch = new QCheckBox(QString(tr("Point match")), this);
   CHECK_PTR_ENGAUGE(checkPointMatch);
   checkPointMatch->setGeometry(50, 200, 130, 20);
-  Q3WhatsThis::add(checkPointMatch, QString(tr("Select this to save point match settings between sessions")));
+  QWhatsThis::add(checkPointMatch, QString(tr("Select this to save point match settings between sessions")));
   connect(checkPointMatch, SIGNAL(toggled(bool)), this, SLOT(slotPointMatch(bool)));
 
   checkMeasures = new QCheckBox(QString(tr("Measures")), this);
   CHECK_PTR_ENGAUGE(checkMeasures);
   checkMeasures->setGeometry(210, 50, 130, 20);
-  Q3WhatsThis::add(checkMeasures, QString(tr("Select this to save measures settings between sessions")));
+  QWhatsThis::add(checkMeasures, QString(tr("Select this to save measures settings between sessions")));
   connect(checkMeasures, SIGNAL(toggled(bool)), this, SLOT(slotMeasures(bool)));
 
   checkDiscretize = new QCheckBox(QString(tr("Discretize")), this);
   CHECK_PTR_ENGAUGE(checkDiscretize);
   checkDiscretize->setGeometry(210, 80, 130, 20);
-  Q3WhatsThis::add(checkDiscretize, QString(tr("Select this to save discretize settings between sessions")));
+  QWhatsThis::add(checkDiscretize, QString(tr("Select this to save discretize settings between sessions")));
   connect(checkDiscretize, SIGNAL(toggled(bool)), this, SLOT(slotDiscretize(bool)));
 
   checkGridRemoval = new QCheckBox(QString(tr("Grid removal")), this);
   CHECK_PTR_ENGAUGE(checkGridRemoval);
   checkGridRemoval->setGeometry(210, 110, 130, 20);
-  Q3WhatsThis::add(checkGridRemoval, QString(tr("Select this to save grid removal settings between sessions")));
+  QWhatsThis::add(checkGridRemoval, QString(tr("Select this to save grid removal settings between sessions")));
   connect(checkGridRemoval, SIGNAL(toggled(bool)), this, SLOT(slotGridRemoval(bool)));
 
   checkGridDisplay = new QCheckBox(QString(tr("Grid display")), this);
   CHECK_PTR_ENGAUGE(checkGridDisplay);
   checkGridDisplay->setGeometry(210, 140, 130, 20);
-  Q3WhatsThis::add(checkGridDisplay, QString(tr("Select this to save grid display settings between sessions")));
+  QWhatsThis::add(checkGridDisplay, QString(tr("Select this to save grid display settings between sessions")));
   connect(checkGridDisplay, SIGNAL(toggled(bool)), this, SLOT(slotGridDisplay(bool)));
 
   checkExporting = new QCheckBox(QString(tr("Export")), this);
   CHECK_PTR_ENGAUGE(checkExporting);
   checkExporting->setGeometry(210, 170, 130, 20);
-  Q3WhatsThis::add(checkExporting, QString(tr("Select this to save export settings between sessions")));
+  QWhatsThis::add(checkExporting, QString(tr("Select this to save export settings between sessions")));
   connect(checkExporting, SIGNAL(toggled(bool)), this, SLOT(slotExporting(bool)));
 
   checkViewSelections = new QCheckBox(QString(tr("View selections")), this);
   CHECK_PTR_ENGAUGE(checkViewSelections);
   checkViewSelections->setGeometry(210, 200, 130, 20);
-  Q3WhatsThis::add(checkViewSelections, QString(tr("Select this to save view selections between sessions")));
+  QWhatsThis::add(checkViewSelections, QString(tr("Select this to save view selections between sessions")));
   connect(checkViewSelections, SIGNAL(toggled(bool)), this, SLOT(slotViewSelections(bool)));
 
   lblInitialDigitizeState = new QLabel(QString(tr("Initial digitizing state:")), this);
@@ -155,7 +155,7 @@ SessionsDlg::SessionsDlg(SessionsSettings* sessionsSettings) :
   cmbInitialDigitizeState->insertItem(stateName(PointMatchState));
   cmbInitialDigitizeState->insertItem(stateName(SegmentState));
   cmbInitialDigitizeState->insertItem(stateName(MeasureState));
-  Q3WhatsThis::add(cmbInitialDigitizeState, QString(tr("Select initial digitizing state after startup")));
+  QWhatsThis::add(cmbInitialDigitizeState, QString(tr("Select initial digitizing state after startup")));
   connect(cmbInitialDigitizeState, SIGNAL(activated(const QString&)), this, SLOT(slotInitialDigitizeState(const QString&)));
   
   // navigation buttons
@@ -344,5 +344,5 @@ void SessionsDlg::slotInitialDigitizeState(const QString& state)
 
 void SessionsDlg::slotWhat()
 {
-  Q3WhatsThis::enterWhatsThisMode();
+  QWhatsThis::enterWhatsThisMode();
 }

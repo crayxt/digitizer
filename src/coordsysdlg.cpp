@@ -44,11 +44,12 @@
  *                                                                         *
  ***************************************************************************/
 
-#include <q3whatsthis.h>
+
 #include <qtooltip.h>
 //Added by qt3to4:
 #include <QPixmap>
 #include <QLabel>
+#include <QWhatsThis>
 
 #include "coordsysdlg.h"
 #include "main.h"
@@ -75,14 +76,14 @@ CoordSysDlg::CoordSysDlg(QString title, CoordSettings* settings) :
   buttonCartesian = new QRadioButton(QString(tr("Cartesian (X and Y)")), groupCoords);
   CHECK_PTR_ENGAUGE(buttonCartesian);
   buttonCartesian->setGeometry(10, 30, 210, 20);
-  Q3WhatsThis::add(buttonCartesian, QString(tr("Select cartesian coordinates.\n\n"
+  QWhatsThis::add(buttonCartesian, QString(tr("Select cartesian coordinates.\n\n"
     "The X and Y coordinates will be used")));
   connect(buttonCartesian, SIGNAL(toggled(bool)), this, SLOT(slotCartesian(bool)));
 
   buttonPolar = new QRadioButton(QString(tr("Polar (Theta and R)")), groupCoords);
   CHECK_PTR_ENGAUGE(buttonPolar);
   buttonPolar->setGeometry(10, 50, 210, 20);
-  Q3WhatsThis::add(buttonPolar, QString(tr("Select polar coordinates.\n\n"
+  QWhatsThis::add(buttonPolar, QString(tr("Select polar coordinates.\n\n"
     "The Theta and R coordinates will be used.\n\n"
     "Polar coordinates are not allowed with log scale for Theta")));
   connect(buttonPolar, SIGNAL(toggled(bool)), this, SLOT(slotPolar(bool)));
@@ -95,13 +96,13 @@ CoordSysDlg::CoordSysDlg(QString title, CoordSettings* settings) :
   buttonLinearX = new QRadioButton(QString(tr("Linear")), groupX);
   CHECK_PTR_ENGAUGE(buttonLinearX);
   buttonLinearX->setGeometry(10, 30, 80, 20);
-  Q3WhatsThis::add(buttonLinearX, QString(tr("Specifies linear scale for the X or Theta coordinate")));
+  QWhatsThis::add(buttonLinearX, QString(tr("Specifies linear scale for the X or Theta coordinate")));
   connect(buttonLinearX, SIGNAL(toggled(bool)), this, SLOT(slotLinearX(bool)));
 
   buttonLogX = new QRadioButton(QString(tr("Log")), groupX);
   CHECK_PTR_ENGAUGE(buttonLogX);
   buttonLogX->setGeometry(10, 50, 80, 20);
-  Q3WhatsThis::add(buttonLogX, QString(tr("Specifies logarithmic scale for the X coordinate.\n\n"
+  QWhatsThis::add(buttonLogX, QString(tr("Specifies logarithmic scale for the X coordinate.\n\n"
     "Log scale is not allowed for the Theta coordinate")));
   connect(buttonLogX, SIGNAL(toggled(bool)), this, SLOT(slotLogX(bool)));
 
@@ -113,13 +114,13 @@ CoordSysDlg::CoordSysDlg(QString title, CoordSettings* settings) :
   buttonLinearY = new QRadioButton(QString(tr("Linear")), groupY);
   CHECK_PTR_ENGAUGE(buttonLinearY);
   buttonLinearY->setGeometry(10, 30, 80, 20);
-  Q3WhatsThis::add(buttonLinearY, QString(tr("Specifies linear scale for the Y or R coordinate")));
+  QWhatsThis::add(buttonLinearY, QString(tr("Specifies linear scale for the Y or R coordinate")));
   connect(buttonLinearY, SIGNAL(toggled(bool)), this, SLOT(slotLinearY(bool)));
 
   buttonLogY = new QRadioButton(QString(tr("Log")), groupY);
   CHECK_PTR_ENGAUGE(buttonLogY);
   buttonLogY->setGeometry(10, 50, 80, 20);
-  Q3WhatsThis::add(buttonLogY, QString(tr("Specifies logarithmic scale for the Y or R coordinate")));
+  QWhatsThis::add(buttonLogY, QString(tr("Specifies logarithmic scale for the Y or R coordinate")));
   connect(buttonLogY, SIGNAL(toggled(bool)), this, SLOT(slotLogY(bool)));
 
   // polar group
@@ -135,21 +136,21 @@ CoordSysDlg::CoordSysDlg(QString title, CoordSettings* settings) :
   buttonDegrees = new QRadioButton(QString(tr("Degrees:")), groupPolar);
   CHECK_PTR_ENGAUGE(buttonDegrees);
   buttonDegrees->setGeometry(10, 50, 210, 20);
-  Q3WhatsThis::add(buttonDegrees, QString(tr("Specifies degrees for the Theta coordinate.\n\n"
+  QWhatsThis::add(buttonDegrees, QString(tr("Specifies degrees for the Theta coordinate.\n\n"
     "This does not apply to the cartesian coordinate X")));
   connect(buttonDegrees, SIGNAL(toggled(bool)), this, SLOT(slotDegrees(bool)));
 
   buttonGradians = new QRadioButton(QString(tr("Gradians")), groupPolar);
   CHECK_PTR_ENGAUGE(buttonGradians);
   buttonGradians->setGeometry(10, 70, 210, 20);
-  Q3WhatsThis::add(buttonGradians, QString("Specifies gradians for the Theta coordinate.\n\n"
+  QWhatsThis::add(buttonGradians, QString("Specifies gradians for the Theta coordinate.\n\n"
     "This does not apply to the cartesian coordinate X"));
   connect(buttonGradians, SIGNAL(toggled(bool)), this, SLOT(slotGradians(bool)));
 
   buttonRadians = new QRadioButton(QString(tr("Radians")), groupPolar);
   CHECK_PTR_ENGAUGE(buttonRadians);
   buttonRadians->setGeometry(10, 90, 210, 20);
-  Q3WhatsThis::add(buttonRadians, QString("Specifies radians for the Theta coordinate.\n\n"
+  QWhatsThis::add(buttonRadians, QString("Specifies radians for the Theta coordinate.\n\n"
     "This does not apply to the cartesian coordinate X"));
   connect(buttonRadians, SIGNAL(toggled(bool)), this, SLOT(slotRadians(bool)));
 
@@ -162,7 +163,7 @@ CoordSysDlg::CoordSysDlg(QString title, CoordSettings* settings) :
   CHECK_PTR_ENGAUGE(editOriginRadius);
   editOriginRadius->setText(QString("%1").arg(settings->originRadius));
   editOriginRadius->setGeometry(230, 50, 80, 20);
-  Q3WhatsThis::add(editOriginRadius, QString(tr("Specify radius value at origin.\n\n"
+  QWhatsThis::add(editOriginRadius, QString(tr("Specify radius value at origin.\n\n"
     "Normally the radius at the origin is 0, but a nonzero value may be applied if the radial units are decibels.")));
   validatorOriginRadius = new QDoubleValidator(editOriginRadius);
   CHECK_PTR_ENGAUGE(validatorOriginRadius);
@@ -379,5 +380,5 @@ void CoordSysDlg::slotOriginRadius(const QString &originRadius)
 
 void CoordSysDlg::slotWhat()
 {
-  Q3WhatsThis::enterWhatsThisMode();
+  QWhatsThis::enterWhatsThisMode();
 }

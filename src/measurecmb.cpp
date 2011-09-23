@@ -42,7 +42,7 @@
  ***************************************************************************/
 
 #include <qstringlist.h>
-#include <q3whatsthis.h>
+#include <QWhatsThis>
 
 #include "measurecmb.h"
 #include "digitview.h"
@@ -60,7 +60,7 @@ MeasureCmb::MeasureCmb(QWidget* parent) :
   setEnabled(false);
   setEditable(false);
 
-  Q3WhatsThis::add(this, QString(tr("Currently active measure\n\n"
+  QWhatsThis::add(this, QString(tr("Currently active measure\n\n"
     "While in the Measure Point measure digitizing mode, any new points will be assigned to this measure\n\n"
     "Another measure may be selected by using the dropdown button")));
 

@@ -57,7 +57,7 @@
  *                                                                         *
  ***************************************************************************/
 
-#include <q3whatsthis.h>
+
 #include <qtooltip.h>
 #include <qbitmap.h>
 #include <qpainter.h>
@@ -68,6 +68,7 @@
 #include <Q3PtrList>
 #include <QPixmap>
 #include <QMouseEvent>
+#include <QWhatsThis>
 
 #include <math.h>
 
@@ -136,7 +137,7 @@ ColorChooser::ColorChooser(QWidget* parent,
   y += m_chooserHeight + Separation;
   chooserCanvasView->setHScrollBarMode(Q3ScrollView::AlwaysOff);
   chooserCanvasView->setVScrollBarMode(Q3ScrollView::AlwaysOff);
-  Q3WhatsThis::add(chooserCanvasView, QString(tr(
+  QWhatsThis::add(chooserCanvasView, QString(tr(
     "Histogram of color attribute values. The lower and upper limits are shown, "
     "and may be dragged using the handles")));
 
@@ -150,7 +151,7 @@ ColorChooser::ColorChooser(QWidget* parent,
   y += m_scaleHeight + 5;
   scaleCanvasView->setHScrollBarMode(Q3ScrollView::AlwaysOff);
   scaleCanvasView->setVScrollBarMode(Q3ScrollView::AlwaysOff);
-  Q3WhatsThis::add(scaleCanvasView, QString(tr("Scale for histogram")));
+  QWhatsThis::add(scaleCanvasView, QString(tr("Scale for histogram")));
 
   // histogram widgets
   dividerLower = new Divider(this, chooserCanvas, true);
@@ -174,7 +175,7 @@ ColorChooser::ColorChooser(QWidget* parent,
     editLow = new QLineEdit(m_parent);
     CHECK_PTR_ENGAUGE(editLow);
     editLow->setGeometry(x, y, EditWidth, 30);
-    Q3WhatsThis::add(editLow, QString(tr("Lower limit.\n\nIf the lower limit is less than the upper limit, "
+    QWhatsThis::add(editLow, QString(tr("Lower limit.\n\nIf the lower limit is less than the upper limit, "
       "only values between the limits are considered on. If the lower limit is greater than the upper limit, "
       "only values outside the limits are considered on")));
     validatorLow = new QIntValidator(editLow);
@@ -185,7 +186,7 @@ ColorChooser::ColorChooser(QWidget* parent,
     editHigh = new QLineEdit(m_parent);
     CHECK_PTR_ENGAUGE(editHigh);
     editHigh->setGeometry(x + ChooserWidth + 2 * ChooserPadding + ChooserFrame - EditWidth, y, EditWidth, 30);
-    Q3WhatsThis::add(editHigh, QString(tr("Upper limit.\n\nIf the lower limit is less than the upper limit, "
+    QWhatsThis::add(editHigh, QString(tr("Upper limit.\n\nIf the lower limit is less than the upper limit, "
       "only values between the limits are considered on. If the lower limit is greater than the upper limit, "
       "only values outside the limits are considered on")));
     validatorHigh = new QIntValidator(editHigh);
