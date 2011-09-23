@@ -8,7 +8,7 @@ CONFIG		= qt warn_on thread debug
 OBJECTS_DIR     = src/.objs
 unix {
 # for solaris-g++ on x386, replace following LIBS entry by "-lSM -lICE -ldl"
-LIBS            += -lXft -lfreetype -lfftw3 -lpng -lXrender -lXrandr -lrt
+LIBS            += -lXft -lfreetype -lfftw3 -ljpeg -lmng -lpng -lXrender -lXrandr -lrt
 QMAKE_CXXFLAGS_DEBUG += -Wno-non-virtual-dtor
 QMAKE_CXXFLAGS_RELEASE += -Wno-non-virtual-dtor
 }
