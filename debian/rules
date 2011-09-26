@@ -3,7 +3,7 @@
 
 # Uncomment this to turn on verbose mode.
 #export DH_VERBOSE=1
-export DH_ALWAYS_EXCLUDE=CVS
+export DH_ALWAYS_EXCLUDE=CVS:.git:.swp
 
 CFLAGS = -Wall -g
 
@@ -16,10 +16,13 @@ endif
 configure: configure-stamp
 configure-stamp:
 	dh_testdir
-	qmake-qt3 -unix 'DEFINES+=DEBIAN_PACKAGE' digitizer.pro
+	qmake 'DEFINES+=DEBIAN_PACKAGE' digitizer.pro
 	touch configure-stamp
 
-build: build-stamp
+build: build-arch build-indep
+build-arch: build-stamp
+build-indep: build-stamp
+
 build-stamp: configure-stamp
 	dh_testdir
 	$(MAKE)
@@ -37,7 +40,7 @@ clean: configure-stamp
 install: build
 	dh_testdir
 	dh_testroot
-	dh_clean -k
+	dh_prep
 	dh_installdirs
 	dh_install
 
