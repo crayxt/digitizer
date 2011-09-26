@@ -1,31 +1,15 @@
-This package was first debianized by Tobias Stefan Richter
-<tsr-debian@achos.com> in Oct 2006.
+Format: http://svn.debian.org/wsvn/dep/web/deps/dep5.mdwn?op=file&rev=174
+Upstream-Name: engauge-digitizer 
+Upstream-Contact: Mark Mitchell <mmdigitizer@earthlink.net>
+Source: http://sf.net/digitizer/
 
-It was downloaded from <http://sf.net/digitizer/>.
+Copyright: 2002, Mark Mitchell <mmdigitizer@earthlink.net>
+License: GPL-2+
+        On Debian systems, the complete text of the GNU General
+        Public License version 2 can be found in `/usr/share/common-licenses/GPL-2'.
 
-Upstream Author: Mark Mitchell <mmdigitizer@earthlink.net>
+Files: debian/*
+Copyright: 2006-2011 Tobias Stefan Richter <tsr-debian@achos.com>
+					 2011, Tobias Winchen <tobias.winchen@physik.rwth-aachen.de>
+License: GPL-2+
 
-License:
-
-   Copyright: 2002-2007 Mark Mitchell
-
-   This package is free software; you can redistribute it and/or modify
-   it under the terms of the GNU General Public License as published by
-   the Free Software Foundation; either version 2 of the License, or
-   (at your option) any later version.
-
-   This package is distributed in the hope that it will be useful,
-   but WITHOUT ANY WARRANTY; without even the implied warranty of
-   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-   GNU General Public License for more details.
-
-   You should have received a copy of the GNU General Public License
-   along with this package; if not, write to the Free Software
-   Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301 USA
-
-On Debian systems, the complete text of the GNU General Public License
-can be found in `/usr/share/common-licenses/GPL-2'.
-
-The Debian packaging is (c) 2006-2011, Tobias Richter <tsr-debian@achos.com>
-												(c) 2011, Tobias Winchen <tobias.winchen@physik.rwth-aachen.de>
-and is licensed under the GPL, see `/usr/share/common-licenses/GPL-2'.
