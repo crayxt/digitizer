@@ -69,6 +69,7 @@
 #include <QPixmap>
 #include <QMouseEvent>
 #include <QWhatsThis>
+#include <QProgressDialog>
 
 #include <math.h>
 
@@ -288,7 +289,7 @@ void ColorChooser::loadForegroundPixmap(QRgb rgbBg)
 
 void ColorChooser::loadHistogram(const QImage* imageOriginal,
   DiscretizeMethod method, int colorAttributeMax, Q3PtrList<Q3CanvasLine>* histogram,
-  QRgb rgbBg, Q3ProgressDialog* dlg)
+  QRgb rgbBg, QProgressDialog* dlg)
 {
   ASSERT_ENGAUGE(
     (method == DiscretizeIntensity) ||
@@ -326,7 +327,7 @@ void ColorChooser::loadHistogram(const QImage* imageOriginal,
 
     // update progress bar
     ASSERT_ENGAUGE(dlg != 0);
-    dlg->setProgress(imageOriginal->width() * method + x);
+    dlg->setValue(imageOriginal->width() * method + x);
   }
   
   // represent histograms as lines on canvas
@@ -375,8 +376,8 @@ void ColorChooser::loadHistograms(const QImage* imageOriginal)
 
   int discretizeMethods = 5;
   int runTime = imageOriginal->width() * discretizeMethods;
-  Q3ProgressDialog* dlg = new Q3ProgressDialog(QString(tr("Loading histograms")), 0,
-    runTime, m_parent, "progress", true);
+  QProgressDialog* dlg = new QProgressDialog(QString(tr("Loading histograms")), "Cancel", 0,
+    runTime, m_parent);
   CHECK_PTR_ENGAUGE(dlg);
   dlg->setCaption(tr("Progress"));
   dlg->show();

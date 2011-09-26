@@ -52,11 +52,11 @@
 #include <qstring.h>
 #include <qvalidator.h>
 #include <q3canvas.h>
-#include <q3progressdialog.h>
 #include <q3ptrlist.h>
 //Added by qt3to4:
 #include <QPixmap>
 #include <QMouseEvent>
+#include <QProgressDialog>
 
 #include "digitdef.h"
 
@@ -231,7 +231,7 @@ class ColorChooser : public QObject
     // creates histograms from original image
     void loadHistogram(const QImage* imageOriginal, DiscretizeMethod method,
       int colorAttributeMax, Q3PtrList<Q3CanvasLine>* histogram, QRgb rgbBg,
-      Q3ProgressDialog* dlg);
+      QProgressDialog* dlg);
     void loadHistograms(const QImage* imageOriginal);
     void showCurrentHistogram(void);
 
