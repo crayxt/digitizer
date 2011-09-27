@@ -201,7 +201,6 @@
 #include <qfileinfo.h>
 #include <qwidget.h>
 #include <qmessagebox.h>
-#include <q3filedialog.h>
 #include <qprinter.h>
 #include <qpainter.h>
 //Added by qt3to4:
