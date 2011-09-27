@@ -405,6 +405,7 @@ DigitMain::~DigitMain()
 
   delete printer;
 
+	delete docList;
   delete curveGeometryDlg;
   delete measureGeometryDlg;
 }
@@ -875,7 +876,7 @@ void DigitMain::initGeometryInfo()
 void DigitMain::initMenuBar()
 {
   // menuBar entry fileMenu
-  fileMenu = new QMenu();
+  fileMenu = new QMenu(this);
   CHECK_PTR_ENGAUGE(fileMenu);
   fileImport->addTo(fileMenu);
   fileOpen->addTo(fileMenu);
@@ -901,7 +902,7 @@ void DigitMain::initMenuBar()
   connect(&m_mruDocuments, SIGNAL(mruChosen(QString)), this, SLOT(slotFileOpenRecent(QString)));
 
   // menuBar entry editMenu
-  editMenu = new QMenu();
+  editMenu = new QMenu(this);
   CHECK_PTR_ENGAUGE(editMenu);
   editCut->addTo(editMenu);
   editCopy->addTo(editMenu);
@@ -909,7 +910,7 @@ void DigitMain::initMenuBar()
   editPasteAsNew->addTo(editMenu);
 
   // menuBar entry viewMenu
-  viewMenu = new QMenu();
+  viewMenu = new QMenu(this);
   CHECK_PTR_ENGAUGE(viewMenu);
   viewMenu->setCheckable(true);
   viewFileToolBar->addTo(viewMenu);
@@ -936,7 +937,7 @@ void DigitMain::initMenuBar()
   viewMeasureGeometry->addTo(viewMenu);
 
   // menuBar entry digitizeMenu
-  digitizeMenu = new QMenu();
+  digitizeMenu = new QMenu(this);
   CHECK_PTR_ENGAUGE(digitizeMenu);
   digitizeSelect->addTo(digitizeMenu);
   digitizeMenu->insertSeparator();
@@ -950,7 +951,7 @@ void DigitMain::initMenuBar()
   digitizeMeasure->addTo(digitizeMenu);
 
   // menuBar entry settingsMenu
-  settingsMenu = new QMenu();
+  settingsMenu = new QMenu(this);
   CHECK_PTR_ENGAUGE(settingsMenu);
   settingsCoordSys->addTo(settingsMenu);
   settingsMenu->insertSeparator();
@@ -977,7 +978,7 @@ void DigitMain::initMenuBar()
   connect(windowMenu, SIGNAL(aboutToShow()), this, SLOT(slotMenuPreactivated()));
 
   // menuBar entry helpMenu
-  helpMenu = new QMenu();
+  helpMenu = new QMenu(this);
   CHECK_PTR_ENGAUGE(helpMenu);
   helpAboutApp->addTo(helpMenu);
   helpMenu->insertSeparator();
@@ -2192,8 +2193,8 @@ bool DigitMain::documentSaveAs(DigitDoc* doc)
 
   if (doc)
   {
-    QString filename = QFileDialog::getSaveFileName(doc->savePath(), DigitDoc::filterOpenSave(), this,
-      "save", QString(tr("Save")));
+    QString filename = QFileDialog::getSaveFileName(this, tr("Save"), 
+				doc->savePath(), DigitDoc::filterOpenSave());
     if (!filename.isEmpty())
     {
       bool save = true;
@@ -2244,8 +2245,7 @@ void DigitMain::slotFileImport()
 {
   slotStatusNormalMsg(QString(tr("Opening image file...")));
 
-  QString filename = QFileDialog::getOpenFileName(0, DigitDoc::filterImport(), this,
-    tr("import"), QString(tr("Import")));
+  QString filename = QFileDialog::getOpenFileName(this, tr("Import"), QString());
 
   if (!filename.isEmpty())
   {
@@ -2261,8 +2261,7 @@ void DigitMain::slotFileOpen()
 {
   slotStatusNormalMsg(QString(tr("Opening document file...")));
 
-  QString filename = QFileDialog::getOpenFileName(0, DigitDoc::filterOpenSave(), this,
-    "open", QString(tr("Open")));
+  QString filename = QFileDialog::getOpenFileName(this, tr("Open"), QString(), DigitDoc::filterOpenSave());
 
   if (!filename.isEmpty())
   {
