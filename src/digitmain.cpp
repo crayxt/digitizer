@@ -446,10 +446,11 @@ void DigitMain::initActions()
   fileOpen->setWhatsThis(tr("Open Document\n\nOpens an existing document"));
   connect(fileOpen, SIGNAL(activated()), this, SLOT(slotFileOpen()));
 
-  fileOpenRecent = createAction(tr("Open Recent Document"), tr("Open Recent..."), 0, this);
-  CHECK_PTR_ENGAUGE(fileOpenRecent);
-  fileOpenRecent->setStatusTip(tr("Opens a recent document"));
-  fileOpenRecent->setWhatsThis(tr("Open File\n\nOpens a recent document"));
+  fileOpenRecent = new QMenu(tr("Open Recent Document"), this);
+	//createAction(tr("Open Recent Document"), tr("Open Recent..."), 0, this);
+  //CHECK_PTR_ENGAUGE(fileOpenRecent);
+  //fileOpenRecent->setStatusTip(tr("Opens a recent document"));
+  //fileOpenRecent->setWhatsThis(tr("Open File\n\nOpens a recent document"));
 
   fileClose = createAction(tr("&Close Document"), tr("&Close"), tr("Ctrl+W"), this);
   CHECK_PTR_ENGAUGE(fileClose);
@@ -882,7 +883,8 @@ void DigitMain::initMenuBar()
   fileOpen->addTo(fileMenu);
   QSize mruFrameOffset = fileMenu->sizeHint(); // size() is unreliable because of performance optimization
 #ifndef Q_OS_MACX
-  fileOpenRecent->addTo(fileMenu);
+  //fileOpenRecent->addMenu(fileMenu);
+  fileMenu->addMenu(fileOpenRecent);
   const int INDEX_FILEOPENRECENT = 2; // import at index 0, open at index 1, open recent at index 2
   m_mruDocuments.attachPopupMenu(fileMenu, fileMenu->idAt(INDEX_FILEOPENRECENT), mruFrameOffset);
 #endif
@@ -2245,7 +2247,7 @@ void DigitMain::slotFileImport()
 {
   slotStatusNormalMsg(QString(tr("Opening image file...")));
 
-  QString filename = QFileDialog::getOpenFileName(this, tr("Import"), QString());
+  QString filename = QFileDialog::getOpenFileName(this, tr("Import"), QString(), DigitDoc::filterImport());
 
   if (!filename.isEmpty())
   {

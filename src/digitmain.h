@@ -498,7 +498,7 @@ class DigitMain : public QMainWindow
 
     QAction* fileImport;
     QAction* fileOpen;
-    QAction* fileOpenRecent;
+    QMenu* fileOpenRecent;
     QAction* fileSave;
     QAction* fileSaveAs;
     QAction* fileClose;
