@@ -1038,7 +1038,7 @@ void DigitMain::initToolBars()
 {
   DefaultSettings& rSettings = DefaultSettings::instance();
   
-  fileToolbar = new QToolBar(this, "file operations");
+  fileToolbar = new QToolBar("File Toolbar",this);
   CHECK_PTR_ENGAUGE(fileToolbar);
   fileImport->addTo(fileToolbar);
   fileOpen->addTo(fileToolbar);
@@ -1047,21 +1047,21 @@ void DigitMain::initToolBars()
   fileToolbar->setShown(rSettings.getViewFileToolbar());
 	addToolBar(fileToolbar);
 
-  selectToolbar = new QToolBar(this, "select operations");
+  selectToolbar = new QToolBar("Select Toolbar", this);
   CHECK_PTR_ENGAUGE(selectToolbar);
   selectToolbar->addWidget(QWhatsThis::whatsThisButton(selectToolbar));
   digitizeSelect->addTo(selectToolbar);
   selectToolbar->setShown(rSettings.getViewSelectToolbar());
 	addToolBar(selectToolbar);
     
-  imageScaleToolbar = new QToolBar(this, "image scale operations");
+  imageScaleToolbar = new QToolBar("Image Scale Toolbar", this);
   CHECK_PTR_ENGAUGE(imageScaleToolbar);  
   digitizeAxis->addTo(imageScaleToolbar);
   digitizeScale->addTo(imageScaleToolbar);
   imageScaleToolbar->setShown(rSettings.getViewImageScaleToolbar());
 	addToolBar(imageScaleToolbar);
   
-  digitizeCurvePointsToolbar = new QToolBar(this, "digitize curve points operations");
+  digitizeCurvePointsToolbar = new QToolBar("Digitize Curve Toolbar", this);
   CHECK_PTR_ENGAUGE(digitizeCurvePointsToolbar);
   digitizeCurve->addTo(digitizeCurvePointsToolbar);
   digitizeSegment->addTo(digitizeCurvePointsToolbar);
@@ -1073,7 +1073,7 @@ void DigitMain::initToolBars()
   digitizeCurvePointsToolbar->setShown(rSettings.getViewDigitizeCurvePointsToolbar());
 	addToolBar(digitizeCurvePointsToolbar);
   
-  digitizeMeasurePointsToolbar = new QToolBar(this, "digitize measure points operations");
+  digitizeMeasurePointsToolbar = new QToolBar("Digitize Measure Points Toolbar", this);
   CHECK_PTR_ENGAUGE(digitizeMeasurePointsToolbar);
   digitizeMeasure->addTo(digitizeMeasurePointsToolbar);
   measureCmb = new MeasureCmb(digitizeMeasurePointsToolbar);
@@ -1107,7 +1107,7 @@ void DigitMain::initToolBars()
   // clicking on measurecmb combobox causes state change in toolbar pushbuttons
   connect(measureCmb, SIGNAL(activated(int)), this, SLOT(slotMeasureComboActivated(int)));
 
-  zoomToolbar = new QToolBar(this, "zoom operations");
+  zoomToolbar = new QToolBar("Zoom Toolbar", this);
   CHECK_PTR_ENGAUGE(zoomToolbar);
   zoomCmb = new ZoomCmb(zoomToolbar);
 	zoomToolbar->addWidget(zoomCmb);
