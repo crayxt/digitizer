@@ -32,12 +32,12 @@
 #ifndef SCANFORAXES_H
 #define SCANFORAXES_H
 
-#include <q3memarray.h>
+#include <QVector>
 
 #include "digitdoc.h"
 #include "digitdebug.h"
 
-typedef Q3MemArray<unsigned int> AxisSlice;
+typedef QVector<unsigned int> AxisSlice;
 
 // scan a newly-imported document for the x and y axes, then create
 // three axis points
