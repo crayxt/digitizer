@@ -83,7 +83,7 @@ HelpWindow::HelpWindow( const QString& home_, const QString& _path,
   file->insertItem( tr("&Print"), this, SLOT( print() ), Qt::CTRL+Qt::Key_P );
   file->insertSeparator();
   file->insertItem( tr("&Close"), this, SLOT( close() ), Qt::CTRL+Qt::Key_Q );
-  file->insertItem( tr("E&xit"), qApp, SLOT( closeAllWindows() ), Qt::CTRL+Qt::Key_X );
+//file->insertItem( tr("E&xit"), qApp, SLOT( closeAllWindows() ), Qt::CTRL+Qt::Key_X );
 
   // The same three icons are used twice each.
   QPixmap helpback (helpback_xpm);
