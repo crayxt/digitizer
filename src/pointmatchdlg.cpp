@@ -60,7 +60,7 @@
 #include <qtooltip.h>
 #include <qbitmap.h>
 //Added by qt3to4:
-#include <Q3ValueList>
+#include <QList>
 #include <QPixmap>
 #include <QLabel>
 
@@ -303,7 +303,7 @@ void PointMatchDlg::makePoints()
     int y [] = {PreviewHeight / 4, PreviewHeight / 2, (3 * PreviewHeight) / 4};
     QImage* images [] = {&imageDiamond, &imageCircle, &imageSquare};
     Point* p;
-    Q3ValueList<QRect> updateRectList;
+    QList<QRect> updateRectList;
     do
     {
       // rows are top (diamonds), middle (circles) and bottom (squares)

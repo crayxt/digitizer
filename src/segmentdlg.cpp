@@ -82,7 +82,7 @@
 #include <qcolor.h>
 #include <qbitmap.h>
 //Added by qt3to4:
-#include <Q3ValueList>
+#include <QList>
 #include <QPixmap>
 #include <QLabel>
 
@@ -344,7 +344,7 @@ void SegmentDlg::slotUpdatePreview()
   previewCanvas->setBackgroundPixmap(previewPixmap);
 
   // make segments for display
-  Q3ValueList<QRect> updateRectList;
+  QList<QRect> updateRectList;
   ASSERT_ENGAUGE(settings != 0);
   segments->makeSegments(previewImage, *settings);
   segments->showSegments(true, *settings, &updateRectList);
@@ -353,8 +353,8 @@ void SegmentDlg::slotUpdatePreview()
   {
     // make points for display
     pointSet.removePoints(); // remove existing points
-    Q3ValueList<QPoint> list = segments->fillPoints(*settings);
-    Q3ValueList<QPoint>::iterator itr;
+    QList<QPoint> list = segments->fillPoints(*settings);
+    QList<QPoint>::iterator itr;
     for (itr = list.begin(); itr != list.end(); ++itr)
     {
       Point* p = new Point((*itr).x(), (*itr).y(), previewCanvas);

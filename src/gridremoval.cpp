@@ -54,7 +54,7 @@
 #include <math.h>
 #include <qapplication.h>
 //Added by qt3to4:
-#include <Q3ValueList>
+#include <QList>
 
 #include "gridmesh.h"
 #include "gridremoval.h"
@@ -302,7 +302,7 @@ void GridRemoval::Neuron::connectNeuronAcrossGaps(char *pixels, int *pixel2Neuro
     // current pixel for other neurons. do not look in a full circle since then
     // we would end up with two connections for each pair of synapses (one in
     // either direction)
-    Q3ValueList<int> neuronsProcessed; // list of neurons that have been processed
+    QList<int> neuronsProcessed; // list of neurons that have been processed
 
     int xDelta, yDelta;
     for (xDelta = 0; xDelta <= searchHalfWidth; xDelta++)
@@ -364,7 +364,7 @@ void GridRemoval::Neuron::connectSynapseToSynapsesDestination(char *pixels,
 
 void GridRemoval::Neuron::connectSynapseToSynapsesSource(char *pixels, int *pixel2Neuron,
   const NeuronDict neuronDict, int width, int height, double gapSeparation, int x, int y,
-  int xLook, int yLook, Q3ValueList<int> *neuronsProcessed)
+  int xLook, int yLook, QList<int> *neuronsProcessed)
 {
   // this function tries to connect this synapse with center-of-mass at (x,y),
   // to the synapses of another neuron. the other neuron actually does the

@@ -89,7 +89,7 @@
 #include <qlabel.h>
 #include <qapplication.h>
 //Added by qt3to4:
-#include <Q3ValueList>
+#include <QList>
 
 #include <math.h>
 #include <stdlib.h>
@@ -167,7 +167,7 @@ bool PointMatch::isolateSampleMatchPoint(QPolygon* samplePointPixels,
 void PointMatch::matchSamplePoint(const QImage &imageProcessed,
   PointMatchSettings settings,
   const QPolygon &samplePointPixels, const QPolygon &pointsExisting,
-  Q3ValueList<PointMatchTriplet>* pointsCreated)
+  QList<PointMatchTriplet>* pointsCreated)
 {
   QDialog dlg;
   dlg.setFixedSize(410, 70);

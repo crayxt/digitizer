@@ -30,7 +30,7 @@
 #include <qlabel.h>
 //Added by qt3to4:
 #include <Q3PointArray>
-#include <Q3ValueList>
+#include <QList>
 
 #include <math.h>
 #include <stdlib.h>
@@ -318,7 +318,7 @@ uint PointMatchThread::optimizeLengthForFft(uint originalLength)
   return closestLength;
 }
 
-Q3ValueList<PointMatchTriplet> PointMatchThread::pointsCreated()
+QList<PointMatchTriplet> PointMatchThread::pointsCreated()
 {
   return m_pointsCreated;
 }

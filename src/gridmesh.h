@@ -37,7 +37,7 @@
 
 #include "digitdef.h"
 //Added by qt3to4:
-#include <Q3ValueList>
+#include <QList>
 
 // angle spacing for ellipses is constant until constrained by minimum pixel spacing
 const double angleSpacingDeg = 1.0; // total # canvas lines is 360*#grids/spacing
@@ -58,7 +58,7 @@ struct GridlineScreen
   bool R;
 };
 
-typedef Q3ValueList<GridlineScreen> GridlinesScreen;
+typedef QList<GridlineScreen> GridlinesScreen;
 
 // this class computes the screen coordinates of the gridlines. this is called by
 // qcanvas-writing code, or by grid removal code which needs to know the locations

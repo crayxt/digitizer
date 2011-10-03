@@ -41,7 +41,7 @@
 #include <q3canvas.h>
 #include <q3ptrlist.h>
 //Added by qt3to4:
-#include <Q3ValueList>
+#include <QList>
 
 #include "digitdef.h"
 
@@ -82,7 +82,7 @@ class Segment
     void appendColumn(int x, int y, SegmentSettings seg);
 
     // show or hide segment
-    void showSegment(bool toggle, SegmentSettings seg, Q3ValueList<QRect>* updateRectList);
+    void showSegment(bool toggle, SegmentSettings seg, QList<QRect>* updateRectList);
 
     // get methods for length in pixels and in lines
     double length(void) { return m_length; }
@@ -98,7 +98,7 @@ class Segment
     Q3CanvasItemList lines(void);
 
     // create evenly spaced points along the segment
-    Q3ValueList<QPoint> fillPoints(SegmentSettings seg);
+    QList<QPoint> fillPoints(SegmentSettings seg);
 
     // get and set methods for segment settings
     void setSettings(SegmentSettings settings);
@@ -125,17 +125,17 @@ class Segment
     // while not filling corners, create a point if any of the following are true:
     // -it is the first point of the first line segment
     // -it is different than the previous point
-    void createAcceptablePoint(bool* pFirst, Q3ValueList<QPoint>* pList,
+    void createAcceptablePoint(bool* pFirst, QList<QPoint>* pList,
       double* xPrev, double* yPrev, double x, double y);
 
     // create evenly spaced points along the segment
-    Q3ValueList<QPoint> fillPointsFillingCorners(SegmentSettings seg);
-    Q3ValueList<QPoint> fillPointsWithoutFillingCorners(SegmentSettings seg);
+    QList<QPoint> fillPointsFillingCorners(SegmentSettings seg);
+    QList<QPoint> fillPointsWithoutFillingCorners(SegmentSettings seg);
       
     // return true if point are a half pixel or less away from a line
     bool pointIsCloseToLine(double xLeft, double yLeft, double xInt, double yInt,
       double xRight, double yRight);
-    bool pointsAreCloseToLine(double xLeft, double yLeft, Q3ValueList<QPoint> removedPoints,
+    bool pointsAreCloseToLine(double xLeft, double yLeft, QList<QPoint> removedPoints,
       double xRight, double yRight);
         
 };

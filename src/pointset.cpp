@@ -89,7 +89,7 @@
 #include <qbitmap.h>
 //Added by qt3to4:
 #include <Q3PointArray>
-#include <Q3ValueList>
+#include <QList>
 #include <QPixmap>
 
 #include <math.h>
@@ -160,7 +160,7 @@ void PointSet::setStyle(PointSetStyle style)
   }
 }
  
-void PointSet::addPoint(Q3Canvas* canvas, Point* point, Q3ValueList<QRect>* updateRectList)
+void PointSet::addPoint(Q3Canvas* canvas, Point* point, QList<QRect>* updateRectList)
 {
   // insert point between two other points if it lies on the line between the two points
   const int LineEpsilonPixels = 2;
@@ -212,7 +212,7 @@ void PointSet::addPoint(Q3Canvas* canvas, Point* point, Q3ValueList<QRect>* upda
   m_modifiedGeometry = true;
 }
 
-void PointSet::addLine(Q3Canvas* canvas, Point* pFrom, Point* pTo, Q3ValueList<QRect>* updateRectList)
+void PointSet::addLine(Q3Canvas* canvas, Point* pFrom, Point* pTo, QList<QRect>* updateRectList)
 {
   ASSERT_ENGAUGE(pFrom);
   ASSERT_ENGAUGE(pTo);
@@ -243,7 +243,7 @@ void PointSet::addLine(Q3Canvas* canvas, Point* pFrom, Point* pTo, Q3ValueList<Q
   m_modifiedGeometry = true;
 }
 
-void PointSet::removePoint(Point* p, Q3ValueList<QRect>* updateRectList)
+void PointSet::removePoint(Point* p, QList<QRect>* updateRectList)
 {
   // remove one of its attached lines. four cases are:
   //   1. solitary point (0 lines->0 lines)
@@ -321,7 +321,7 @@ void PointSet::removePoint(Point* p, Q3ValueList<QRect>* updateRectList)
 
 void PointSet::removePoints()
 {
-  Q3ValueList<QRect> updateRectList;
+  QList<QRect> updateRectList;
 
   Point* p;
   Point* pNext;
@@ -334,7 +334,7 @@ void PointSet::removePoints()
   m_modifiedGeometry = true;
 }
 
-void PointSet::removeLine(Point* pFrom, Point* pTo, Q3ValueList<QRect>* updateRectList)
+void PointSet::removeLine(Point* pFrom, Point* pTo, QList<QRect>* updateRectList)
 {
   // consistency checks
   ASSERT_ENGAUGE(pFrom);
@@ -491,7 +491,7 @@ bool PointSet::singleValued(CoordSettings coord, const Transform* transform)
 }
 
 void PointSet::forceSingleValued(CoordSettings coord, const Transform* transform,
-  Q3ValueList<QRect>* updateRectList)
+  QList<QRect>* updateRectList)
 { 
   // quick exit if pointset is a closed contour, which is the case for all axis, scale and
   // measure pointsets. curve pointsets may be either single valued functions, or closed contours
@@ -602,13 +602,13 @@ bool PointSet::pointSetScreenLimits(double *xMin, double *xMax, double *yMin, do
   return found;
 }
 
-void PointSet::mergeUniqueXValues(Q3ValueList<double>* list,
+void PointSet::mergeUniqueXValues(QList<double>* list,
   int xPrecision)
 {
   ASSERT_ENGAUGE(list != 0);
   
   Point* p = m_points.first();
-  Q3ValueList<double>::iterator itr;
+  QList<double>::iterator itr;
  
   // insert member points that should go before any points already in the list
   for (itr = list->begin(); p && (itr != list->end()); ++itr)
@@ -806,7 +806,7 @@ void PointSet::serializeRead(QDataStream &s, Q3Canvas* canvas)
 
   int count;
   s >> (Q_INT32 &) count;
-  Q3ValueList<QRect> updateRectList;
+  QList<QRect> updateRectList;
   for (int i = 0; i < count; i++)
   {
     int xScreen, yScreen;

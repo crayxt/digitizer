@@ -27,7 +27,7 @@
 #include <qthread.h>
 //Added by qt3to4:
 #include <Q3PointArray>
-#include <Q3ValueList>
+#include <QList>
 
 #include "digitdef.h"
 #include "digitdebug.h"
@@ -53,7 +53,7 @@ class PointMatchThread : public QThread
     virtual void run();
         
     // output
-    Q3ValueList<PointMatchTriplet> pointsCreated();
+    QList<PointMatchTriplet> pointsCreated();
   
   private:
 
@@ -157,7 +157,7 @@ class PointMatchThread : public QThread
     const Q3PointArray& m_pointsExisting;
 
     // output
-    Q3ValueList<PointMatchTriplet> m_pointsCreated;
+    QList<PointMatchTriplet> m_pointsCreated;
 
 };
 

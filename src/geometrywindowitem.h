@@ -33,7 +33,7 @@
 #define GEOMETRYWINDOWITEM_H
 
 #include <qstring.h>
-#include <q3valuelist.h>
+#include <QList>
 
 // entry corresponding to one cell in the table of the curve geometry or 
 // measure geometry windows
@@ -67,6 +67,6 @@ class GeometryWindowItem
 // use value list, rather than pointer list, because it offers easy deep copies (although
 // this means adding default constructor, copy and assignment operators to the items). also, the
 // original pointer list implementation was probably leaking memory so value list should be safer
-typedef Q3ValueList<GeometryWindowItem> GeometryWindowItemList;
+typedef QList<GeometryWindowItem> GeometryWindowItemList;
 
 #endif // GEOMETRYWINDOWITEM_H

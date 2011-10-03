@@ -42,7 +42,7 @@
 #include <qtooltip.h>
 #include <qregexp.h>
 //Added by qt3to4:
-#include <Q3ValueList>
+#include <QList>
 #include <QPixmap>
 #include <QLabel>
 
@@ -211,7 +211,7 @@ PointSetDlg::PointSetDlg(QString title, QString pointsetName,
   CHECK_PTR_ENGAUGE(previewLeftPoint);
   previewRightPoint = new Point(250, 25, previewCanvas);
   CHECK_PTR_ENGAUGE(previewRightPoint);
-  Q3ValueList<QRect> updateRectList;
+  QList<QRect> updateRectList;
   pointSet->addPoint(previewCanvas, previewLeftPoint, &updateRectList);
   pointSet->addPoint(previewCanvas, previewRightPoint, &updateRectList);
   previewLeftPoint->setPointSet(pointSet);

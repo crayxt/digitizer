@@ -57,7 +57,7 @@
 #include <qbitmap.h>
 #include <qapplication.h>
 //Added by qt3to4:
-#include <Q3ValueList>
+#include <QList>
 #include <QProgressDialog>
 
 #include "segments.h"
@@ -134,9 +134,9 @@ int Segments::adjacentSegments(Segment** lastSegment, int yStart, int yStop, int
   return segments;
 }
 
-Q3ValueList<QPoint> Segments::fillPoints(SegmentSettings seg)
+QList<QPoint> Segments::fillPoints(SegmentSettings seg)
 {
-  Q3ValueList<QPoint> list;
+  QList<QPoint> list;
   
   for (Segment* segment = segments.first(); segment; segment = segments.next())
   {
@@ -378,7 +378,7 @@ void Segments::scrollSegment(Segment** left, Segment** right, int height)
     left [y] = right [y];
 }
 
-void Segments::showSegments(bool toggle, SegmentSettings seg, Q3ValueList<QRect>* updateRectList)
+void Segments::showSegments(bool toggle, SegmentSettings seg, QList<QRect>* updateRectList)
 {
   int minPixels = (seg.minPoints - 1) * seg.pointSeparation;
 

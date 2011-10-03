@@ -69,7 +69,7 @@
 #include <q3ptrlist.h>
 #include <qthread.h>
 //Added by qt3to4:
-#include <Q3ValueList>
+#include <QList>
 #include <Q3PtrCollection>
 #include <QPolygon>
 
@@ -124,7 +124,7 @@ class PointMatch
                                  PointMatchSettings settings, 
                                  const QPolygon &samplePointPixels,
                                  const QPolygon &pointsExisting, 
-                                 Q3ValueList<PointMatchTriplet>* pointsCreated);
+                                 QList<PointMatchTriplet>* pointsCreated);
 
 };
 

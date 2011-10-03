@@ -67,7 +67,7 @@
 //Added by qt3to4:
 #include <Q3TextStream>
 #include <Q3PointArray>
-#include <Q3ValueList>
+#include <QList>
 #include <QPixmap>
 
 PointSets::PointSets()
@@ -148,31 +148,31 @@ PointSet* PointSets::findMeasure(QString name)
   return 0;
 }
 
-void PointSets::addPointAxes(Q3Canvas* canvas, Point* p, Q3ValueList<QRect>* updateRectList)
+void PointSets::addPointAxes(Q3Canvas* canvas, Point* p, QList<QRect>* updateRectList)
 {
   axesPointSet.addPoint(canvas, p, updateRectList);
 }
 
-void PointSets::addPointScale(Q3Canvas* canvas, Point* p, Q3ValueList<QRect>* updateRectList)
+void PointSets::addPointScale(Q3Canvas* canvas, Point* p, QList<QRect>* updateRectList)
 {
   scalePointSet.addPoint(canvas, p, updateRectList);
 }
 
-void PointSets::addPointCurve(Q3Canvas* canvas, Point* p, QString name, Q3ValueList<QRect>* updateRectList)
+void PointSets::addPointCurve(Q3Canvas* canvas, Point* p, QString name, QList<QRect>* updateRectList)
 {
   PointSet* pointSet = findCurve(name);
   if (pointSet != 0)
     pointSet->addPoint(canvas, p, updateRectList);
 }
 
-void PointSets::addPointMeasure(Q3Canvas* canvas, Point* p, QString name, Q3ValueList<QRect>* updateRectList)
+void PointSets::addPointMeasure(Q3Canvas* canvas, Point* p, QString name, QList<QRect>* updateRectList)
 {
   PointSet* pointSet = findMeasure(name);
   if (pointSet != 0)
     pointSet->addPoint(canvas, p, updateRectList);
 }
 
-bool PointSets::removePoint(Point* p, Q3ValueList<QRect>* updateRectList)
+bool PointSets::removePoint(Point* p, QList<QRect>* updateRectList)
 {
   ASSERT_ENGAUGE(p != 0);
   if (p->pointSet() == &axesPointSet)
@@ -518,7 +518,7 @@ bool PointSets::axisSetGraphLimits(CoordSettings coord, const Transform* transfo
   double* xThetaMin, double* xThetaMax, double* yRMin, double* yRMax)
 {
   // update
-  Q3ValueList<QRect> updateRectList;
+  QList<QRect> updateRectList;
   updateGraphCoordinates(coord, transform, &updateRectList);
 
   // get limits
@@ -586,7 +586,7 @@ void PointSets::singlePointSetScreenLimits(PointSet* p, bool* first,
 }
 
 void PointSets::updateGraphCoordinates(CoordSettings coord, const Transform* transform,
-  Q3ValueList<QRect>* updateRectList)
+  QList<QRect>* updateRectList)
 {
   // apply transformation
   PointSetListIterator itr;
@@ -661,7 +661,7 @@ void PointSets::exportToStreamAllCurvesTogether(Q3TextStream& str, CoordSettings
   GridMeshSettings grid, ExportSettings xport, int xPrecision, int yPrecision)
 {
   // list of x values in ascending order
-  Q3ValueList<double> xUsed = ascendingXValuesList(coord, grid, xport, xPrecision);
+  QList<double> xUsed = ascendingXValuesList(coord, grid, xport, xPrecision);
 
   if (xport.header != HeaderNone)
   {
@@ -681,7 +681,7 @@ void PointSets::exportToStreamAllCurvesTogether(Q3TextStream& str, CoordSettings
 
   // loop through x values with one per line
   QString xNew;
-  Q3ValueList<double>::iterator itrX;
+  QList<double>::iterator itrX;
   for (itrX = xUsed.begin(); itrX != xUsed.end(); ++itrX)
   {
     xNew.setNum(*itrX, 'g', xPrecision);
@@ -702,7 +702,7 @@ void PointSets::exportToStreamEachCurveSeparately(Q3TextStream& str, CoordSettin
   GridMeshSettings grid, ExportSettings xport, int xPrecision, int yPrecision)
 {
   // list of x values in ascending order
-  Q3ValueList<double> xUsed = ascendingXValuesList(coord, grid, xport, xPrecision);
+  QList<double> xUsed = ascendingXValuesList(coord, grid, xport, xPrecision);
 
   for (PointSetList::iterator itrG = curveList.begin(); itrG != curveList.end(); ++itrG)
     if ((*itrG).getExport())
@@ -723,7 +723,7 @@ void PointSets::exportToStreamEachCurveSeparately(Q3TextStream& str, CoordSettin
         // loop through x values with one per line
         const bool useInterpolation = true;
         QString xNew;
-        Q3ValueList<double>::iterator itrX;
+        QList<double>::iterator itrX;
         for (itrX = xUsed.begin(); itrX != xUsed.end(); ++itrX)
         {
           str << xNew.setNum(*itrX, 'g', xPrecision);
@@ -756,10 +756,10 @@ QString PointSets::exportHeaderPrefix(CoordSettings coord, ExportSettings xport)
   return prefix;
 }
 
-Q3ValueList<double> PointSets::ascendingXValuesList(CoordSettings coord,
+QList<double> PointSets::ascendingXValuesList(CoordSettings coord,
   GridMeshSettings grid, ExportSettings xport, int xPrecision)
 {
-  Q3ValueList<double> list;
+  QList<double> list;
 
   switch (xport.pointsSelection)
   {

@@ -66,7 +66,7 @@
 #include <math.h>
 #include <qapplication.h>
 //Added by qt3to4:
-#include <Q3ValueList>
+#include <QList>
 
 #include "main.h"
 #include "mmsubs.h"
@@ -88,7 +88,7 @@ QRgb Discretize::backgroundColor(const QImage* image)
   // travel diagonally (top-left to bottom-right) and count colors to isolate
   // background color, which is assumed to be the most frequent color
 
-  Q3ValueList<ColorEntry>::iterator itrC;
+  QList<ColorEntry>::iterator itrC;
 
   // add unique elements to colors list
   ColorList colors;

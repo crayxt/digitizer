@@ -62,7 +62,7 @@
 //Added by qt3to4:
 #include <QPixmap>
 #include <Q3PointArray>
-#include <Q3ValueList>
+#include <QList>
 
 #include "point.h"
 #include "pointsetstyles.h"
@@ -92,10 +92,10 @@ class PointSet
     // curves only). if new point is on the line between two points then insert it between
     // those two points (desired behavior for curve and measure pointsets, which happens to not affect
     // axes and scale pointsets)
-    void addPoint(Q3Canvas* canvas, Point* point, Q3ValueList<QRect>* updateRectList);
+    void addPoint(Q3Canvas* canvas, Point* point, QList<QRect>* updateRectList);
 
     // remove a point from this pointset
-    void removePoint(Point* point, Q3ValueList<QRect>* updateRectList);
+    void removePoint(Point* point, QList<QRect>* updateRectList);
 
     // remove all points, and their lines, probably since this pointset is about to be deleted
     void removePoints(void);
@@ -152,7 +152,7 @@ class PointSet
     // this returns numeric x values with full precision, their exported precision must be
     // specified so no adjacent exported x values will have the same value (breaks postprocessing
     // tools such as sql databases)
-    void mergeUniqueXValues(Q3ValueList<double>* list, int xPrecision);
+    void mergeUniqueXValues(QList<double>* list, int xPrecision);
 
     // serialize
     void serializeWrite(QDataStream &s) const;
@@ -170,7 +170,7 @@ class PointSet
     // of all points are updated, we must reconnect any points that were reordered. remember,
     // a single valued function has only a single value per xTheta value, so the lines cannot overlap
     void forceSingleValued(CoordSettings coord, const Transform* transform,
-      Q3ValueList<QRect>* updateRectList);
+      QList<QRect>* updateRectList);
 
     // return point coordinates of this pointset
     Q3PointArray pointSetCoordinates(void);
@@ -184,8 +184,8 @@ class PointSet
   private:
 
     // adding and removing lines involves updating update area and point pointers
-    void addLine(Q3Canvas* canvas, Point* pFrom, Point* pTo, Q3ValueList<QRect>* updateRectList);
-    void removeLine(Point* pFrom, Point* pTo, Q3ValueList<QRect>* updateRectList);
+    void addLine(Q3Canvas* canvas, Point* pFrom, Point* pTo, QList<QRect>* updateRectList);
+    void removeLine(Point* pFrom, Point* pTo, QList<QRect>* updateRectList);
 
     // true if pointset is single valued
     bool singleValued(CoordSettings coord, const Transform* transform);

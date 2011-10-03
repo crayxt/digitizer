@@ -47,7 +47,7 @@
 #include <qtooltip.h>
 #include <qregexp.h>
 //Added by qt3to4:
-#include <Q3ValueList>
+#include <QList>
 #include <QPixmap>
 
 #include "pointsetdlg.h"
@@ -200,7 +200,7 @@ void PointSetsDlg::refreshPointSetList()
     CHECK_PTR_ENGAUGE(previewLeftPoint);
     Point* previewRightPoint = new Point(width * 4 / 5, height / 2, canvas);
     CHECK_PTR_ENGAUGE(previewRightPoint);
-    Q3ValueList<QRect> updateRectList;
+    QList<QRect> updateRectList;
     pointSet->addPoint(canvas, previewLeftPoint, &updateRectList);
     pointSet->addPoint(canvas, previewRightPoint, &updateRectList);
     previewLeftPoint->setPointSet(pointSet);

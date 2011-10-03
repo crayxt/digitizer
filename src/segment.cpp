@@ -56,7 +56,7 @@
 #include <qimage.h>
 #include <qbitmap.h>
 //Added by qt3to4:
-#include <Q3ValueList>
+#include <QList>
 
 #include <math.h>
 
@@ -101,7 +101,7 @@ void Segment::appendColumn(int x, int y, SegmentSettings seg)
   yLast = y;
 }
 
-void Segment::createAcceptablePoint(bool* pFirst, Q3ValueList<QPoint>* pList,
+void Segment::createAcceptablePoint(bool* pFirst, QList<QPoint>* pList,
   double* xPrev, double* yPrev, double x, double y)
 {
   int iOld = (int) (*xPrev + 0.5);
@@ -129,7 +129,7 @@ void Segment::removeUnneededLines(int* foldedLines)
   // are needed later to see if we have diverged from the curve
   SegmentLine* lineOlder = 0;
   SegmentLine* line;
-  Q3ValueList<QPoint> removedPoints;
+  QList<QPoint> removedPoints;
   for (line = m_lines.first(); line; line = m_lines.next())
   {
     if (lineOlder != 0)
@@ -171,10 +171,10 @@ bool Segment::pointIsCloseToLine(double xLeft, double yLeft, double xInt, double
     (yInt - yProj) * (yInt - yProj) < 0.5 * 0.5);
 }
 
-bool Segment::pointsAreCloseToLine(double xLeft, double yLeft, Q3ValueList<QPoint> removedPoints,
+bool Segment::pointsAreCloseToLine(double xLeft, double yLeft, QList<QPoint> removedPoints,
   double xRight, double yRight)
 {
-  Q3ValueList<QPoint>::iterator itr;
+  QList<QPoint>::iterator itr;
   for (itr = removedPoints.begin(); itr != removedPoints.end(); ++itr)
     if (!pointIsCloseToLine(xLeft, yLeft, (double) (*itr).x(), (double) (*itr).y(), xRight, yRight))
       return false;
@@ -182,7 +182,7 @@ bool Segment::pointsAreCloseToLine(double xLeft, double yLeft, Q3ValueList<QPoin
   return true;
 }
 
-void Segment::showSegment(bool toggle, SegmentSettings seg, Q3ValueList<QRect>* updateRectList)
+void Segment::showSegment(bool toggle, SegmentSettings seg, QList<QRect>* updateRectList)
 {
   SegmentLine* line;
   for (line = m_lines.first(); line; line = m_lines.next())
@@ -216,7 +216,7 @@ Q3CanvasItemList Segment::lines()
   return list;
 }
 
-Q3ValueList<QPoint> Segment::fillPoints(SegmentSettings seg)
+QList<QPoint> Segment::fillPoints(SegmentSettings seg)
 {
   if (seg.fillCorners)
     return fillPointsFillingCorners(seg);
@@ -224,9 +224,9 @@ Q3ValueList<QPoint> Segment::fillPoints(SegmentSettings seg)
     return fillPointsWithoutFillingCorners(seg);
 }
 
-Q3ValueList<QPoint> Segment::fillPointsFillingCorners(SegmentSettings seg)
+QList<QPoint> Segment::fillPointsFillingCorners(SegmentSettings seg)
 {
-  Q3ValueList<QPoint> list;
+  QList<QPoint> list;
           
   ASSERT_ENGAUGE(m_lines.first() != 0);
   if (m_lines.count() > 0)
@@ -279,9 +279,9 @@ Q3ValueList<QPoint> Segment::fillPointsFillingCorners(SegmentSettings seg)
   return list;
 }
 
-Q3ValueList<QPoint> Segment::fillPointsWithoutFillingCorners(SegmentSettings seg)
+QList<QPoint> Segment::fillPointsWithoutFillingCorners(SegmentSettings seg)
 {
-  Q3ValueList<QPoint> list;
+  QList<QPoint> list;
 
   ASSERT_ENGAUGE(m_lines.first() != 0);
   if (m_lines.count() > 0)
