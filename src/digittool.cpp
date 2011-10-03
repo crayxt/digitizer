@@ -72,6 +72,8 @@
  *                                                                         *
  ***************************************************************************/
 
+#include <stdio.h>
+
 #include <qobject.h>
 #include <qmessagebox.h>
 #include <qapplication.h>
@@ -89,6 +91,7 @@
 #include "segment.h"
 #include "digitdebug.h"
 #include "main.h"
+
 
 // define the tool list before its members
 Q3PtrList<DigitTool> DigitTool::toolList;
