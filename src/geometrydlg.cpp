@@ -52,7 +52,6 @@
 #include <qapplication.h>
 #include <q3dragobject.h>
 #include <qclipboard.h>
-#include <q3accel.h>
 //Added by qt3to4:
 #include <QResizeEvent>
 #include <Q3GridLayout>
