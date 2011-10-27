@@ -3,7 +3,7 @@
                              -------------------
     begin                : Tue Oct 29 14:43:44 PST 2002
     copyright            : (C) 2002 by
-    email                : mmdigitizer@earthlink.net
+    email                : markmitch@users.sourceforge.net
     $Log: digitmain.cpp,v $
     Revision 1.15  2008/05/04 16:14:41  tsrsf
     update to reflect lastest Debian package
@@ -3141,12 +3141,12 @@ void DigitMain::slotHelpAbout()
   QMessageBox::about(this, tr("About Engauge Digitizer"), QString("%1%2%3")
     .arg(tr("Engauge Digitizer\nVersion "))
     .arg(VersionNumber)
-    .arg(tr("\n(c) 2002 by Mark Mitchell\n"
+    .arg(tr("\n(c) 2002 by Tobias Winchen, Tobias Richter, Mark Mitchell\n"
     "Engauge Digitizer comes with ABSOLUTELY NO WARRANTY.\n\n"
     "This is free software, and you are welcome to redistribute it under\n"
     "certain conditions according to the GNU General Public License Version 2;\n"
     "read the included LICENSE file for details.\n\n"
-    "Author\nContact: mmdigitizer@earthlink.net\n"
+    "Author\nContact: markmitch@users.sourceforge.net\n"
     "(All messages are welcome, and your privacy will be respected)\n\n"
     "Engauge Digitizer\n"
     "Home Page: http://digitizer.sourceforge.net\n"

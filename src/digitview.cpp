@@ -87,10 +87,15 @@
 DigitView::DigitView(DigitDoc* doc, QWidget* parent, const char* name, Qt::WindowFlags wFlags) :
  Q3CanvasView(doc->canvas(), parent, name, wFlags),
  m_doc(doc),
+ m_rubberBandRect(QRubberBand::Rectangle, this),
+ m_rubberBandLine(QRubberBand::Line, this),
  m_zoom(100)
 {
   DigitDebug::ctor(QString("digitview ") + QString::number((ulong) this, 16));
-  
+
+  m_rubberBandRect.hide();
+  m_rubberBandLine.hide();
+
   QPixmap bannerIcon(bannerview_xpm);
   setIcon(bannerIcon);
   
@@ -117,10 +122,13 @@ DigitView::~DigitView()
 
 void DigitView::drawRubberBandRectangle(QPoint corner1, QPoint corner2)
 {
-  QPainter p(viewport());
+  // Next line gives error 'QPainter::begin: Widget painting can only begin as a result of a paintEvent'
+  //  QPainter p(viewport());
 
-  p.setPen(QColor(255, 255, 255));
-  p.setPen(Qt::DotLine);
+  // Next two lines give error 'QPainter::setPen: Painter not active'
+  //  p.setPen(QColor(255, 255, 255));
+  //  p.setPen(Qt::DotLine);
+
   //p.setRasterOp(NotROP);  
 
   if (m_zoom != 100)
@@ -132,18 +140,24 @@ void DigitView::drawRubberBandRectangle(QPoint corner1, QPoint corner2)
   // once a scroll movement has occurred the transformation from contents to viewport
   // is no longer the identity matrix. To satisfy the general case, perform the
   // transformation
-  QPoint c1V = contentsToViewport(corner1);
-  QPoint c2V = contentsToViewport(corner2);
+  //  QPoint c1V = contentsToViewport(corner1);
+  //  QPoint c2V = contentsToViewport(corner2);
 
-  p.drawRect(QRect(c1V, c2V));
+  m_rubberBandRect.setGeometry (QRect (corner1, corner2).normalized ());
+  m_rubberBandRect.show ();
+
+  // Next line gives error 'QPainter::drawRects: Painter not active'
+  //  p.drawRect(QRect(c1V, c2V));
 }
 
 void DigitView::drawRubberBandLine(QPoint corner1, QPoint corner2)
 {
+  // Next line gives error 'QPainter::begin: Widget painting can only begin as a result of a paintEvent'
   QPainter p(viewport());
 
-  p.setPen(QColor(255, 255, 255));
-  p.setPen(Qt::DotLine);
+  // Next two lines give error 'QPainter::setPen: Painter not active'
+  //  p.setPen(QColor(255, 255, 255));
+  //  p.setPen(Qt::DotLine);
   //p.setRasterOp(NotROP);
 
   if (m_zoom != 100)
@@ -155,10 +169,14 @@ void DigitView::drawRubberBandLine(QPoint corner1, QPoint corner2)
   // once a scroll movement has occurred the transformation from contents to viewport
   // is no longer the identity matrix. To satisfy the general case, perform the
   // transformation
-  QPoint c1V = contentsToViewport(corner1);
-  QPoint c2V = contentsToViewport(corner2);
+  //  QPoint c1V = contentsToViewport(corner1);
+  //  QPoint c2V = contentsToViewport(corner2);
 
-  p.drawLine(c1V, c2V);
+  m_rubberBandLine.setGeometry (QRect (corner1, corner2).normalized ());
+  m_rubberBandLine.show ();
+
+  // Next line gives error 'QPainter::drawLine: Painter not active'
+  //  p.drawLine(c1V, c2V);
 }
 
 void DigitView::showAreaSelectMove(QPoint cursorDown, QPoint cursorLast, QPoint cursorNext)
@@ -171,7 +189,7 @@ void DigitView::showAreaSelectMove(QPoint cursorDown, QPoint cursorLast, QPoint 
 void DigitView::showAreaSelectEnd(QPoint cursorDown, QPoint cursorLast)
 {
   if (cursorDown != cursorLast) // remove previous selection rectangle
-    drawRubberBandRectangle(cursorDown, cursorLast);
+    m_rubberBandRect.hide ();
 }
 
 void DigitView::showScaleBarMove(QPoint cursorDown, QPoint cursorLast, QPoint cursorNext)
@@ -184,7 +202,7 @@ void DigitView::showScaleBarMove(QPoint cursorDown, QPoint cursorLast, QPoint cu
 void DigitView::showScaleBarEnd(QPoint cursorDown, QPoint cursorLast)
 {
   if (cursorDown != cursorLast) // remove previous selection line segment
-    drawRubberBandLine(cursorDown, cursorLast);
+    m_rubberBandLine.hide ();
 }
 
 void DigitView::update(DigitView* sender, QRect boundingRect)

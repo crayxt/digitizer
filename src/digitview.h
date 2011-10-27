@@ -55,6 +55,7 @@
 #include <QMouseEvent>
 #include <QKeyEvent>
 #include <QCloseEvent>
+#include <QRubberBand>
 
 #include "digitdef.h"
 
@@ -136,9 +137,12 @@ class DigitView : public Q3CanvasView
     
     // draw rubber band rectangle (around selection area) or line segment (to show future scale bar),
     // described by two points. the rubber band appears as a set of inverted pixels. external
-    // code is responsible for calling this an even number of times
+    // code is responsible for calling this an even number of times. the rectangle and line
+    // are hidden until needed, at which point the coordinates are set and they are made visible
     void drawRubberBandRectangle(QPoint corner1, QPoint corner2);
     void drawRubberBandLine(QPoint start, QPoint end);
+    QRubberBand m_rubberBandRect;
+    QRubberBand m_rubberBandLine;
 
     // items selected in this view
     Q3PtrList<Q3CanvasItem> m_selectedItems;

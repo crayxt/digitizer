@@ -1002,11 +1002,13 @@ QPixmap PointSet::thumbnail()
   p.setPointSet(this);
 
   QPixmap pm(12, 12);
+
+  // remove pixmap background so background of requesting widget will appear. this must be
+  // done before the QPainter starts painting
+  pm.setMask(pm.createHeuristicMask());
+
   QPainter painter(&pm);
   c.drawArea(c.rect(), &painter);
-
-  // remove pixmap background so background of requesting widget will appear
-  pm.setMask(pm.createHeuristicMask());
 
   return pm;
 }
