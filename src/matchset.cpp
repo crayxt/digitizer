@@ -3,50 +3,7 @@
                              -------------------
     begin                : Mon Jan 12 2004
     copyright            : (C) 2004 by 
-    email                : mmdigitizer@earthlink.net
-    $Log: matchset.cpp,v $
-    Revision 1.7  2006/12/26 09:03:09  markmitch
-    Control click and drag in select mode
-
-    Revision 1.6  2006/12/20 08:20:26  markmitch
-    Rework of point matching to handle skipping
-
-    Revision 1.5  2006/10/08 06:41:49  markmitch
-    NO_UNDO branch moved to HEAD
-
-    Revision 1.3  2005/03/20 01:47:05  markmitch
-    After KDevelop 3 restructuring
-
-    Revision 1.11  2004/09/27 04:52:26  markmitch
-    KDevelop does not allow renaming source directory to src
-
-    Revision 1.9  2004/09/12 22:29:21  markmitch
-    Settings archival complete. Qt2-compatibility code removed
-
-    Revision 1.8  2004/09/11 05:59:18  markmitch
-    First phase of settings archival
-
-    Revision 1.7  2004/01/20 03:46:33  markmitch
-    Empty match list
-
-    Revision 1.6  2004/01/19 18:06:38  markmitch
-    White space at end of file
-
-    Revision 1.5  2004/01/19 17:56:32  markmitch
-    Combobox focus. Point match style. Empty accepted list
-
-    Revision 1.4  2004/01/15 08:24:48  markmitch
-    Delete keypress. Documentation
-
-    Revision 1.3  2004/01/14 06:54:38  markmitch
-    Point match works well and has documentation
-
-    Revision 1.2  2004/01/13 18:53:33  markmitch
-    Point match works but needs bells and whistles
-
-    Revision 1.1  2004/01/13 17:54:06  markmitch
-    Testing point match
-
+    email                : mmdigitizer@gmail.com
 
  ***************************************************************************/
 

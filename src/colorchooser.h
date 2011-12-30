@@ -3,35 +3,7 @@
                              -------------------
     begin                : Fri Dec 26 2003
     copyright            : (C) 2003 by 
-    email                : mmdigitizer@earthlink.net
-    $Log: colorchooser.h,v $
-    Revision 1.3  2005/03/20 01:47:05  markmitch
-    After KDevelop 3 restructuring
-
-    Revision 1.9  2004/09/27 04:52:26  markmitch
-    KDevelop does not allow renaming source directory to src
-
-    Revision 1.7  2004/09/12 22:29:20  markmitch
-    Settings archival complete. Qt2-compatibility code removed
-
-    Revision 1.6  2004/01/08 06:48:35  markmitch
-    Reworked menu icons look great
-
-    Revision 1.5  2004/01/01 22:15:04  markmitch
-    Delete key deletes. No no-op Cancel buttons. No crash from Divider click
-
-    Revision 1.4  2004/01/01 03:52:40  markmitch
-    Document stores QImage for speed
-
-    Revision 1.3  2003/12/30 09:14:32  markmitch
-    Color chooser has two formats and can be disabled
-
-    Revision 1.2  2003/12/29 20:51:50  markmitch
-    All discretize modes work
-
-    Revision 1.1  2003/12/29 06:56:22  markmitch
-    Cvs log cleanup. Color chooser
-
+    email                : mmdigitizer@gmail.com
 
  ***************************************************************************/
 

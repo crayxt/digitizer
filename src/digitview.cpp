@@ -3,56 +3,7 @@
                              -------------------
     begin                : Tue Oct 29 14:43:44 PST 2002
     copyright            : (C) 2002 by 
-    email                : mmdigitizer@earthlink.net
-    $Log: digitview.cpp,v $
-    Revision 1.4  2006/12/26 09:03:09  markmitch
-    Control click and drag in select mode
-
-    Revision 1.3  2005/03/20 01:47:05  markmitch
-    After KDevelop 3 restructuring
-
-    Revision 1.38  2004/09/27 04:52:26  markmitch
-    KDevelop does not allow renaming source directory to src
-
-    Revision 1.36  2004/09/12 22:29:21  markmitch
-    Settings archival complete. Qt2-compatibility code removed
-
-    Revision 1.35  2004/09/11 05:59:17  markmitch
-    First phase of settings archival
-
-    Revision 1.34  2004/09/09 05:33:45  markmitch
-    Invoker in work. Windows upgrade to 3.3.3
-
-    Revision 1.33  2004/03/21 09:00:32  markmitch
-    Tiling comment
-
-    Revision 1.32  2004/03/05 23:02:55  markmitch
-    Refresh all of zoomed windows
-
-    Revision 1.31  2004/02/04 06:25:42  markmitch
-    Banner icons
-
-    Revision 1.30  2004/01/19 17:56:32  markmitch
-    Combobox focus. Point match style. Empty accepted list
-
-    Revision 1.29  2004/01/15 08:24:48  markmitch
-    Delete keypress. Documentation
-
-    Revision 1.28  2004/01/14 06:54:38  markmitch
-    Point match works well and has documentation
-
-    Revision 1.27  2004/01/13 18:53:33  markmitch
-    Point match works but needs bells and whistles
-
-    Revision 1.26  2004/01/08 06:48:35  markmitch
-    Reworked menu icons look great
-
-    Revision 1.25  2004/01/06 08:14:39  markmitch
-    Point match mode highlights sample point
-
-    Revision 1.24  2003/12/29 06:55:10  markmitch
-    Cvs log cleanup. Color chooser
-
+    email                : mmdigitizer@gmail.com
 
  ***************************************************************************/
 

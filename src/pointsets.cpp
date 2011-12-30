@@ -3,47 +3,7 @@
                              -------------------
     begin                : Sat Nov 9 2002
     copyright            : (C) 2002 by 
-    email                : mmdigitizer@earthlink.net
-    $Log: pointsets.cpp,v $
-    Revision 1.8  2006/10/08 06:41:50  markmitch
-    NO_UNDO branch moved to HEAD
-
-    Revision 1.3.2.1  2006/06/09 05:51:44  markmitch
-    Fix serialize for 64 bits
-
-    Revision 1.3  2005/03/20 01:47:06  markmitch
-    After KDevelop 3 restructuring
-
-    Revision 1.22  2004/11/19 05:27:35  markmitch
-    Prevent Microsoft compiler warnings
-
-    Revision 1.21  2004/11/18 05:40:46  markmitch
-    Adjust precision of exported results to show significant digits
-
-    Revision 1.20  2004/11/17 08:36:32  markmitch
-    Missing export layout buttons were unearthed
-
-    Revision 1.19  2004/10/07 07:55:48  markmitch
-    Thumbnails and tooltips in comboboxes
-
-    Revision 1.18  2004/09/27 04:52:26  markmitch
-    KDevelop does not allow renaming source directory to src
-
-    Revision 1.16  2004/09/13 08:32:32  markmitch
-    Table-based geometry windows
-
-    Revision 1.15  2004/09/12 22:29:21  markmitch
-    Settings archival complete. Qt2-compatibility code removed
-
-    Revision 1.14  2004/09/11 05:59:18  markmitch
-    First phase of settings archival
-
-    Revision 1.13  2004/01/13 17:54:06  markmitch
-    Testing point match
-
-    Revision 1.12  2003/12/29 06:55:10  markmitch
-    Cvs log cleanup. Color chooser
-
+    email                : mmdigitizer@gmail.com
 
  ***************************************************************************/
 

@@ -3,44 +3,7 @@
                              -------------------
     begin                : Wed Nov 20 2002
     copyright            : (C) 2002 by Mark Mitchell
-    email                : mmdigitizer@earthlink.net
-    $Log: segment.cpp,v $
-    Revision 1.5  2006/10/08 06:41:50  markmitch
-    NO_UNDO branch moved to HEAD
-
-    Revision 1.3  2005/03/20 01:47:07  markmitch
-    After KDevelop 3 restructuring
-
-    Revision 1.26  2004/11/20 18:01:05  markmitch
-    Valgrind caught uninitialized variables
-
-    Revision 1.25  2004/10/18 17:23:37  markmitch
-    Remove unimportant Solaris compiler warning
-
-    Revision 1.24  2004/10/15 09:18:01  markmitch
-    Segment settings preview reworked
-
-    Revision 1.23  2004/10/15 03:30:36  markmitch
-    Fill corners option in segment fill
-
-    Revision 1.22  2004/10/14 07:27:50  markmitch
-    Segment fill fix
-
-    Revision 1.21  2004/10/14 06:48:08  markmitch
-    Fix segment fill through corners
-
-    Revision 1.20  2004/09/27 04:52:26  markmitch
-    KDevelop does not allow renaming source directory to src
-
-    Revision 1.18  2004/09/12 22:29:21  markmitch
-    Settings archival complete. Qt2-compatibility code removed
-
-    Revision 1.17  2004/09/11 05:59:18  markmitch
-    First phase of settings archival
-
-    Revision 1.16  2003/12/29 06:55:10  markmitch
-    Cvs log cleanup. Color chooser
-
+    email                : mmdigitizer@gmail.com
 
  ***************************************************************************/
 

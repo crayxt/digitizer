@@ -3,29 +3,7 @@
                              -------------------
     begin                : Wed Oct 30 2002
     copyright            : (C) 2002 by 
-    email                : mmdigitizer@earthlink.net
-    $Log: point.cpp,v $
-    Revision 1.3  2005/03/20 01:47:06  markmitch
-    After KDevelop 3 restructuring
-
-    Revision 1.17  2004/11/18 05:40:46  markmitch
-    Adjust precision of exported results to show significant digits
-
-    Revision 1.16  2004/09/27 04:52:26  markmitch
-    KDevelop does not allow renaming source directory to src
-
-    Revision 1.14  2004/09/12 22:29:21  markmitch
-    Settings archival complete. Qt2-compatibility code removed
-
-    Revision 1.13  2004/09/11 05:59:18  markmitch
-    First phase of settings archival
-
-    Revision 1.12  2004/01/06 08:14:39  markmitch
-    Point match mode highlights sample point
-
-    Revision 1.11  2003/12/29 06:55:10  markmitch
-    Cvs log cleanup. Color chooser
-
+    email                : mmdigitizer@gmail.com
 
  ***************************************************************************/
 

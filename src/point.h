@@ -3,26 +3,7 @@
                              -------------------
     begin                : Wed Oct 30 2002
     copyright            : (C) 2002 by 
-    email                : mmdigitizer@earthlink.net
-    $Log: point.h,v $
-    Revision 1.3  2005/03/20 01:47:06  markmitch
-    After KDevelop 3 restructuring
-
-    Revision 1.16  2005/03/12 04:03:54  markmitch
-    Mandrake 10.1 gcc bug
-
-    Revision 1.15  2004/09/27 04:52:26  markmitch
-    KDevelop does not allow renaming source directory to src
-
-    Revision 1.13  2004/09/12 22:29:21  markmitch
-    Settings archival complete. Qt2-compatibility code removed
-
-    Revision 1.12  2004/01/13 17:54:06  markmitch
-    Testing point match
-
-    Revision 1.11  2003/12/29 06:55:10  markmitch
-    Cvs log cleanup. Color chooser
-
+    email                : mmdigitizer@gmail.com
 
  ***************************************************************************/
 

@@ -3,26 +3,7 @@
                              -------------------
     begin                : Mon Jan 12 2004
     copyright            : (C) 2004 by 
-    email                : mmdigitizer@earthlink.net
-    $Log: match.cpp,v $
-    Revision 1.4  2006/12/20 08:20:25  markmitch
-    Rework of point matching to handle skipping
-
-    Revision 1.3  2005/03/20 01:47:05  markmitch
-    After KDevelop 3 restructuring
-
-    Revision 1.5  2004/09/27 04:52:26  markmitch
-    KDevelop does not allow renaming source directory to src
-
-    Revision 1.3  2004/09/12 22:29:21  markmitch
-    Settings archival complete. Qt2-compatibility code removed
-
-    Revision 1.2  2004/09/11 05:59:18  markmitch
-    First phase of settings archival
-
-    Revision 1.1  2004/01/13 17:54:06  markmitch
-    Testing point match
-
+    email                : mmdigitizer@gmail.com
 
  ***************************************************************************/
 

@@ -3,35 +3,7 @@
                              -------------------
     begin                : Thu Jan 1 2004
     copyright            : (C) 2004 by 
-    email                : mmdigitizer@earthlink.net
-    $Log: pointmatchdlg.h,v $
-    Revision 1.6  2006/12/20 08:20:26  markmitch
-    Rework of point matching to handle skipping
-
-    Revision 1.5  2006/10/08 06:41:50  markmitch
-    NO_UNDO branch moved to HEAD
-
-    Revision 1.3  2005/03/20 01:47:06  markmitch
-    After KDevelop 3 restructuring
-
-    Revision 1.7  2004/11/07 06:23:54  markmitch
-    Narrow buttons get chopped in OSX
-
-    Revision 1.6  2004/09/27 04:52:26  markmitch
-    KDevelop does not allow renaming source directory to src
-
-    Revision 1.4  2004/09/12 22:29:21  markmitch
-    Settings archival complete. Qt2-compatibility code removed
-
-    Revision 1.3  2004/01/07 07:48:07  markmitch
-    Implementing point match
-
-    Revision 1.2  2004/01/06 08:14:39  markmitch
-    Point match mode highlights sample point
-
-    Revision 1.1  2004/01/04 08:41:00  markmitch
-    Dialog for point match settings
-
+    email                : mmdigitizer@gmail.com
 
  ***************************************************************************/
 

@@ -3,44 +3,7 @@
                              -------------------
     begin                : Wed Oct 30 2002
     copyright            : (C) 2002 by 
-    email                : mmdigitizer@earthlink.net
-    $Log: pointset.h,v $
-    Revision 1.7  2006/10/08 06:41:50  markmitch
-    NO_UNDO branch moved to HEAD
-
-    Revision 1.3  2005/03/20 01:47:06  markmitch
-    After KDevelop 3 restructuring
-
-    Revision 1.15  2004/11/18 05:40:46  markmitch
-    Adjust precision of exported results to show significant digits
-
-    Revision 1.14  2004/11/17 08:36:32  markmitch
-    Missing export layout buttons were unearthed
-
-    Revision 1.13  2004/11/16 07:59:24  markmitch
-    Fix export of x axis log scale
-
-    Revision 1.12  2004/10/07 07:55:48  markmitch
-    Thumbnails and tooltips in comboboxes
-
-    Revision 1.11  2004/09/27 04:52:26  markmitch
-    KDevelop does not allow renaming source directory to src
-
-    Revision 1.9  2004/09/13 08:32:32  markmitch
-    Table-based geometry windows
-
-    Revision 1.8  2004/09/12 22:29:21  markmitch
-    Settings archival complete. Qt2-compatibility code removed
-
-    Revision 1.7  2004/08/11 04:51:23  markmitch
-    Fix log scale on horizontal axis
-
-    Revision 1.6  2004/01/13 17:54:06  markmitch
-    Testing point match
-
-    Revision 1.5  2003/12/29 06:55:10  markmitch
-    Cvs log cleanup. Color chooser
-
+    email                : mmdigitizer@gmail.com
 
  ***************************************************************************/
 

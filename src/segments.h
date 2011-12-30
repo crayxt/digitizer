@@ -3,29 +3,7 @@
                              -------------------
     begin                : Wed Nov 20 2002
     copyright            : (C) 2002 by Mark Mitchell
-    email                : mmdigitizer@earthlink.net
-    $Log: segments.h,v $
-    Revision 1.5  2006/10/08 06:41:50  markmitch
-    NO_UNDO branch moved to HEAD
-
-    Revision 1.3  2005/03/20 01:47:07  markmitch
-    After KDevelop 3 restructuring
-
-    Revision 1.17  2004/10/15 09:18:01  markmitch
-    Segment settings preview reworked
-
-    Revision 1.16  2004/09/27 04:52:26  markmitch
-    KDevelop does not allow renaming source directory to src
-
-    Revision 1.14  2004/09/12 22:29:21  markmitch
-    Settings archival complete. Qt2-compatibility code removed
-
-    Revision 1.13  2004/01/17 04:05:11  markmitch
-    Segment Fill fix for Windows
-
-    Revision 1.12  2003/12/29 06:55:10  markmitch
-    Cvs log cleanup. Color chooser
-
+    email                : mmdigitizer@gmail.com
 
  ***************************************************************************/
 

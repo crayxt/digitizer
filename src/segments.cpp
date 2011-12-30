@@ -3,44 +3,7 @@
                              -------------------
     begin                : Wed Nov 20 2002
     copyright            : (C) 2002 by Mark Mitchell
-    email                : mmdigitizer@earthlink.net
-    $Log: segments.cpp,v $
-    Revision 1.5  2006/10/08 06:41:50  markmitch
-    NO_UNDO branch moved to HEAD
-
-    Revision 1.3  2005/03/20 01:47:07  markmitch
-    After KDevelop 3 restructuring
-
-    Revision 1.27  2004/10/15 09:17:44  markmitch
-    Segment settings preview reworked. Default settings removed
-
-    Revision 1.26  2004/09/27 04:52:26  markmitch
-    KDevelop does not allow renaming source directory to src
-
-    Revision 1.24  2004/09/12 22:29:21  markmitch
-    Settings archival complete. Qt2-compatibility code removed
-
-    Revision 1.23  2004/09/11 05:59:18  markmitch
-    First phase of settings archival
-
-    Revision 1.22  2004/04/05 05:39:53  markmitch
-    Remove Valgrind warning messages
-
-    Revision 1.21  2004/01/25 19:06:59  markmitch
-    Version 2.1. Limited recursion. Default grid removal settings
-
-    Revision 1.20  2004/01/17 04:05:11  markmitch
-    Segment Fill fix for Windows
-
-    Revision 1.19  2004/01/08 06:48:35  markmitch
-    Reworked menu icons look great
-
-    Revision 1.18  2004/01/01 22:15:04  markmitch
-    Delete key deletes. No no-op Cancel buttons. No crash from Divider click
-
-    Revision 1.17  2003/12/29 06:55:10  markmitch
-    Cvs log cleanup. Color chooser
-
+    email                : mmdigitizer@gmail.com
 
  ***************************************************************************/
 

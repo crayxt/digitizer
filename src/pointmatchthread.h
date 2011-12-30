@@ -3,11 +3,7 @@
                              -------------------
     begin                : Mon Jan 1 2007
     copyright            : (C) 2007 by 
-    email                : mmdigitizer@earthlink.net
-    $Log: pointmatchthread.h,v $
-    Revision 1.1  2007/01/03 01:54:13  markmitch
-    Processing... dialog that required multithreading
-
+    email                : mmdigitizer@gmail.com
 
  ***************************************************************************/
 

@@ -3,32 +3,7 @@
                              -------------------
     begin                : Fri Nov 1 2002
     copyright            : (C) 2002 by
-    email                : mmdigitizer@earthlink.net
-    $Log: geometrydlg.h,v $
-    Revision 1.3  2005/03/20 01:47:05  markmitch
-    After KDevelop 3 restructuring
-
-    Revision 1.14  2004/11/09 06:47:02  markmitch
-    Prevent unnecessary grid updates
-
-    Revision 1.13  2004/09/27 04:52:26  markmitch
-    KDevelop does not allow renaming source directory to src
-
-    Revision 1.11  2004/09/16 03:13:53  markmitch
-    Document all new features. Paste works i Windows
-
-    Revision 1.10  2004/09/15 04:43:28  markmitch
-    Drag export geometry. Drag import image
-
-    Revision 1.9  2004/09/14 16:22:32  markmitch
-    Geometry window drag works
-
-    Revision 1.8  2004/09/13 08:32:32  markmitch
-    Table-based geometry windows
-
-    Revision 1.7  2003/12/29 06:55:10  markmitch
-    Cvs log cleanup. Color chooser
-
+    email                : mmdigitizer@gmail.com
 
  ***************************************************************************/
 

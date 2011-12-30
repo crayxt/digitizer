@@ -3,42 +3,7 @@
                              -------------------
     begin                : Fri Dec 5 2003
     copyright            : (C) 2003 by
-    email                : mmdigitizer@earthlink.net
-    $Log: gridremoval.cpp,v $
-    Revision 1.6  2008/05/04 16:14:41  tsrsf
-    update to reflect lastest Debian package
-    change outside /debian/ allow compiling without qt 3 compat headers
-
-    Revision 1.5  2006/10/08 06:41:49  markmitch
-    NO_UNDO branch moved to HEAD
-
-    Revision 1.3  2005/03/20 01:47:05  markmitch
-    After KDevelop 3 restructuring
-
-    Revision 1.16  2004/09/27 04:52:26  markmitch
-    KDevelop does not allow renaming source directory to src
-
-    Revision 1.14  2004/09/12 22:29:21  markmitch
-    Settings archival complete. Qt2-compatibility code removed
-
-    Revision 1.13  2004/04/05 05:39:53  markmitch
-    Remove Valgrind warning messages
-
-    Revision 1.12  2004/01/25 19:06:59  markmitch
-    Version 2.1. Limited recursion. Default grid removal settings
-
-    Revision 1.11  2004/01/20 05:48:53  markmitch
-    Instantaneous response in dialogs
-
-    Revision 1.10  2003/12/30 09:14:33  markmitch
-    Color chooser has two formats and can be disabled
-
-    Revision 1.9  2003/12/29 20:51:50  markmitch
-    All discretize modes work
-
-    Revision 1.8  2003/12/29 06:55:10  markmitch
-    Cvs log cleanup. Color chooser
-
+    email                : mmdigitizer@gmail.com
 
  ***************************************************************************/
 

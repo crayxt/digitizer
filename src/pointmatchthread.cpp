@@ -3,15 +3,7 @@
                              -------------------
     begin                : Mon Jan 1 2007
     copyright            : (C) 2007 by
-    email                : mmdigitizer@earthlink.net
-    $Log: pointmatchthread.cpp,v $
-    Revision 1.2  2008/05/04 16:14:41  tsrsf
-    update to reflect lastest Debian package
-    change outside /debian/ allow compiling without qt 3 compat headers
-
-    Revision 1.1  2007/01/03 01:54:13  markmitch
-    Processing... dialog that required multithreading
-
+    email                : mmdigitizer@gmail.com
 
  ***************************************************************************/
 

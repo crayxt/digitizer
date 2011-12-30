@@ -3,63 +3,7 @@
                              -------------------
     begin                : Tue Nov 5 2002
     copyright            : (C) 2002 by 
-    email                : mmdigitizer@earthlink.net
-    $Log: digittool.cpp,v $
-    Revision 1.12  2008/05/04 16:14:41  tsrsf
-    update to reflect lastest Debian package
-    change outside /debian/ allow compiling without qt 3 compat headers
-
-    Revision 1.11  2007/04/09 07:13:40  markmitch
-    Arrow keys move selection
-
-    Revision 1.10  2006/12/26 09:03:09  markmitch
-    Control click and drag in select mode
-
-    Revision 1.9  2006/12/20 08:20:25  markmitch
-    Rework of point matching to handle skipping
-
-    Revision 1.8  2006/10/08 06:41:49  markmitch
-    NO_UNDO branch moved to HEAD
-
-    Revision 1.4.2.1  2006/03/03 07:06:00  markmitch
-    New NO_UNDO branch. Gcc 4 changes for Ubuntu. No more invoke
-
-    Revision 1.4  2005/03/21 06:51:35  markmitch
-    Better point match comment
-
-    Revision 1.3  2005/03/20 01:47:05  markmitch
-    After KDevelop 3 restructuring
-
-    Revision 1.33  2004/09/27 04:52:26  markmitch
-    KDevelop does not allow renaming source directory to src
-
-    Revision 1.31  2004/09/12 22:29:21  markmitch
-    Settings archival complete. Qt2-compatibility code removed
-
-    Revision 1.30  2004/09/09 05:33:45  markmitch
-    Invoker in work. Windows upgrade to 3.3.3
-
-    Revision 1.29  2004/01/14 06:54:38  markmitch
-    Point match works well and has documentation
-
-    Revision 1.28  2004/01/13 18:53:33  markmitch
-    Point match works but needs bells and whistles
-
-    Revision 1.27  2004/01/13 17:54:06  markmitch
-    Testing point match
-
-    Revision 1.26  2004/01/07 07:48:07  markmitch
-    Implementing point match
-
-    Revision 1.25  2004/01/06 08:14:39  markmitch
-    Point match mode highlights sample point
-
-    Revision 1.24  2004/01/01 22:15:04  markmitch
-    Delete key deletes. No no-op Cancel buttons. No crash from Divider click
-
-    Revision 1.23  2003/12/29 06:55:10  markmitch
-    Cvs log cleanup. Color chooser
-
+    email                : mmdigitizer@gmail.com
 
  ***************************************************************************/
 

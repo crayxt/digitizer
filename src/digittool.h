@@ -3,32 +3,7 @@
                              -------------------
     begin                : Tue Nov 5 2002
     copyright            : (C) 2002 by 
-    email                : mmdigitizer@earthlink.net
-    $Log: digittool.h,v $
-    Revision 1.4  2006/12/26 09:03:09  markmitch
-    Control click and drag in select mode
-
-    Revision 1.3  2005/03/20 01:47:05  markmitch
-    After KDevelop 3 restructuring
-
-    Revision 1.17  2004/09/27 04:52:26  markmitch
-    KDevelop does not allow renaming source directory to src
-
-    Revision 1.15  2004/09/12 22:29:21  markmitch
-    Settings archival complete. Qt2-compatibility code removed
-
-    Revision 1.14  2004/01/13 18:53:33  markmitch
-    Point match works but needs bells and whistles
-
-    Revision 1.13  2004/01/06 08:14:39  markmitch
-    Point match mode highlights sample point
-
-    Revision 1.12  2004/01/01 22:15:04  markmitch
-    Delete key deletes. No no-op Cancel buttons. No crash from Divider click
-
-    Revision 1.11  2003/12/29 06:55:10  markmitch
-    Cvs log cleanup. Color chooser
-
+    email                : mmdigitizer@gmail.com
 
  ***************************************************************************/
 

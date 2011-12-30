@@ -3,38 +3,7 @@
                              -------------------
     begin                : Sun Dec 22 2003
     copyright            : (C) 2003 by 
-    email                : mmdigitizer@earthlink.net
-    $Log: discretize.h,v $
-    Revision 1.5  2006/10/08 06:41:49  markmitch
-    NO_UNDO branch moved to HEAD
-
-    Revision 1.3  2005/03/20 01:47:05  markmitch
-    After KDevelop 3 restructuring
-
-    Revision 1.11  2004/09/27 04:52:26  markmitch
-    KDevelop does not allow renaming source directory to src
-
-    Revision 1.9  2004/01/28 23:28:44  markmitch
-    Rewrite of one-bit images
-
-    Revision 1.8  2004/01/20 05:48:53  markmitch
-    Instantaneous response in dialogs
-
-    Revision 1.7  2004/01/06 08:14:39  markmitch
-    Point match mode highlights sample point
-
-    Revision 1.6  2004/01/04 08:40:59  markmitch
-    Dialog for point match settings
-
-    Revision 1.5  2003/12/30 09:14:32  markmitch
-    Color chooser has two formats and can be disabled
-
-    Revision 1.4  2003/12/29 20:51:50  markmitch
-    All discretize modes work
-
-    Revision 1.3  2003/12/29 06:55:10  markmitch
-    Cvs log cleanup. Color chooser
-
+    email                : mmdigitizer@gmail.com
 
  ***************************************************************************/
 

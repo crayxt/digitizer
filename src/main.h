@@ -3,20 +3,7 @@
                              -------------------
     begin                : Sun Nov 2 2003
     copyright            : (C) 2003 by 
-    email                : mmdigitizer@earthlink.net
-    $Log: main.h,v $
-    Revision 1.3  2005/03/20 01:47:05  markmitch
-    After KDevelop 3 restructuring
-
-    Revision 1.5  2004/11/13 04:23:38  markmitch
-    Sun Forte changes
-
-    Revision 1.4  2004/09/27 04:52:26  markmitch
-    KDevelop does not allow renaming source directory to src
-
-    Revision 1.2  2003/11/03 04:49:14  markmitch
-    Missing cvs tag
-
+    email                : mmdigitizer@gmail.com
 
  ***************************************************************************/
 

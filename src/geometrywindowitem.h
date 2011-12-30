@@ -3,20 +3,7 @@
                              -------------------
     begin                : Sun Sep 12 2004
     copyright            : (C) 2004 by 
-    email                : mmdigitizer@earthlink.net
-    $Log: geometrywindowitem.h,v $
-    Revision 1.3  2005/03/20 01:47:05  markmitch
-    After KDevelop 3 restructuring
-
-    Revision 1.4  2004/11/09 06:47:02  markmitch
-    Prevent unnecessary grid updates
-
-    Revision 1.3  2004/09/27 04:52:26  markmitch
-    KDevelop does not allow renaming source directory to src
-
-    Revision 1.1  2004/09/13 08:32:32  markmitch
-    Table-based geometry windows
-
+    email                : mmdigitizer@gmail.com
 
  ***************************************************************************/
 

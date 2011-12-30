@@ -3,26 +3,7 @@
                              -------------------
     begin                : Tue Oct 29 14:43:44 PST 2002
     copyright            : (C) 2002 by 
-    email                : mmdigitizer@earthlink.net
-    $Log: transform.h,v $
-    Revision 1.5  2006/10/08 06:41:50  markmitch
-    NO_UNDO branch moved to HEAD
-
-    Revision 1.3.2.1  2006/09/13 06:17:02  markmitch
-    Polar plot with origin offset works. Invalid axis/scale point combos prevented
-
-    Revision 1.3  2005/03/20 01:47:07  markmitch
-    After KDevelop 3 restructuring
-
-    Revision 1.14  2004/09/27 04:52:26  markmitch
-    KDevelop does not allow renaming source directory to src
-
-    Revision 1.12  2004/02/23 21:11:58  markmitch
-    Internationalization support
-
-    Revision 1.11  2003/12/29 06:55:10  markmitch
-    Cvs log cleanup. Color chooser
-
+    email                : mmdigitizer@gmail.com
 
  ***************************************************************************/
 

@@ -3,47 +3,7 @@
                              -------------------
     begin                : Thu Sep 9 2004
     copyright            : (C) 2004 by Mark Mitchell
-    email                : mmdigitizer@earthlink.net
-    $Log: defaultsettings.h,v $
-    Revision 1.5  2006/10/08 06:41:49  markmitch
-    NO_UNDO branch moved to HEAD
-
-    Revision 1.3  2005/03/20 01:47:05  markmitch
-    After KDevelop 3 restructuring
-
-    Revision 1.10  2004/10/29 03:06:13  markmitch
-    Scan for axes works up to generating axis points
-
-    Revision 1.9  2004/10/12 03:51:26  markmitch
-    Save view selections
-
-    Revision 1.8  2004/10/08 07:41:37  markmitch
-    Glossary. Sessions settings
-
-    Revision 1.7  2004/10/07 07:55:47  markmitch
-    Thumbnails and tooltips in comboboxes
-
-    Revision 1.6  2004/09/27 04:52:26  markmitch
-    KDevelop does not allow renaming source directory to src
-
-    Revision 1.4  2004/09/26 08:42:10  markmitch
-    Most recently used document list
-
-    Revision 1.3  2004/09/22 06:42:00  markmitch
-    Settings can be saved in text file in Windows
-
-    Revision 1.2  2004/09/13 08:32:31  markmitch
-    Table-based geometry windows
-
-    Revision 1.1  2004/09/12 22:29:20  markmitch
-    Settings archival complete. Qt2-compatibility code removed
-
-    Revision 1.2  2004/09/12 04:52:14  markmitch
-    Most settings are saved. Command line usage in Windows
-
-    Revision 1.1  2004/09/11 05:59:18  markmitch
-    First phase of settings archival
-
+    email                : mmdigitizer@gmail.com
 
  ***************************************************************************/
 

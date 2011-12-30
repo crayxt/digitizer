@@ -3,53 +3,7 @@
                              -------------------
     begin                : Sat Nov 2 2002
     copyright            : (C) 2002 by
-    email                : mmdigitizer@earthlink.net
-    $Log: mmsubs.cpp,v $
-    Revision 1.4  2006/10/08 06:41:49  markmitch
-    NO_UNDO branch moved to HEAD
-
-    Revision 1.3.4.2  2006/09/13 06:17:02  markmitch
-    Polar plot with origin offset works. Invalid axis/scale point combos prevented
-
-    Revision 1.3.4.1  2006/09/08 07:03:36  markmitch
-    Nonzero origin radius. Bugs: Not serialized, maybe nonzero+log issue
-
-    Revision 1.3  2005/03/20 01:47:06  markmitch
-    After KDevelop 3 restructuring
-
-    Revision 1.27  2004/11/23 05:14:16  markmitch
-    Color values are unsigned
-
-    Revision 1.26  2004/11/20 18:35:29  markmitch
-    Valgrind recommends brackets with delete
-
-    Revision 1.25  2004/11/11 06:22:18  markmitch
-    Pathological case on Mac computer
-
-    Revision 1.24  2004/11/09 06:45:42  markmitch
-    Thread safety and debugging in polygon area
-
-    Revision 1.23  2004/11/07 06:02:14  markmitch
-    Crash in OSX if memcpy length is negative
-
-    Revision 1.22  2004/09/27 04:52:26  markmitch
-    KDevelop does not allow renaming source directory to src
-
-    Revision 1.20  2004/04/22 04:57:45  markmitch
-    Robust log calls
-
-    Revision 1.19  2004/04/01 02:00:12  markmitch
-    Negative coordinate crashes Windows 98 dll
-
-    Revision 1.18  2004/01/29 07:03:42  markmitch
-    Single and eight bit images
-
-    Revision 1.17  2004/01/28 23:28:44  markmitch
-    Rewrite of one-bit images
-
-    Revision 1.16  2003/12/29 06:55:10  markmitch
-    Cvs log cleanup. Color chooser
-
+    email                : mmdigitizer@gmail.com
 
  ***************************************************************************/
 

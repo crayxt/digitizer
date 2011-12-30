@@ -3,11 +3,7 @@
                              -------------------
     begin                : Jan 5 2005
     copyright            : (C) 2005 by Mark Mitchell
-    email                : mmdigitizer@earthlink.net
-    $Log: transpose.cpp,v $
-    Revision 1.2  2006/10/25 03:35:15  markmitch
-    Documented license info
-
+    email                : mmdigitizer@gmail.com
 
  ***************************************************************************/
 
@@ -21,6 +17,7 @@
  ***************************************************************************/
 
 #include <stdio.h>
+#include <stdlib.h>
 
 #include <qstring.h>
 #include <qstringlist.h>

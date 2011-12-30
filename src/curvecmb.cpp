@@ -3,32 +3,7 @@
                              -------------------
     begin                : Thu Oct 31 2002
     copyright            : (C) 2002 by 
-    email                : mmdigitizer@earthlink.net
-    $Log: curvecmb.cpp,v $
-    Revision 1.4  2006/12/26 07:22:38  markmitch
-    Select from default only when there is no selection
-
-    Revision 1.3  2005/03/20 01:47:05  markmitch
-    After KDevelop 3 restructuring
-
-    Revision 1.11  2004/10/07 07:55:47  markmitch
-    Thumbnails and tooltips in comboboxes
-
-    Revision 1.10  2004/10/05 04:00:48  markmitch
-    Combobox color reflects digitize state
-
-    Revision 1.9  2004/09/30 05:57:57  markmitch
-    Fix file save on close. Better context sensitive help
-
-    Revision 1.8  2004/09/27 04:52:26  markmitch
-    KDevelop does not allow renaming source directory to src
-
-    Revision 1.6  2004/09/12 22:29:20  markmitch
-    Settings archival complete. Qt2-compatibility code removed
-
-    Revision 1.5  2003/12/29 06:55:10  markmitch
-    Cvs log cleanup. Color chooser
-
+    email                : mmdigitizer@gmail.com
 
  ***************************************************************************/
 

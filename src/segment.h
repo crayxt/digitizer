@@ -3,26 +3,7 @@
                              -------------------
     begin                : Wed Nov 20 2002
     copyright            : (C) 2002 by Mark Mitchell
-    email                : mmdigitizer@earthlink.net
-    $Log: segment.h,v $
-    Revision 1.5  2006/10/08 06:41:50  markmitch
-    NO_UNDO branch moved to HEAD
-
-    Revision 1.3  2005/03/20 01:47:07  markmitch
-    After KDevelop 3 restructuring
-
-    Revision 1.13  2004/10/15 03:30:36  markmitch
-    Fill corners option in segment fill
-
-    Revision 1.12  2004/09/27 04:52:26  markmitch
-    KDevelop does not allow renaming source directory to src
-
-    Revision 1.10  2004/09/12 22:29:21  markmitch
-    Settings archival complete. Qt2-compatibility code removed
-
-    Revision 1.9  2003/12/29 06:55:10  markmitch
-    Cvs log cleanup. Color chooser
-
+    email                : mmdigitizer@gmail.com
 
  ***************************************************************************/
 

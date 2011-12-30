@@ -3,38 +3,7 @@
                              -------------------
     begin                : Fri Nov 1 2002
     copyright            : (C) 2002 by
-    email                : mmdigitizer@earthlink.net
-    $Log: geometrydlg.cpp,v $
-    Revision 1.3  2005/03/20 01:47:05  markmitch
-    After KDevelop 3 restructuring
-
-    Revision 1.22  2005/03/13 01:24:27  markmitch
-    No more dropped rows or columns. Gnumeric export works
-
-    Revision 1.21  2005/03/12 23:09:42  markmitch
-    Mime subtype is plain
-
-    Revision 1.20  2004/11/09 06:47:02  markmitch
-    Prevent unnecessary grid updates
-
-    Revision 1.19  2004/09/27 04:52:26  markmitch
-    KDevelop does not allow renaming source directory to src
-
-    Revision 1.17  2004/09/15 04:43:28  markmitch
-    Drag export geometry. Drag import image
-
-    Revision 1.16  2004/09/14 16:22:32  markmitch
-    Geometry window drag works
-
-    Revision 1.15  2004/09/13 08:32:32  markmitch
-    Table-based geometry windows
-
-    Revision 1.14  2004/09/12 22:29:21  markmitch
-    Settings archival complete. Qt2-compatibility code removed
-
-    Revision 1.13  2003/12/29 06:55:10  markmitch
-    Cvs log cleanup. Color chooser
-
+    email                : mmdigitizer@gmail.com
 
  ***************************************************************************/
 

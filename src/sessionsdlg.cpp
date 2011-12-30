@@ -3,29 +3,7 @@
                              -------------------
     begin                : Thu Oct 7 2004
     copyright            : (C) 2004 by
-    email                : mmdigitizer@earthlink.net
-    $Log: sessionsdlg.cpp,v $
-    Revision 1.3  2006/10/08 06:41:50  markmitch
-    NO_UNDO branch moved to HEAD
-
-    Revision 1.1  2005/03/20 01:47:07  markmitch
-    After KDevelop 3 restructuring
-
-    Revision 1.5  2004/11/07 06:23:54  markmitch
-    Narrow buttons get chopped in OSX
-
-    Revision 1.4  2004/10/25 23:55:15  markmitch
-    Export command line option. Select initial state
-
-    Revision 1.3  2004/10/13 02:28:23  markmitch
-    Toolbars and statusbars were staying visible
-
-    Revision 1.2  2004/10/12 03:51:26  markmitch
-    Save view selections
-
-    Revision 1.1  2004/10/08 07:41:37  markmitch
-    Glossary. Sessions settings
-
+    email                : mmdigitizer@gmail.com
 
  ***************************************************************************/
 

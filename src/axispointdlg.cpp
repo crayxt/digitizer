@@ -3,26 +3,7 @@
                              -------------------
     begin                : Fri Nov 1 2002
     copyright            : (C) 2002 by 
-    email                : mmdigitizer@earthlink.net
-    $Log: axispointdlg.cpp,v $
-    Revision 1.3  2005/03/20 01:47:05  markmitch
-    After KDevelop 3 restructuring
-
-    Revision 1.19  2004/09/27 07:14:54  markmitch
-    Fix punctuation in critical messages
-
-    Revision 1.18  2004/09/27 04:52:26  markmitch
-    KDevelop does not allow renaming source directory to src
-
-    Revision 1.16  2004/09/12 22:29:20  markmitch
-    Settings archival complete. Qt2-compatibility code removed
-
-    Revision 1.15  2004/09/11 05:59:17  markmitch
-    First phase of settings archival
-
-    Revision 1.14  2003/12/29 06:55:10  markmitch
-    Cvs log cleanup. Color chooser
-
+    email                : mmdigitizer@gmail.com
 
  ***************************************************************************/
 

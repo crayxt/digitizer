@@ -3,20 +3,7 @@
                              -------------------
     begin                : Sun Nov 7 2004
     copyright            : (C) 2004 by
-    email                : mmdigitizer@earthlink.net
-    $Log: osxsubs.cpp,v $
-    Revision 1.1  2005/03/20 01:47:06  markmitch
-    After KDevelop 3 restructuring
-
-    Revision 1.3  2004/11/11 06:22:18  markmitch
-    Pathological case on Mac computer
-
-    Revision 1.2  2004/11/09 06:48:32  markmitch
-    Debugging for OSX port
-
-    Revision 1.1  2004/11/07 18:50:16  markmitch
-    OSX subroutines
-
+    email                : mmdigitizer@gmail.com
 
  ***************************************************************************/
 

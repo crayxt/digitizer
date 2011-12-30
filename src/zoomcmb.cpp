@@ -3,26 +3,7 @@
                              -------------------
     begin                : Sat Dec 7 2002
     copyright            : (C) 2002 by Mark Mitchell
-    email                : mmdigitizer@earthlink.net
-    $Log: zoomcmb.cpp,v $
-    Revision 1.3  2005/03/20 01:47:07  markmitch
-    After KDevelop 3 restructuring
-
-    Revision 1.12  2004/09/27 04:52:26  markmitch
-    KDevelop does not allow renaming source directory to src
-
-    Revision 1.10  2004/09/12 22:29:21  markmitch
-    Settings archival complete. Qt2-compatibility code removed
-
-    Revision 1.9  2004/03/05 23:02:22  markmitch
-    More zoom defaults
-
-    Revision 1.8  2004/02/03 06:47:57  markmitch
-    Zoom factor 300
-
-    Revision 1.7  2003/12/29 06:55:10  markmitch
-    Cvs log cleanup. Color chooser
-
+    email                : mmdigitizer@gmail.com
 
  ***************************************************************************/
 

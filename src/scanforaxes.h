@@ -3,20 +3,7 @@
                              -------------------
     begin                : Tue Oct 26 2004
     copyright            : (C) 2004 by 
-    email                : mmdigitizer@earthlink.net
-    $Log: scanforaxes.h,v $
-    Revision 1.1  2005/03/20 01:47:07  markmitch
-    After KDevelop 3 restructuring
-
-    Revision 1.3  2004/11/09 06:44:35  markmitch
-    Microsoft compiler bug. Use typedef for consistency
-
-    Revision 1.2  2004/10/29 03:06:13  markmitch
-    Scan for axes works up to generating axis points
-
-    Revision 1.1  2004/10/28 04:54:32  markmitch
-    Scan for axes
-
+    email                : mmdigitizer@gmail.com
 
  ***************************************************************************/
 

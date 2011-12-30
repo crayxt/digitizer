@@ -3,11 +3,7 @@
                              -------------------
     begin                : Tue Dec 19 2006
     copyright            : (C) 2006 by Mark Mitchell
-    email                : mmdigitizer@earthlink.net
-    $Log: highlight.cpp,v $
-    Revision 1.1  2006/12/20 08:20:25  markmitch
-    Rework of point matching to handle skipping
-
+    email                : mmdigitizer@gmail.com
 
  ***************************************************************************/
 

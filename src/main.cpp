@@ -3,83 +3,7 @@
                              -------------------
     begin                : Tue Oct 29 14:43:44 PST 2002
     copyright            : (C) 2002 by 
-    email                : mmdigitizer@earthlink.net
-    $Log: main.cpp,v $
-    Revision 1.7  2006/12/28 08:08:40  markmitch
-    New command line option to open document
-
-    Revision 1.6  2006/10/08 06:41:49  markmitch
-    NO_UNDO branch moved to HEAD
-
-    Revision 1.3.2.4  2006/09/24 06:07:15  markmitch
-    New date/time converter
-
-    Revision 1.3.2.3  2006/03/07 06:13:45  markmitch
-    Version 2.14. Help window buttons visible. Lazy segment scanning
-
-    Revision 1.3.2.2  2006/03/03 07:36:35  markmitch
-    Merge newer documentation into NO_UNDO branch
-
-    Revision 1.3.2.1  2006/03/03 07:06:00  markmitch
-    New NO_UNDO branch. Gcc 4 changes for Ubuntu. No more invoke
-
-    Revision 1.3  2005/03/20 01:47:05  markmitch
-    After KDevelop 3 restructuring
-
-    Revision 1.27  2004/11/13 04:23:38  markmitch
-    Sun Forte changes
-
-    Revision 1.26  2004/11/11 06:22:18  markmitch
-    Pathological case on Mac computer
-
-    Revision 1.25  2004/11/09 06:48:32  markmitch
-    Debugging for OSX port
-
-    Revision 1.24  2004/11/07 18:50:16  markmitch
-    OSX subroutines
-
-    Revision 1.23  2004/11/07 17:07:54  markmitch
-    Connect to plugins
-
-    Revision 1.22  2004/11/06 05:38:10  markmitch
-    Consolidate -xbottom and -yleft into -axes
-
-    Revision 1.21  2004/10/28 04:54:32  markmitch
-    Scan for axes
-
-    Revision 1.20  2004/10/25 23:55:15  markmitch
-    Export command line option. Select initial state
-
-    Revision 1.19  2004/10/05 03:59:54  markmitch
-    Remove fprintf
-
-    Revision 1.18  2004/09/27 04:52:26  markmitch
-    KDevelop does not allow renaming source directory to src
-
-    Revision 1.16  2004/09/22 06:42:00  markmitch
-    Settings can be saved in text file in Windows
-
-    Revision 1.15  2004/09/12 22:29:21  markmitch
-    Settings archival complete. Qt2-compatibility code removed
-
-    Revision 1.14  2004/09/12 04:52:14  markmitch
-    Most settings are saved. Command line usage in Windows
-
-    Revision 1.13  2004/09/11 05:59:18  markmitch
-    First phase of settings archival
-
-    Revision 1.12  2004/09/09 05:33:45  markmitch
-    Invoker in work. Windows upgrade to 3.3.3
-
-    Revision 1.11  2004/03/19 00:21:48  markmitch
-    Import filter for -onlybmp mode
-
-    Revision 1.10  2004/03/18 16:55:23  markmitch
-    Can read bmp files in Simplified Chinese Windows
-
-    Revision 1.9  2003/12/29 06:55:10  markmitch
-    Cvs log cleanup. Color chooser
-
+    email                : mmdigitizer@gmail.com
 
  ***************************************************************************/
 
@@ -141,7 +65,7 @@ void assert_engauge(bool condition, ENGAUGE_CONST_MODIFIER char *file, const int
       QObject::tr("Unexpected problem in %1 at line %2\n")
         .arg(file)
         .arg(line) +
-        "Please contact the author at mmdigitizer@earthlink.net with this information");
+        "Please contact the author at mmdigitizer@gmail.com with this information");
     exit(-1);
   }
 }
@@ -154,7 +78,7 @@ void check_ptr_engauge(const char *ptr, ENGAUGE_CONST_MODIFIER char *file, const
       QObject::tr("Out of memory in %1 at line %2\n")
         .arg(file)
         .arg(line) +
-        "Please contact the author at mmdigitizer@earthlink.net with this information");
+        "Please contact the author at mmdigitizer@gmail.com with this information");
     exit(-1);
   }
 }
@@ -166,7 +90,7 @@ void fatal_engauge(const char *comment, ENGAUGE_CONST_MODIFIER char *file, const
     .arg(file)
     .arg(line) +
     "\nThe description is '" + comment + "'\n" +
-    "Please contact the author at mmdigitizer@earthlink.net with this information");
+    "Please contact the author at mmdigitizer@gmail.com with this information");
   exit(-1);
 }
 

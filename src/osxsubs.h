@@ -3,14 +3,7 @@
                              -------------------
     begin                : Sun Nov 7 2004
     copyright            : (C) 2004 by Mark Mitchell
-    email                : mmdigitizer@earthlink.net
-    $Log: osxsubs.h,v $
-    Revision 1.1  2005/03/20 01:47:06  markmitch
-    After KDevelop 3 restructuring
-
-    Revision 1.1  2004/11/07 18:50:16  markmitch
-    OSX subroutines
-
+    email                : mmdigitizer@gmail.com
 
  ***************************************************************************/
 

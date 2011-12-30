@@ -3,29 +3,7 @@
                              -------------------
     begin                : Tue Dec 3 2002
     copyright            : (C) 2002 by Mark Mitchell
-    email                : mmdigitizer@earthlink.net
-    $Log: digitdebug.cpp,v $
-    Revision 1.3  2005/03/20 01:47:05  markmitch
-    After KDevelop 3 restructuring
-
-    Revision 1.15  2004/10/28 04:54:31  markmitch
-    Scan for axes
-
-    Revision 1.14  2004/10/25 23:55:15  markmitch
-    Export command line option. Select initial state
-
-    Revision 1.13  2004/09/27 04:52:26  markmitch
-    KDevelop does not allow renaming source directory to src
-
-    Revision 1.11  2004/09/12 22:29:20  markmitch
-    Settings archival complete. Qt2-compatibility code removed
-
-    Revision 1.10  2004/09/12 04:52:14  markmitch
-    Most settings are saved. Command line usage in Windows
-
-    Revision 1.9  2003/12/29 06:55:10  markmitch
-    Cvs log cleanup. Color chooser
-
+    email                : mmdigitizer@gmail.com
 
  ***************************************************************************/
 

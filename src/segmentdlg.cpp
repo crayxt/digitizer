@@ -3,68 +3,7 @@
                              -------------------
     begin                : Wed Oct 30 2002
     copyright            : (C) 2002 by 
-    email                : mmdigitizer@earthlink.net
-    $Log: segmentdlg.cpp,v $
-    Revision 1.5  2006/10/08 06:41:50  markmitch
-    NO_UNDO branch moved to HEAD
-
-    Revision 1.3  2005/03/20 01:47:07  markmitch
-    After KDevelop 3 restructuring
-
-    Revision 1.29  2004/11/23 05:30:06  markmitch
-    Changes so segment preview works in OSX
-
-    Revision 1.28  2004/11/21 02:41:40  markmitch
-    Decouple segments creation from text entry
-
-    Revision 1.27  2004/11/20 17:21:57  markmitch
-    Connect each canvas to its parent
-
-    Revision 1.26  2004/11/18 05:40:46  markmitch
-    Adjust precision of exported results to show significant digits
-
-    Revision 1.25  2004/11/17 08:36:07  markmitch
-    OSX fix for preview window
-
-    Revision 1.24  2004/11/07 07:06:32  markmitch
-    Refresh preview differently for OSX
-
-    Revision 1.23  2004/11/07 06:23:54  markmitch
-    Narrow buttons get chopped in OSX
-
-    Revision 1.22  2004/10/20 06:22:00  markmitch
-    Prevent Windows compiler warning
-
-    Revision 1.21  2004/10/16 04:34:17  markmitch
-    Gradually curving graphs
-
-    Revision 1.20  2004/10/15 09:27:01  markmitch
-    Keep line inside image. Remove broken depth conversion
-
-    Revision 1.19  2004/10/15 09:18:01  markmitch
-    Segment settings preview reworked
-
-    Revision 1.18  2004/10/15 03:30:36  markmitch
-    Fill corners option in segment fill
-
-    Revision 1.17  2004/09/27 04:52:26  markmitch
-    KDevelop does not allow renaming source directory to src
-
-    Revision 1.15  2004/09/12 22:29:21  markmitch
-    Settings archival complete. Qt2-compatibility code removed
-
-    Revision 1.14  2004/09/11 05:59:18  markmitch
-    First phase of settings archival
-
-    Revision 1.13  2004/01/25 19:06:59  markmitch
-    Version 2.1. Limited recursion. Default grid removal settings
-
-    Revision 1.12  2004/01/04 08:41:00  markmitch
-    Dialog for point match settings
-
-    Revision 1.11  2003/12/29 06:55:10  markmitch
-    Cvs log cleanup. Color chooser
-
+    email                : mmdigitizer@gmail.com
 
  ***************************************************************************/
 

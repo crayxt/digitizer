@@ -3,48 +3,7 @@
                              -------------------
     begin                : Fri Dec 26 2003
     copyright            : (C) 2003 by
-    email                : mmdigitizer@earthlink.net
-    $Log: colorchooser.cpp,v $
-    Revision 1.6  2008/05/04 16:14:41  tsrsf
-    update to reflect lastest Debian package
-    change outside /debian/ allow compiling without qt 3 compat headers
-
-    Revision 1.5  2006/10/08 06:41:49  markmitch
-    NO_UNDO branch moved to HEAD
-
-    Revision 1.3  2005/03/20 01:47:05  markmitch
-    After KDevelop 3 restructuring
-
-    Revision 1.11  2004/11/20 17:21:57  markmitch
-    Connect each canvas to its parent
-
-    Revision 1.10  2004/09/27 04:52:26  markmitch
-    KDevelop does not allow renaming source directory to src
-
-    Revision 1.8  2004/09/12 22:29:20  markmitch
-    Settings archival complete. Qt2-compatibility code removed
-
-    Revision 1.7  2004/04/05 05:39:52  markmitch
-    Remove Valgrind warning messages
-
-    Revision 1.6  2004/01/08 06:48:35  markmitch
-    Reworked menu icons look great
-
-    Revision 1.5  2004/01/01 22:15:04  markmitch
-    Delete key deletes. No no-op Cancel buttons. No crash from Divider click
-
-    Revision 1.4  2004/01/01 03:52:40  markmitch
-    Document stores QImage for speed
-
-    Revision 1.3  2003/12/30 09:14:32  markmitch
-    Color chooser has two formats and can be disabled
-
-    Revision 1.2  2003/12/29 20:51:50  markmitch
-    All discretize modes work
-
-    Revision 1.1  2003/12/29 06:56:22  markmitch
-    Cvs log cleanup. Color chooser
-
+    email                : mmdigitizer@gmail.com
 
  ***************************************************************************/
 

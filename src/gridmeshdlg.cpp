@@ -3,29 +3,7 @@
                              -------------------
     begin                : Wed Oct 30 2002
     copyright            : (C) 2002 by
-    email                : mmdigitizer@earthlink.net
-    $Log: gridmeshdlg.cpp,v $
-    Revision 1.5  2006/10/08 06:41:49  markmitch
-    NO_UNDO branch moved to HEAD
-
-    Revision 1.3  2005/03/20 01:47:05  markmitch
-    After KDevelop 3 restructuring
-
-    Revision 1.9  2004/11/07 06:23:54  markmitch
-    Narrow buttons get chopped in OSX
-
-    Revision 1.8  2004/09/27 04:52:26  markmitch
-    KDevelop does not allow renaming source directory to src
-
-    Revision 1.6  2004/09/12 22:29:21  markmitch
-    Settings archival complete. Qt2-compatibility code removed
-
-    Revision 1.5  2004/09/11 05:59:17  markmitch
-    First phase of settings archival
-
-    Revision 1.4  2003/12/29 06:55:10  markmitch
-    Cvs log cleanup. Color chooser
-
+    email                : mmdigitizer@gmail.com
 
  ***************************************************************************/
 

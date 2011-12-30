@@ -3,35 +3,7 @@
                              -------------------
     begin                : Wed Oct 30 2002
     copyright            : (C) 2002 by 
-    email                : mmdigitizer@earthlink.net
-    $Log: coordsysdlg.cpp,v $
-    Revision 1.6  2006/10/08 06:41:49  markmitch
-    NO_UNDO branch moved to HEAD
-
-    Revision 1.3.2.3  2006/09/29 03:53:20  markmitch
-    Version 3 commit with backwards compatibility
-
-    Revision 1.3.2.2  2006/09/13 06:17:02  markmitch
-    Polar plot with origin offset works. Invalid axis/scale point combos prevented
-
-    Revision 1.3.2.1  2006/09/08 07:03:36  markmitch
-    Nonzero origin radius. Bugs: Not serialized, maybe nonzero+log issue
-
-    Revision 1.3  2005/03/20 01:47:05  markmitch
-    After KDevelop 3 restructuring
-
-    Revision 1.13  2004/11/07 06:23:54  markmitch
-    Narrow buttons get chopped in OSX
-
-    Revision 1.12  2004/09/27 04:52:26  markmitch
-    KDevelop does not allow renaming source directory to src
-
-    Revision 1.10  2004/09/12 22:29:20  markmitch
-    Settings archival complete. Qt2-compatibility code removed
-
-    Revision 1.9  2003/12/29 06:55:10  markmitch
-    Cvs log cleanup. Color chooser
-
+    email                : mmdigitizer@gmail.com
 
  ***************************************************************************/
 
