@@ -16,13 +16,13 @@
  *                                                                         *
  ***************************************************************************/
 
-#include <q3whatsthis.h>
+
 #include <qtooltip.h>
 //Added by qt3to4:
 #include <Q3TextStream>
 #include <QPixmap>
 #include <QLabel>
-
+#include <QWhatsThis>
 #include "exportdlg.h"
 #include "img/whatsthis.xpm"
 #include "pointsets.h"
@@ -61,26 +61,26 @@ ExportDlg::ExportDlg(QString title, PointSets* pointSets, const CoordSettings* c
   listIncluded = new Q3ListBox(groupCurveSelection);
   CHECK_PTR_ENGAUGE(listIncluded);
   listIncluded->setGeometry(10, 40, 110, 100);
-  Q3WhatsThis::add(listIncluded, QString(tr("List of curves to be included in the exported file")));
+  QWhatsThis::add(listIncluded, QString(tr("List of curves to be included in the exported file")));
   connect(listIncluded, SIGNAL(selectionChanged(Q3ListBoxItem*)), this, SLOT(slotIncluded(Q3ListBoxItem*)));
   
   listExcluded = new Q3ListBox(groupCurveSelection);
   CHECK_PTR_ENGAUGE(listExcluded);
   listExcluded->setGeometry(240, 40, 110, 100);
-  Q3WhatsThis::add(listExcluded, QString(tr("List of curves to be excluded from the exported file")));
+  QWhatsThis::add(listExcluded, QString(tr("List of curves to be excluded from the exported file")));
   connect(listExcluded, SIGNAL(selectionChanged(Q3ListBoxItem*)), this, SLOT(slotExcluded(Q3ListBoxItem*)));
   
   buttonInclude = new QPushButton(QString(tr("<<Include")), groupCurveSelection);
   CHECK_PTR_ENGAUGE(buttonInclude);
   buttonInclude->setGeometry(130, 40, 100, 30);
-  Q3WhatsThis::add(buttonInclude, QString(tr("Move the currently selected curve from the excluded list "
+  QWhatsThis::add(buttonInclude, QString(tr("Move the currently selected curve from the excluded list "
     "to the included list")));
   connect(buttonInclude, SIGNAL(clicked()), this, SLOT(slotInclude()));
   
   buttonExclude = new QPushButton(QString(tr("Exclude>>")), groupCurveSelection);
   CHECK_PTR_ENGAUGE(buttonExclude);
   buttonExclude->setGeometry(130, 80, 100, 30);
-  Q3WhatsThis::add(buttonExclude, QString(tr("Move the currently selected curve from the included list "
+  QWhatsThis::add(buttonExclude, QString(tr("Move the currently selected curve from the included list "
     "to the excluded list")));
   connect(buttonExclude, SIGNAL(clicked()), this, SLOT(slotExclude()));
   
@@ -93,7 +93,7 @@ ExportDlg::ExportDlg(QString title, PointSets* pointSets, const CoordSettings* c
     groupPointsSelection);
   CHECK_PTR_ENGAUGE(buttonXAllCurves);
   buttonXAllCurves->setGeometry(10, 20, 300, 20);
-  Q3WhatsThis::add(buttonXAllCurves, QString(tr("Exported file will have values at every unique X "
+  QWhatsThis::add(buttonXAllCurves, QString(tr("Exported file will have values at every unique X "
     "value from every curve. Y values will be linearly interpolated if necessary")));
   connect(buttonXAllCurves, SIGNAL(toggled(bool)), this, SLOT(slotXAllCurves(bool)));
 
@@ -101,21 +101,21 @@ ExportDlg::ExportDlg(QString title, PointSets* pointSets, const CoordSettings* c
     groupPointsSelection);
   CHECK_PTR_ENGAUGE(buttonXFirstCurve);
   buttonXFirstCurve->setGeometry(10, 40, 300, 20);
-  Q3WhatsThis::add(buttonXFirstCurve, QString(tr("Exported file will have values at every unique X "
+  QWhatsThis::add(buttonXFirstCurve, QString(tr("Exported file will have values at every unique X "
     "value from the first curve. Y values will be linearly interpolated if necessary")));
   connect(buttonXFirstCurve, SIGNAL(toggled(bool)), this, SLOT(slotXFirstCurve(bool)));
 
   buttonXGridLines = new QRadioButton(QString(tr("Interpolate Y's at grid line X's")), groupPointsSelection);
   CHECK_PTR_ENGAUGE(buttonXGridLines);
   buttonXGridLines->setGeometry(10, 60, 300, 20);
-  Q3WhatsThis::add(buttonXGridLines, QString(tr("Exported file will have values at every unique X "
+  QWhatsThis::add(buttonXGridLines, QString(tr("Exported file will have values at every unique X "
     "grid line. Y values will be linearly interpolated if necessary")));
   connect(buttonXGridLines, SIGNAL(toggled(bool)), this, SLOT(slotXGridLines(bool)));
 
   buttonXYAllCurves = new QRadioButton(QString(tr("Raw X's and Y's")), groupPointsSelection);
   CHECK_PTR_ENGAUGE(buttonXYAllCurves);
   buttonXYAllCurves->setGeometry(10, 80, 300, 20);
-  Q3WhatsThis::add(buttonXYAllCurves, QString(tr("Exported file will have only original X and Y values "
+  QWhatsThis::add(buttonXYAllCurves, QString(tr("Exported file will have only original X and Y values "
     "without any interpolation")));
   connect(buttonXYAllCurves, SIGNAL(toggled(bool)), this, SLOT(slotXYAllCurves(bool)));
 
@@ -127,14 +127,14 @@ ExportDlg::ExportDlg(QString title, PointSets* pointSets, const CoordSettings* c
   buttonAllCurvesOnEachLine = new QRadioButton(QString(tr("All curves on each line")), groupLayout);
   CHECK_PTR_ENGAUGE(buttonAllCurvesOnEachLine);
   buttonAllCurvesOnEachLine->setGeometry(10, 20, 210, 20);
-  Q3WhatsThis::add(buttonAllCurvesOnEachLine, QString(tr("Exported file will have, on each line, "
+  QWhatsThis::add(buttonAllCurvesOnEachLine, QString(tr("Exported file will have, on each line, "
     "an X value, the Y value for the first curve, the Y value for the second curve,...")));
   connect(buttonAllCurvesOnEachLine, SIGNAL(toggled(bool)), this, SLOT(slotAllCurvesOnEachLine(bool)));
 
   buttonOneCurveOnEachLine = new QRadioButton(QString(tr("One curve on each line")), groupLayout);
   CHECK_PTR_ENGAUGE(buttonOneCurveOnEachLine);
   buttonOneCurveOnEachLine->setGeometry(10, 40, 210, 20);
-  Q3WhatsThis::add(buttonOneCurveOnEachLine, QString(tr("Exported file will have all the points for "
+  QWhatsThis::add(buttonOneCurveOnEachLine, QString(tr("Exported file will have all the points for "
     "the first curve, with one X-Y pair on each line, then the points for the second curve,...")));
   connect(buttonOneCurveOnEachLine, SIGNAL(toggled(bool)), this, SLOT(slotOneCurveOnEachLine(bool)));
 
@@ -146,19 +146,19 @@ ExportDlg::ExportDlg(QString title, PointSets* pointSets, const CoordSettings* c
   buttonCommas = new QRadioButton(QString(tr("Commas")), groupDelimiters);
   CHECK_PTR_ENGAUGE(buttonCommas);
   buttonCommas->setGeometry(10, 20, 110, 20);
-  Q3WhatsThis::add(buttonCommas, QString(tr("Exported file will have commas between adjacent values")));
+  QWhatsThis::add(buttonCommas, QString(tr("Exported file will have commas between adjacent values")));
   connect(buttonCommas, SIGNAL(toggled(bool)), this, SLOT(slotCommas(bool)));
 
   buttonSpaces = new QRadioButton(QString(tr("Spaces")), groupDelimiters);
   CHECK_PTR_ENGAUGE(buttonSpaces);
   buttonSpaces->setGeometry(10, 40, 110, 20);
-  Q3WhatsThis::add(buttonSpaces, QString(tr("Exported file will have spaces between adjacent values")));
+  QWhatsThis::add(buttonSpaces, QString(tr("Exported file will have spaces between adjacent values")));
   connect(buttonSpaces, SIGNAL(toggled(bool)), this, SLOT(slotSpaces(bool)));
 
   buttonTabs = new QRadioButton(QString(tr("Tabs")), groupDelimiters);
   CHECK_PTR_ENGAUGE(buttonTabs);
   buttonTabs->setGeometry(10, 60, 110, 20);
-  Q3WhatsThis::add(buttonTabs, QString(tr("Exported file will have tabs between adjacent values")));
+  QWhatsThis::add(buttonTabs, QString(tr("Exported file will have tabs between adjacent values")));
   connect(buttonTabs, SIGNAL(toggled(bool)), this, SLOT(slotTabs(bool)));
 
   // header
@@ -169,19 +169,19 @@ ExportDlg::ExportDlg(QString title, PointSets* pointSets, const CoordSettings* c
   buttonNone = new QRadioButton(QString(tr("None")), groupHeader);
   CHECK_PTR_ENGAUGE(buttonNone);
   buttonNone->setGeometry(10, 20, 110, 20);
-  Q3WhatsThis::add(buttonNone, QString(tr("Exported file will have no header line")));
+  QWhatsThis::add(buttonNone, QString(tr("Exported file will have no header line")));
   connect(buttonNone, SIGNAL(toggled(bool)), this, SLOT(slotNone(bool)));
 
   buttonSimple = new QRadioButton(QString(tr("Simple")), groupHeader);
   CHECK_PTR_ENGAUGE(buttonSimple);
   buttonSimple->setGeometry(10, 40, 110, 20);
-  Q3WhatsThis::add(buttonSimple, QString(tr("Exported file will have simple header line")));
+  QWhatsThis::add(buttonSimple, QString(tr("Exported file will have simple header line")));
   connect(buttonSimple, SIGNAL(toggled(bool)), this, SLOT(slotSimple(bool)));
 
   buttonGnuplot = new QRadioButton(QString(tr("Gnuplot")), groupHeader);
   CHECK_PTR_ENGAUGE(buttonGnuplot);
   buttonGnuplot->setGeometry(10, 60, 110, 20);
-  Q3WhatsThis::add(buttonGnuplot, QString(tr("Exported file will have gnuplot header line")));
+  QWhatsThis::add(buttonGnuplot, QString(tr("Exported file will have gnuplot header line")));
   connect(buttonGnuplot, SIGNAL(toggled(bool)), this, SLOT(slotGnuplot(bool)));
 
   // preview
@@ -192,7 +192,7 @@ ExportDlg::ExportDlg(QString title, PointSets* pointSets, const CoordSettings* c
   listPreview = new Q3ListBox(this);
   CHECK_PTR_ENGAUGE(listPreview);
   listPreview->setGeometry(10, 490, 360, 110);
-  Q3WhatsThis::add(listPreview, QString(tr("Preview window shows how current settings affect the exported file")));
+  QWhatsThis::add(listPreview, QString(tr("Preview window shows how current settings affect the exported file")));
 
   // navigation buttons
   buttonOk = new QPushButton(tr("OK"), this);
@@ -505,5 +505,5 @@ void ExportDlg::slotGnuplot(bool toggle)
 
 void ExportDlg::slotWhat()
 {
-  Q3WhatsThis::enterWhatsThisMode();
+  QWhatsThis::enterWhatsThisMode();
 }

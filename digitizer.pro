@@ -7,10 +7,10 @@ TEMPLATE	= app
 CONFIG		= qt warn_on thread debug
 OBJECTS_DIR     = src/.objs
 unix {
-# for solaris-g++ on x386, try adding "-lSM -lICE -ldl" to LIBS entry
-LIBS            += -lfftw3 -lfreetype -lXft -lrt
-QMAKE_CXXFLAGS_DEBUG += -Wno-non-virtual-dtor
-QMAKE_CXXFLAGS_RELEASE += -Wno-non-virtual-dtor
+# hints for LIBS entry:
+# 1) to fix solaris-g++ link errors, try appending "-lSM -lICE -ldl"
+# 2) to fix ugly fonts and blocky widgets, try appending "-lfreetype -lXft -lrt"
+LIBS            += -lfftw3
 }
 macx {
 DEFINES  	+= Q_OS_MACX

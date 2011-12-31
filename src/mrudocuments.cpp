@@ -21,7 +21,7 @@
 #include "defaultsettings.h"
 #include "main.h"
 //Added by qt3to4:
-#include <Q3PopupMenu>
+#include <QMenu>
 
 MruDocuments::MruDocuments() :
   m_pParentMenu(0),
@@ -47,7 +47,7 @@ MruDocuments::~MruDocuments()
     delete m_pPopup;
 }
 
-void MruDocuments::attachPopupMenu(Q3PopupMenu* pParentMenu, int parentActionId, QSize frameOffset)
+void MruDocuments::attachPopupMenu(QMenu* pParentMenu, int parentActionId, QSize frameOffset)
 {
   ASSERT_ENGAUGE(m_pParentMenu == 0);
 
@@ -58,7 +58,7 @@ void MruDocuments::attachPopupMenu(Q3PopupMenu* pParentMenu, int parentActionId,
   m_frameOffset = QPoint(frameOffset.width(), frameOffset.height());
 
   // create mru popup menu
-  m_pPopup = new Q3PopupMenu(pParentMenu, "mru list");
+  m_pPopup = new QMenu("mru list", pParentMenu);
   CHECK_PTR_ENGAUGE(m_pPopup);
   
   m_pPopup->hide();

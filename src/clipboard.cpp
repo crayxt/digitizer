@@ -19,7 +19,7 @@
 #include "clipboard.h"
 #include "digitdebug.h"
 //Added by qt3to4:
-#include <Q3ValueList>
+#include <QList>
 
 Clipboard* Clipboard::m_clipboard = (Clipboard*) 0;
 
@@ -42,7 +42,7 @@ void Clipboard::addPoint(int xScreen, int yScreen)
 
 void Clipboard::dump()
 {
-  Q3ValueList<QPoint>::iterator itr;
+  QList<QPoint>::iterator itr;
   for (itr = m_contents.begin(); itr != m_contents.end(); ++itr)
     qDebug("%d\t%d\n", (*itr).x(), (*itr).y());
 }

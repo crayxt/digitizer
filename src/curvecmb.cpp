@@ -17,7 +17,7 @@
  ***************************************************************************/
 
 #include <qstringlist.h>
-#include <q3whatsthis.h>
+
 
 #include "curvecmb.h"
 #include "digitview.h"
@@ -25,6 +25,7 @@
 #include "main.h"
 #include "pointsetstyles.h"
 #include "defaultsettings.h"
+#include <QWhatsThis>
 
 CurveCmb::CurveCmb(QWidget* parent) :
   QComboBox(true, parent, "curve list")
@@ -36,7 +37,7 @@ CurveCmb::CurveCmb(QWidget* parent) :
   setEnabled(false);
   setEditable(false);
 
-  Q3WhatsThis::add(this, QString(tr("Currently active curve\n\n"
+  QWhatsThis::add(this, QString(tr("Currently active curve\n\n"
     "While in one of the curve digitizing modes (Curve Point, Segment Fill, or Point Match), any "
     "new points will be assigned to this curve\n\n"
     "Another curve may be selected by using the dropdown button")));

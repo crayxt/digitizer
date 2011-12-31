@@ -21,7 +21,7 @@
 
 #include "point.h"
 //Added by qt3to4:
-#include <Q3ValueList>
+#include <QList>
 
 // this singleton class performs digitizer-specific clipboard operations.
 // other applications and mime types are not supported
@@ -58,7 +58,7 @@ class Clipboard
     void addPoint(int xScreen, int yScreen);
 
     // return contents for building new points
-    Q3ValueList<QPoint>* contents(void) { return &m_contents; }
+    QList<QPoint>* contents(void) { return &m_contents; }
 
     // return true if clipboard has any items
     bool clipboardItems(void) { return (m_contents.count() > 0); }
@@ -71,7 +71,7 @@ class Clipboard
   private:
 
     // clipboard contents. points are detached from the canvas and pointsets
-    Q3ValueList<QPoint> m_contents;
+    QList<QPoint> m_contents;
 
     // this singleton object
     static Clipboard* m_clipboard;

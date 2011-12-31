@@ -26,7 +26,7 @@
 #include <q3ptrlist.h>
 //Added by qt3to4:
 #include <Q3PtrCollection>
-#include <Q3ValueList>
+#include <QList>
 
 #include "digitdef.h"
 #include "digitdebug.h"
@@ -116,7 +116,7 @@ class GridRemoval
         void connectSynapseToSynapsesSource(char *pixels, int *pixel2Neuron,
           const NeuronDict neuronDict, int width, int height,
           double gapSeparation, int x, int y,
-          int xLook, int yLook, Q3ValueList<int> *neuronsProcessed);
+          int xLook, int yLook, QList<int> *neuronsProcessed);
     };
 
     // a "search point" is a pixel along one of the axis directions

@@ -1,10 +1,9 @@
 Source: engauge-digitizer
 Section: science
 Priority: optional
-Maintainer: Tobias Stefan Richter <tsr-debian@achos.com>
-Build-Depends: debhelper (>= 5), libqt3-headers,
- qt3-dev-tools, libqt3-mt-dev, libfftw3-dev
-Standards-Version: 3.7.3
+Maintainer: Tobias Winchen <winchen@physik.rwth-aachen.de> 
+Build-Depends: debhelper (>= 7), libqt4-dev, libfftw3-dev
+Standards-Version: 3.9.2
 Homepage: http://digitizer.sourceforge.net/
 
 Package: engauge-digitizer
@@ -29,6 +28,7 @@ Description: interactively extracts numbers from bitmap graphs or maps
 Package: engauge-digitizer-doc
 Section: doc
 Architecture: all
+Depends: ${shlibs:Depends}, ${misc:Depends}
 Recommends: engauge-digitizer
 Description: engauge-digitizer user manual and tutorial
  engauge-digitizer converts an image file showing a graph or map into numbers.

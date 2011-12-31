@@ -16,8 +16,9 @@
  *                                                                         *
  ***************************************************************************/
 
-#include <q3whatsthis.h>
+
 #include <qtooltip.h>
+#include <QWhatsThis>
 #include <qbitmap.h>
 //Added by qt3to4:
 #include <QPixmap>
@@ -65,7 +66,7 @@ GridRemovalDlg::GridRemovalDlg(QString title,
   CHECK_PTR_ENGAUGE(checkColor);
   checkColor->setGeometry(10, 17, 15, 15);
   checkColor->setChecked(gridSettings->removeColor);
-  Q3WhatsThis::add(checkColor, QString(tr("Check this box to remove all pixels whose color "
+  QWhatsThis::add(checkColor, QString(tr("Check this box to remove all pixels whose color "
     "is close to the selected color.\n\n"
     "When this option is enabled, the selected color is displayed on the left end of the "
     "histogram scale. To change the selected color, click on a pixel in the preview widow below.\n\n"
@@ -93,7 +94,7 @@ GridRemovalDlg::GridRemovalDlg(QString title,
   checkGrid->setChecked(gridSettings->removeGridlines);
   if (!transform->validAxes())
     checkGrid->setEnabled(false); // do not get users hopes up - gridline approach requires transform
-  Q3WhatsThis::add(checkGrid, QString(tr("Check this box to have pixels close to regularly spaced gridlines removed.\n\n"
+  QWhatsThis::add(checkGrid, QString(tr("Check this box to have pixels close to regularly spaced gridlines removed.\n\n"
     "This option is only available when the axis points have all been defined.\n\n"
     "The gridline values are defined here, by clicking on the Gridlines... button")));
   connect(checkGrid, SIGNAL(toggled(bool)), this, SLOT(slotGridToggled(bool)));
@@ -119,7 +120,7 @@ GridRemovalDlg::GridRemovalDlg(QString title,
   CHECK_PTR_ENGAUGE(editGridDistance);
   editGridDistance->setGeometry(270, 210, 150, 30);
   editGridDistance->setText(QString("%1").arg(gridSettings->gridDistance, 0, 'f', 1)); // make sure users see decimal point
-  Q3WhatsThis::add(editGridDistance, QString(tr("Set closeness distance in pixels.\n\n"
+  QWhatsThis::add(editGridDistance, QString(tr("Set closeness distance in pixels.\n\n"
     "Pixels that are closer to the regularly spaced gridlines, than this distance, "
     "will be removed.\n\n"
     "This value cannot be negative. A zero value disables this feature. Decimal values are allowed")));
@@ -137,7 +138,7 @@ GridRemovalDlg::GridRemovalDlg(QString title,
   checkThin->setChecked(gridSettings->removeThinLines);
   if (!transform->validAxes())
     checkThin->setEnabled(false); // do not get users hopes up - thin line approach requires transform
-  Q3WhatsThis::add(checkThin, QString(tr("Check this box to remove thin lines that are parallel to the axes.\n\n"
+  QWhatsThis::add(checkThin, QString(tr("Check this box to remove thin lines that are parallel to the axes.\n\n"
     "This option is only available when the axis points have all been defined.\n\n"
     "This option works especially well if the gridlines in the original image are thinner "
     "than the curve lines")));
@@ -155,7 +156,7 @@ GridRemovalDlg::GridRemovalDlg(QString title,
   CHECK_PTR_ENGAUGE(editThinThickness);
   editThinThickness->setGeometry(270, 290, 150, 30);
   editThinThickness->setText(QString("%1").arg(gridSettings->thinThickness, 0, 'f', 1)); // make sure users see decimal point
-  Q3WhatsThis::add(editThinThickness, QString(tr("Select minimum thickness for lines, in pixels.\n\n"
+  QWhatsThis::add(editThinThickness, QString(tr("Select minimum thickness for lines, in pixels.\n\n"
     "Pixels will be removed wherever lines are thinner than this value.\n\n"
     "This value cannot be negative. A zero value disables this feature. Decimal values are allowed")));
   validatorThinThickness = new QDoubleValidator(editThinThickness);
@@ -173,7 +174,7 @@ GridRemovalDlg::GridRemovalDlg(QString title,
   CHECK_PTR_ENGAUGE(editGap);
   editGap->setGeometry(270, 340, 150, 30);
   editGap->setText(QString("%1").arg(gridSettings->gapSeparation, 0, 'f', 1)); // make sure users see decimal point
-  Q3WhatsThis::add(editGap, QString(tr("Set maximum gap separation in pixels.\n\n"
+  QWhatsThis::add(editGap, QString(tr("Set maximum gap separation in pixels.\n\n"
     "Lines whose endpoints are separated by less than this distance, will be connected.\n\n"
     "This value cannot be negative. A zero value disables this feature. Decimal values are allowed")));
   validatorGap = new QDoubleValidator(editGap);
@@ -193,7 +194,7 @@ GridRemovalDlg::GridRemovalDlg(QString title,
   previewCanvasView = new ClickablePreview(previewCanvas, this);
   CHECK_PTR_ENGAUGE(previewCanvasView);
   previewCanvasView->setGeometry(30, 420, 370, 150);
-  Q3WhatsThis::add(previewCanvasView, QString(tr(
+  QWhatsThis::add(previewCanvasView, QString(tr(
     "Preview window shows how current settings affect the gridlines.\n\n"
     "To change the selected color for the Remove By Color option, select that option and then "
     "click on a pixel in the preview window with the eyedropper")));
@@ -417,5 +418,5 @@ void GridRemovalDlg::slotThinToggled(bool on)
 
 void GridRemovalDlg::slotWhat()
 {
-  Q3WhatsThis::enterWhatsThisMode();
+  QWhatsThis::enterWhatsThisMode();
 }

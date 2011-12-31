@@ -19,9 +19,9 @@
 #include <qimage.h>
 #include <qbitmap.h>
 #include <qapplication.h>
-#include <q3progressdialog.h>
 //Added by qt3to4:
-#include <Q3ValueList>
+#include <QList>
+#include <QProgressDialog>
 
 #include "segments.h"
 #include "segment.h"
@@ -97,9 +97,9 @@ int Segments::adjacentSegments(Segment** lastSegment, int yStart, int yStop, int
   return segments;
 }
 
-Q3ValueList<QPoint> Segments::fillPoints(SegmentSettings seg)
+QList<QPoint> Segments::fillPoints(SegmentSettings seg)
 {
-  Q3ValueList<QPoint> list;
+  QList<QPoint> list;
   
   for (Segment* segment = segments.first(); segment; segment = segments.next())
   {
@@ -196,11 +196,11 @@ void Segments::makeSegments(QImage &imageProcessed, SegmentSettings seg)
   int width = imageProcessed.width();
   int height = imageProcessed.height();
 
-  Q3ProgressDialog* dlg;
+  QProgressDialog* dlg;
   if (useDlg)
   {
-    dlg = new Q3ProgressDialog(QString("Scanning segments in image"), 0, width, 0,
-      "progress", true);
+
+    dlg = new QProgressDialog("Scanning segments in image", "Cancel", 0, width);
     CHECK_PTR_ENGAUGE(dlg);
     dlg->setCaption(QString("Progress"));
     dlg->show();
@@ -228,10 +228,10 @@ void Segments::makeSegments(QImage &imageProcessed, SegmentSettings seg)
     if (useDlg)
     {
       // update progress bar
-      dlg->setProgress(x);
+      dlg->setValue(x);
       qApp->processEvents();
 
-      if (dlg->wasCancelled())
+      if (dlg->wasCanceled())
         // quit scanning. only existing segments will be available
         break;
     }
@@ -249,7 +249,7 @@ void Segments::makeSegments(QImage &imageProcessed, SegmentSettings seg)
 
   if (useDlg)
   {
-    dlg->setProgress(width);
+    dlg->setValue(width);
     delete dlg;
   }
 
@@ -341,7 +341,7 @@ void Segments::scrollSegment(Segment** left, Segment** right, int height)
     left [y] = right [y];
 }
 
-void Segments::showSegments(bool toggle, SegmentSettings seg, Q3ValueList<QRect>* updateRectList)
+void Segments::showSegments(bool toggle, SegmentSettings seg, QList<QRect>* updateRectList)
 {
   int minPixels = (seg.minPoints - 1) * seg.pointSeparation;
 

@@ -24,7 +24,7 @@
 #include <qpoint.h>
 #include <q3intdict.h>
 //Added by qt3to4:
-#include <Q3ValueList>
+#include <QList>
 
 #include "digitdef.h"
 #include "digitdebug.h"
@@ -72,7 +72,7 @@ class Discretize
       QColor color;
       int count;
     };
-    typedef Q3ValueList<ColorEntry> ColorList;
+    typedef QList<ColorEntry> ColorList;
     
     bool pixelIsOn(int value, int low, int high) const;
 };

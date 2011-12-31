@@ -17,11 +17,11 @@
  ***************************************************************************/
 
 #include <qmessagebox.h>
-#include <q3whatsthis.h>
+#include <QWhatsThis>
 #include <qtooltip.h>
 #include <qregexp.h>
 //Added by qt3to4:
-#include <Q3ValueList>
+#include <QList>
 #include <QPixmap>
 
 #include "pointsetdlg.h"
@@ -51,27 +51,27 @@ PointSetsDlg::PointSetsDlg(bool curve, QString title, PointSets* pointSets, QStr
   buttonNew = new QPushButton(tr("New..."), this);
   CHECK_PTR_ENGAUGE(buttonNew);
   buttonNew->setGeometry(10, 10, 100, 30);
-  Q3WhatsThis::add(buttonNew, curveReplace("Adds a new curve to the curve list.\n\n"
+  QWhatsThis::add(buttonNew, curveReplace("Adds a new curve to the curve list.\n\n"
     "Every curve name must be unique"));
   connect(buttonNew, SIGNAL(clicked()), this, SLOT(slotNew()));
 
   buttonRemove = new QPushButton(tr("Remove"), this);
   CHECK_PTR_ENGAUGE(buttonRemove);
   buttonRemove->setGeometry(140, 10, 100, 30);
-  Q3WhatsThis::add(buttonRemove, curveReplace("Removes the currently selected curve from "
+  QWhatsThis::add(buttonRemove, curveReplace("Removes the currently selected curve from "
      "the curve list.\n\nThere must always be at least one curve"));
   connect(buttonRemove, SIGNAL(clicked()), this, SLOT(slotRemove()));
 
   pointSetNames = new Q3ListBox(this);
   CHECK_PTR_ENGAUGE(pointSetNames);
   pointSetNames->setGeometry(10, 50, 230, 280);
-  Q3WhatsThis::add(pointSetNames, curveReplace("List of the curves belonging to this document"));
+  QWhatsThis::add(pointSetNames, curveReplace("List of the curves belonging to this document"));
   connect(pointSetNames, SIGNAL(selectionChanged(Q3ListBoxItem*)), this, SLOT(slotSelectionChanged(Q3ListBoxItem*)));
 
   buttonUp = new QPushButton(tr("Move Up"), this);
   CHECK_PTR_ENGAUGE(buttonUp);
   buttonUp->setGeometry(270, 50, 100, 30);
-  Q3WhatsThis::add(buttonUp, curveReplace("Move the currently selected curve up in the "
+  QWhatsThis::add(buttonUp, curveReplace("Move the currently selected curve up in the "
     "curve list.\n\nExported curves will be in the same order as displayed here.\n\n"
     "Basically, the order of the curves is cosmetic"));
   connect(buttonUp, SIGNAL(clicked()), this, SLOT(slotUp()));
@@ -79,7 +79,7 @@ PointSetsDlg::PointSetsDlg(bool curve, QString title, PointSets* pointSets, QStr
   buttonDown = new QPushButton(tr("Move Down"), this);
   CHECK_PTR_ENGAUGE(buttonDown);
   buttonDown->setGeometry(270, 90, 100, 30);
-  Q3WhatsThis::add(buttonDown, curveReplace("Move the currently selected curve down in "
+  QWhatsThis::add(buttonDown, curveReplace("Move the currently selected curve down in "
     "the curve list.\n\nExported curves will be in the same order as displayed here.\n\n"
     "Basically, the order of the curves is cosmetic"));
   connect(buttonDown, SIGNAL(clicked()), this, SLOT(slotDown()));
@@ -87,13 +87,13 @@ PointSetsDlg::PointSetsDlg(bool curve, QString title, PointSets* pointSets, QStr
   buttonRename = new QPushButton(tr("Rename..."), this);
   CHECK_PTR_ENGAUGE(buttonRename);
   buttonRename->setGeometry(270, 260, 100, 30);
-  Q3WhatsThis::add(buttonRename, curveReplace("Rename the currently selected curve"));
+  QWhatsThis::add(buttonRename, curveReplace("Rename the currently selected curve"));
   connect(buttonRename, SIGNAL(clicked()), this, SLOT(slotRename()));
 
   buttonProperties = new QPushButton(tr("Properties..."), this);
   CHECK_PTR_ENGAUGE(buttonProperties);
   buttonProperties->setGeometry(270, 300, 100, 30);
-  Q3WhatsThis::add(buttonProperties, curveReplace("Edit the properties of the currently "
+  QWhatsThis::add(buttonProperties, curveReplace("Edit the properties of the currently "
     "selected curve"));
   connect(buttonProperties, SIGNAL(clicked()), this, SLOT(slotProperties()));
 
@@ -174,7 +174,7 @@ void PointSetsDlg::refreshPointSetList()
     CHECK_PTR_ENGAUGE(previewLeftPoint);
     Point* previewRightPoint = new Point(width * 4 / 5, height / 2, canvas);
     CHECK_PTR_ENGAUGE(previewRightPoint);
-    Q3ValueList<QRect> updateRectList;
+    QList<QRect> updateRectList;
     pointSet->addPoint(canvas, previewLeftPoint, &updateRectList);
     pointSet->addPoint(canvas, previewRightPoint, &updateRectList);
     previewLeftPoint->setPointSet(pointSet);
@@ -422,5 +422,5 @@ void PointSetsDlg::slotUp()
 
 void PointSetsDlg::slotWhat()
 {
-  Q3WhatsThis::enterWhatsThisMode();
+  QWhatsThis::enterWhatsThisMode();
 }

@@ -1,3 +1,17 @@
+engauge-digitizer (5.0-1) unstable; urgency=low
+
+  * New upstream release
+   - Moved to Qt4 (Closes: #604503)
+  * New maintainer
+  * Moved to standards version 3.9.2
+  * Updated debhelper compatibility level to 7
+  * Fixed wrong title in menu entry (Closes: #556025)
+  * Added .desktop file (Closes: #556028)
+  * Removed wrapper to start program with old name
+  * Moved copyright to DEP5
+
+ -- Tobias Winchen <winchen@physik.rwth-aachen.de>  Mon, 26 Sep 2011 21:45:52 +0200
+
 engauge-digitizer (4.1-2) unstable; urgency=low
 
   * Change build depedency fftw3-dev to libfftw3-dev (from ubuntu).

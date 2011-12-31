@@ -28,7 +28,7 @@
 #include <q3canvas.h>
 #include <q3ptrlist.h>
 //Added by qt3to4:
-#include <Q3ValueList>
+#include <QList>
 #include <QPixmap>
 #include <QPolygon>
 
@@ -403,7 +403,7 @@ class DigitDoc : public QObject
     void makeGridDisplayLines(void);
 
     // update screen regions described by rectangles
-    void updateFromList(Q3ValueList<QRect>* updateRectList);
+    void updateFromList(QList<QRect>* updateRectList);
 
     // tell all views to add or remove a sample match point
     void addSampleMatchPointToViews(void);
@@ -411,8 +411,8 @@ class DigitDoc : public QObject
 
     // cleanup for state transition from point match to another state
     void cleanUpAcceptedPoints(DigitizeState state);
-    void collectAcceptedPoints(Q3ValueList<QPoint>* acceptedPoints);
-    void addAcceptedPoints(Q3ValueList<QPoint>* acceptedPoints);
+    void collectAcceptedPoints(QList<QPoint>* acceptedPoints);
+    void addAcceptedPoints(QList<QPoint>* acceptedPoints);
     void clearAcceptedPoints(void);
 
     // pointsets owned by this document. each pointset has any number of points

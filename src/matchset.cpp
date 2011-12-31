@@ -19,7 +19,7 @@
 #include <q3canvas.h>
 #include <qregexp.h>
 //Added by qt3to4:
-#include <Q3ValueList>
+#include <QList>
 
 #include "matchset.h"
 #include "digitdef.h"
@@ -43,14 +43,14 @@ MatchSet::~MatchSet()
 {
   DigitDebug::dtor(QString("matchset ") + QString::number((ulong) this, 16));
   
-  Q3ValueList<QRect> updateRectList;
+  QList<QRect> updateRectList;
   clear(&updateRectList);
   
   if (m_highlightCandidate)
     delete m_highlightCandidate;
 }
 
-void MatchSet::acceptedPoints(Q3ValueList<QPoint>* acceptedPoints)
+void MatchSet::acceptedPoints(QList<QPoint>* acceptedPoints)
 {
   Match* m;
   for (m = m_matchList.first(); m != 0; m = m_matchList.next())
@@ -66,8 +66,8 @@ void MatchSet::acceptedPoints(Q3ValueList<QPoint>* acceptedPoints)
 }
 
 void MatchSet::addCreatedPointsToCanvas(Q3Canvas* canvas, PointSetStyle style,               
-  PointMatchSettings settings, const Q3ValueList<PointMatchTriplet>* pointsCreated,
-  Q3ValueList<QRect>* updateRectList)
+  PointMatchSettings settings, const QList<PointMatchTriplet>* pointsCreated,
+  QList<QRect>* updateRectList)
 {
   // make sure we have no stale points from previous invocations
   if (m_matchList.count() > 0)
@@ -76,7 +76,7 @@ void MatchSet::addCreatedPointsToCanvas(Q3Canvas* canvas, PointSetStyle style,
   m_canvas = canvas;
   m_settings = settings;
   
-  Q3ValueList<PointMatchTriplet>::const_iterator itr;
+  QList<PointMatchTriplet>::const_iterator itr;
   for (itr = pointsCreated->begin(); itr != pointsCreated->end(); ++itr)
   {
     PointMatchTriplet t = (*itr);
@@ -96,7 +96,7 @@ void MatchSet::addCreatedPointsToCanvas(Q3Canvas* canvas, PointSetStyle style,
   moveHighlights(updateRectList);
 }
 
-void MatchSet::clear(Q3ValueList<QRect>* updateRectList)
+void MatchSet::clear(QList<QRect>* updateRectList)
 {
   if (m_highlightCandidate)
   {
@@ -129,7 +129,7 @@ Q3CanvasRectangle* MatchSet::makeHighlight(Color color)
   return r;
 }
 
-bool MatchSet::matchPointAccept(Q3ValueList<QRect>* updateRectList)
+bool MatchSet::matchPointAccept(QList<QRect>* updateRectList)
 {
   Match* m;
   for (m = m_matchList.first(); m != 0; m = m_matchList.next())
@@ -150,7 +150,7 @@ bool MatchSet::matchPointAccept(Q3ValueList<QRect>* updateRectList)
   return false;
 }
 
-bool MatchSet::matchPointReject(Q3ValueList<QRect>* updateRectList)
+bool MatchSet::matchPointReject(QList<QRect>* updateRectList)
 {
   Match* m;
   for (m = m_matchList.first(); m != 0; m = m_matchList.next())
@@ -171,7 +171,7 @@ bool MatchSet::matchPointReject(Q3ValueList<QRect>* updateRectList)
   return false;
 }
 
-bool MatchSet::matchPointRemove(Q3ValueList<QRect>* updateRectList)
+bool MatchSet::matchPointRemove(QList<QRect>* updateRectList)
 {
   Match* mLastNotRejected = 0;
   Match* m;
@@ -211,7 +211,7 @@ bool MatchSet::matchPointRemove(Q3ValueList<QRect>* updateRectList)
   return true;
 }
 
-void MatchSet::moveHighlights(Q3ValueList<QRect>* updateRectList)
+void MatchSet::moveHighlights(QList<QRect>* updateRectList)
 {
   Match* m;
   for (m = m_matchList.first(); m != 0; m = m_matchList.next())

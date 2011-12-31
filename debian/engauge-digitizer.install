@@ -1,2 +1,2 @@
 bin/engauge		usr/bin
-debian/digitizer	usr/bin
+debian/engauge-digitizer.desktop usr/share/applications

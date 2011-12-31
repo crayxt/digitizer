@@ -16,12 +16,11 @@
  *                                                                         *
  ***************************************************************************/
 
-#include <q3whatsthis.h>
+
 #include <qregexp.h>
 #include <qapplication.h>
 #include <q3dragobject.h>
 #include <qclipboard.h>
-#include <q3accel.h>
 //Added by qt3to4:
 #include <QResizeEvent>
 #include <Q3GridLayout>
@@ -29,6 +28,7 @@
 #include <QMoveEvent>
 #include <QHideEvent>
 #include <QKeyEvent>
+#include <QWhatsThis>
 
 #include "geometrydlg.h"
 #include "digitdebug.h"
@@ -98,7 +98,7 @@ GeometryDlg::GeometryDlg(QWidget* parent, bool curve) :
   infoTable->setDragEnabled(true);
   infoTable->setSelectionMode(Q3Table::Single);
   infoTable->setColumnMovingEnabled(true);
-  Q3WhatsThis::add(infoTable, QString(tr("Geometry information\n\nThis window displays geometry information such as "
+  QWhatsThis::add(infoTable, QString(tr("Geometry information\n\nThis window displays geometry information such as "
     "angles, coordinates, distances and areas, for the currently active curve or measure\n\n"
     "Functional area is defined as the area under the function and above the horizontal axis "
     "(useful for curves)\n\n"

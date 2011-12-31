@@ -20,7 +20,6 @@
 #define MRUDOCUMENTS_H
 
 #include <qobject.h>
-#include <q3popupmenu.h>
 #include <q3ptrlist.h>
 #include <qaction.h>
 
@@ -37,7 +36,7 @@ class MruDocuments : public QObject
     ~MruDocuments();
 
     // create and attach popup menu during startup, but hide it when it is not needed
-    void attachPopupMenu(Q3PopupMenu* pParentMenu, int m_parentActionId, QSize frameOffset);
+    void attachPopupMenu(QMenu* pParentMenu, int m_parentActionId, QSize frameOffset);
 
     // merge a document that has just been:
     //   -opened (it has a new name)
@@ -74,14 +73,14 @@ class MruDocuments : public QObject
     void reconnectActionsToPopupMenu();
       
     // parent popup menu and action
-    Q3PopupMenu* m_pParentMenu;
+    QMenu* m_pParentMenu;
     int m_parentActionId;
 
     // top left of mru frame is at frame offset plus current position of parent popup menu
     QPoint m_frameOffset;
 
     // popup menu that will contain the most recently used document list. this is hidden until needed
-    Q3PopupMenu* m_pPopup;
+    QMenu* m_pPopup;
 
     // max size of mru list
     int m_mruMax;

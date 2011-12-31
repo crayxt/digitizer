@@ -17,13 +17,14 @@
  ***************************************************************************/
 
 #include <qpainter.h>
-#include <q3whatsthis.h>
+
 //Added by qt3to4:
 #include <Q3PointArray>
 #include <QCloseEvent>
 #include <QPixmap>
 #include <QMouseEvent>
 #include <QKeyEvent>
+#include <QWhatsThis>
 
 #include "digitview.h"
 #include "digitdoc.h"
@@ -59,7 +60,7 @@ DigitView::DigitView(DigitDoc* doc, QWidget* parent, const char* name, Qt::Windo
   
   m_handles.setAutoDelete(true);
     
-  Q3WhatsThis::add(this, QString(tr("View of the current document\n\n"
+  QWhatsThis::add(this, QString(tr("View of the current document\n\n"
     "If document is a graph, add three axis points to define the graph "
     "coordinates, and then add curve points to digitize the curves\n\n"
     "If document is a map, add a scale bar to define the graph "

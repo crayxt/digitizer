@@ -10,7 +10,6 @@
 
 #include <qstatusbar.h>
 #include <qpixmap.h>
-#include <q3popupmenu.h>
 #include <qmenubar.h>
 #include <q3toolbar.h>
 #include <qtoolbutton.h>
@@ -78,13 +77,13 @@ HelpWindow::HelpWindow( const QString& home_, const QString& _path,
   move(rSettings.getWindowHelpPosition());
   resize(rSettings.getWindowHelpSize());
 
-  Q3PopupMenu* file = new Q3PopupMenu( this );
+  QMenu* file = new QMenu( this );
   CHECK_PTR_ENGAUGE(file);
   file->insertItem( tr("&Open File"), this, SLOT( openFile() ), Qt::CTRL+Qt::Key_O );
   file->insertItem( tr("&Print"), this, SLOT( print() ), Qt::CTRL+Qt::Key_P );
   file->insertSeparator();
   file->insertItem( tr("&Close"), this, SLOT( close() ), Qt::CTRL+Qt::Key_Q );
-  file->insertItem( tr("E&xit"), qApp, SLOT( closeAllWindows() ), Qt::CTRL+Qt::Key_X );
+//file->insertItem( tr("E&xit"), qApp, SLOT( closeAllWindows() ), Qt::CTRL+Qt::Key_X );
 
   // The same three icons are used twice each.
   QPixmap helpback (helpback_xpm);
@@ -95,7 +94,7 @@ HelpWindow::HelpWindow( const QString& home_, const QString& _path,
   QIcon icon_forward (helpforward);
   QIcon icon_home (helphome);
 
-  Q3PopupMenu* go = new Q3PopupMenu( this );
+  QMenu* go = new QMenu( this );
   CHECK_PTR_ENGAUGE(go);
   backwardId = go->insertItem( icon_back,
     tr("&Backward"), browser, SLOT( backward() ),
@@ -105,7 +104,7 @@ HelpWindow::HelpWindow( const QString& home_, const QString& _path,
     Qt::CTRL+Qt::Key_Right );
   go->insertItem( icon_home, tr("&Home"), browser, SLOT( home() ) );
 
-  hist = new Q3PopupMenu( this );
+  hist = new QMenu( this );
   CHECK_PTR_ENGAUGE(hist);
   QStringList::Iterator it = history.begin();
   for ( ; it != history.end(); ++it )
@@ -113,7 +112,7 @@ HelpWindow::HelpWindow( const QString& home_, const QString& _path,
     connect( hist, SIGNAL( activated( int ) ),
     this, SLOT( histChosen( int ) ) );
 
-  bookm = new Q3PopupMenu( this );
+  bookm = new QMenu( this );
   CHECK_PTR_ENGAUGE(bookm);
   bookm->insertItem( tr( "Add Bookmark" ), this, SLOT( addBookmark() ) );
   bookm->insertSeparator();

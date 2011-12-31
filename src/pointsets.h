@@ -24,7 +24,7 @@
 //Added by qt3to4:
 #include <Q3TextStream>
 #include <Q3PointArray>
-#include <Q3ValueList>
+#include <QList>
 #include <QPixmap>
 
 #include "pointset.h"
@@ -39,9 +39,9 @@ class Transform;
 // pointset list for PointSetsDlg to modify, with the original kept if Cancel
 // is selected, otherwise the new copy is kept if OK is selected. Further
 // information can be found in the PointList comments
-typedef Q3ValueList<PointSet> PointSetList;
-typedef Q3ValueListConstIterator<PointSet> PointSetListConstIterator;
-typedef Q3ValueListIterator<PointSet> PointSetListIterator;
+typedef QList<PointSet> PointSetList;
+typedef QList<PointSet>::const_iterator PointSetListConstIterator;
+typedef QList<PointSet>::iterator PointSetListIterator;
 
 // this container class manages the pointsets in a document. an instance of
 // this class can be copied for editing since the pointset list is value based.
@@ -67,13 +67,13 @@ class PointSets
     const PointSet* scale(void) { return &scalePointSet; }
 
     // add a point to an axes, curve, measure or scale pointset
-    void addPointAxes(Q3Canvas* canvas, Point* p, Q3ValueList<QRect>* updateRectList);
-    void addPointCurve(Q3Canvas* canvas, Point* p, QString name, Q3ValueList<QRect>* updateRectList);
-    void addPointMeasure(Q3Canvas* canvas, Point* p, QString name, Q3ValueList<QRect>* updateRectList);
-    void addPointScale(Q3Canvas* canvas, Point* p, Q3ValueList<QRect>* updateRectList);
+    void addPointAxes(Q3Canvas* canvas, Point* p, QList<QRect>* updateRectList);
+    void addPointCurve(Q3Canvas* canvas, Point* p, QString name, QList<QRect>* updateRectList);
+    void addPointMeasure(Q3Canvas* canvas, Point* p, QString name, QList<QRect>* updateRectList);
+    void addPointScale(Q3Canvas* canvas, Point* p, QList<QRect>* updateRectList);
     
     // remove a point from its pointset. returns true if point belonged to axes pointset
-    bool removePoint(Point* point, Q3ValueList<QRect>* updateRectList);
+    bool removePoint(Point* point, QList<QRect>* updateRectList);
 
     // remove all points, and their lines, for the selected curve or measure pointsets
     void removePointsForSelectedCurves(QStringList* selectedPointSets);
@@ -141,7 +141,7 @@ class PointSets
     // measures. if the operation could cause points to be reordered to keep a curve 
     // single-valued then the optional update list should be used
     void updateGraphCoordinates(CoordSettings coord, const Transform* transform,
-      Q3ValueList<QRect>* updateRectList);
+      QList<QRect>* updateRectList);
 
     // return coordinate range for specified pointset
     void singlePointSetGraphLimits(PointSet* p, bool* first,
@@ -203,7 +203,7 @@ class PointSets
     QString exportHeaderPrefix(CoordSettings coord, ExportSettings xport);
 
     // return list of x values in ascending order
-    Q3ValueList<double> ascendingXValuesList(CoordSettings coord,
+    QList<double> ascendingXValuesList(CoordSettings coord,
       GridMeshSettings grid, ExportSettings xport, int xPrecision);
 
     // curves can be exported together in multiple columns, or one after the other in the same column

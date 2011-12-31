@@ -16,7 +16,7 @@
  *                                                                         *
  ***************************************************************************/
 
-#include <q3whatsthis.h>
+
 #include <qtooltip.h>
 #include <qbitmap.h>
 #include <qpainter.h>
@@ -27,6 +27,8 @@
 #include <Q3PtrList>
 #include <QPixmap>
 #include <QMouseEvent>
+#include <QWhatsThis>
+#include <QProgressDialog>
 
 #include <math.h>
 
@@ -95,7 +97,7 @@ ColorChooser::ColorChooser(QWidget* parent,
   y += m_chooserHeight + Separation;
   chooserCanvasView->setHScrollBarMode(Q3ScrollView::AlwaysOff);
   chooserCanvasView->setVScrollBarMode(Q3ScrollView::AlwaysOff);
-  Q3WhatsThis::add(chooserCanvasView, QString(tr(
+  QWhatsThis::add(chooserCanvasView, QString(tr(
     "Histogram of color attribute values. The lower and upper limits are shown, "
     "and may be dragged using the handles")));
 
@@ -109,7 +111,7 @@ ColorChooser::ColorChooser(QWidget* parent,
   y += m_scaleHeight + 5;
   scaleCanvasView->setHScrollBarMode(Q3ScrollView::AlwaysOff);
   scaleCanvasView->setVScrollBarMode(Q3ScrollView::AlwaysOff);
-  Q3WhatsThis::add(scaleCanvasView, QString(tr("Scale for histogram")));
+  QWhatsThis::add(scaleCanvasView, QString(tr("Scale for histogram")));
 
   // histogram widgets
   dividerLower = new Divider(this, chooserCanvas, true);
@@ -133,7 +135,7 @@ ColorChooser::ColorChooser(QWidget* parent,
     editLow = new QLineEdit(m_parent);
     CHECK_PTR_ENGAUGE(editLow);
     editLow->setGeometry(x, y, EditWidth, 30);
-    Q3WhatsThis::add(editLow, QString(tr("Lower limit.\n\nIf the lower limit is less than the upper limit, "
+    QWhatsThis::add(editLow, QString(tr("Lower limit.\n\nIf the lower limit is less than the upper limit, "
       "only values between the limits are considered on. If the lower limit is greater than the upper limit, "
       "only values outside the limits are considered on")));
     validatorLow = new QIntValidator(editLow);
@@ -144,7 +146,7 @@ ColorChooser::ColorChooser(QWidget* parent,
     editHigh = new QLineEdit(m_parent);
     CHECK_PTR_ENGAUGE(editHigh);
     editHigh->setGeometry(x + ChooserWidth + 2 * ChooserPadding + ChooserFrame - EditWidth, y, EditWidth, 30);
-    Q3WhatsThis::add(editHigh, QString(tr("Upper limit.\n\nIf the lower limit is less than the upper limit, "
+    QWhatsThis::add(editHigh, QString(tr("Upper limit.\n\nIf the lower limit is less than the upper limit, "
       "only values between the limits are considered on. If the lower limit is greater than the upper limit, "
       "only values outside the limits are considered on")));
     validatorHigh = new QIntValidator(editHigh);
@@ -246,7 +248,7 @@ void ColorChooser::loadForegroundPixmap(QRgb rgbBg)
 
 void ColorChooser::loadHistogram(const QImage* imageOriginal,
   DiscretizeMethod method, int colorAttributeMax, Q3PtrList<Q3CanvasLine>* histogram,
-  QRgb rgbBg, Q3ProgressDialog* dlg)
+  QRgb rgbBg, QProgressDialog* dlg)
 {
   ASSERT_ENGAUGE(
     (method == DiscretizeIntensity) ||
@@ -284,7 +286,7 @@ void ColorChooser::loadHistogram(const QImage* imageOriginal,
 
     // update progress bar
     ASSERT_ENGAUGE(dlg != 0);
-    dlg->setProgress(imageOriginal->width() * method + x);
+    dlg->setValue(imageOriginal->width() * method + x);
   }
   
   // represent histograms as lines on canvas
@@ -333,8 +335,8 @@ void ColorChooser::loadHistograms(const QImage* imageOriginal)
 
   int discretizeMethods = 5;
   int runTime = imageOriginal->width() * discretizeMethods;
-  Q3ProgressDialog* dlg = new Q3ProgressDialog(QString(tr("Loading histograms")), 0,
-    runTime, m_parent, "progress", true);
+  QProgressDialog* dlg = new QProgressDialog(QString(tr("Loading histograms")), "Cancel", 0,
+    runTime, m_parent);
   CHECK_PTR_ENGAUGE(dlg);
   dlg->setCaption(tr("Progress"));
   dlg->show();

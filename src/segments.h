@@ -22,7 +22,7 @@
 #include <q3canvas.h>
 #include <q3ptrlist.h>
 //Added by qt3to4:
-#include <Q3ValueList>
+#include <QList>
 
 #include "digitdef.h"
 
@@ -43,14 +43,14 @@ class Segments
     ~Segments();
 
     // return segment fill points for all segments, for previewing
-    Q3ValueList<QPoint> fillPoints(SegmentSettings seg);
+    QList<QPoint> fillPoints(SegmentSettings seg);
 
     // segments are built when the original image is loaded. they start out hidden
     // and remain so until showSegments is called  
     void makeSegments(QImage &imageProcessed, SegmentSettings seg);
 
     // turn segments on/off
-    void showSegments(bool toggle, SegmentSettings seg, Q3ValueList<QRect>* updateRectList);
+    void showSegments(bool toggle, SegmentSettings seg, QList<QRect>* updateRectList);
 
     // get and set methods for segment settings
     void setSettings(SegmentSettings settings);

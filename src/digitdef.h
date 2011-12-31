@@ -22,7 +22,7 @@
 #include <qstring.h>
 #include <qstringlist.h>
 #include <q3canvas.h>
-#include <q3valuelist.h>
+#include <QList>
 
 #include "mmsubs.h"
 
@@ -188,7 +188,7 @@ struct PointSetStyle
   LineConnectAs lineConnectAs;
 };
 
-typedef Q3ValueList<PointSetStyle> PointSetStyleList;
+typedef QList<PointSetStyle> PointSetStyleList;
 
 // reference frame that applies to both x/theta and y/r graph coordinates of a document
 enum ReferenceFrame

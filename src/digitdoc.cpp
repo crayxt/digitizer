@@ -25,12 +25,11 @@
 #include <qfileinfo.h>
 #include <qwidget.h>
 #include <qmessagebox.h>
-#include <q3filedialog.h>
 #include <qprinter.h>
 #include <qpainter.h>
 //Added by qt3to4:
 #include <QPixmap>
-#include <Q3ValueList>
+#include <QList>
 #include <Q3TextStream>
 #include <Q3PtrList>
 #include <QPolygon>
@@ -655,7 +654,7 @@ void DigitDoc::cut(DigitView* view)
   // remove items selected in the view from the document, and send their attributes to the clipboard
   Clipboard::instance().clear();
 
-  Q3ValueList<QRect> updateRectList;
+  QList<QRect> updateRectList;
   Q3CanvasItemList::iterator itr;
   ASSERT_ENGAUGE(view != 0);
   for (itr = view->selectionList.begin(); itr != view->selectionList.end(); ++itr)
@@ -715,8 +714,8 @@ void DigitDoc::paste(DigitView* view)
   Q3CanvasItemList newSelection;
 
   // paste points into document
-  Q3ValueList<QPoint>* list = Clipboard::instance().contents();
-  Q3ValueList<QPoint>::iterator itr;
+  QList<QPoint>* list = Clipboard::instance().contents();
+  QList<QPoint>::iterator itr;
 
   ASSERT_ENGAUGE(list != 0);
   for (itr = list->begin(); itr != list->end(); ++itr)
@@ -960,7 +959,7 @@ Point* DigitDoc::addPoint(int xScreen, int yScreen)
     CHECK_PTR_ENGAUGE(p);
   }
 
-  Q3ValueList<QRect> updateRectList;
+  QList<QRect> updateRectList;
 
   ASSERT_ENGAUGE(m_pointSets != 0);
   switch (m_digitizeState)
@@ -1004,7 +1003,7 @@ void DigitDoc::addAxisPoint(int xScreen, int yScreen, double xGraph, double yGra
   Point* p = new Point(xScreen, yScreen, xGraph, yGraph, &m_canvas);
   CHECK_PTR_ENGAUGE(p);
 
-  Q3ValueList<QRect> updateRectList;
+  QList<QRect> updateRectList;
   m_dirtyAxesTransformation = true;
   m_pointSets->addPointAxes(&m_canvas, p, &updateRectList);
 
@@ -1046,7 +1045,7 @@ void DigitDoc::setScalePoint(Point* p, double x, double y)
 
 void DigitDoc::removeGestatingPoint(Point* p)
 {
-  Q3ValueList<QRect> updateRectList;
+  QList<QRect> updateRectList;
 
   ASSERT_ENGAUGE(m_pointSets != 0);
   m_pointSets->removePoint(p, &updateRectList);
@@ -1055,9 +1054,9 @@ void DigitDoc::removeGestatingPoint(Point* p)
   updateFromList(&updateRectList);
 }
 
-void DigitDoc::updateFromList(Q3ValueList<QRect>* updateRectList)
+void DigitDoc::updateFromList(QList<QRect>* updateRectList)
 {
-  Q3ValueList<QRect>::iterator itr;
+  QList<QRect>::iterator itr;
   ASSERT_ENGAUGE(updateRectList != 0);
   for (itr = updateRectList->begin(); itr != updateRectList->end(); ++itr)
   {
@@ -1119,7 +1118,7 @@ void DigitDoc::computeTransformation()
 
   // graph coordinates are updated even if transform is invalid, since graph coordinates
   // are just set to screen coordinates
-  Q3ValueList<QRect> updateRectList;
+  QList<QRect> updateRectList;
   m_pointSets->updateGraphCoordinates(m_coordSettings, m_transform, &updateRectList);
 
   // update all views so lines appear
@@ -1547,7 +1546,7 @@ void DigitDoc::selectionListChanged()
 void DigitDoc::showSegments(bool show)
 {
   // make segments visible
-  Q3ValueList<QRect> updateRectList;
+  QList<QRect> updateRectList;
   ASSERT_ENGAUGE(m_segments != 0);
   m_segments->showSegments(show, m_segmentSettings, &updateRectList);
 
@@ -1662,7 +1661,7 @@ bool DigitDoc::matchSamplePoint(QPoint p)
   QApplication::setOverrideCursor(Qt::WaitCursor);
 
   // assemble list of matching points
-  Q3ValueList<PointMatchTriplet> pointsCreated;
+  QList<PointMatchTriplet> pointsCreated;
   PointMatch::matchSamplePoint(m_processedImage, m_pointMatchSettings,
     m_samplePointPixels, pointsExisting, &pointsCreated);
 
@@ -1676,7 +1675,7 @@ bool DigitDoc::matchSamplePoint(QPoint p)
   }
   else
   {
-    Q3ValueList<QRect> updateRectList;
+    QList<QRect> updateRectList;
     ASSERT_ENGAUGE(m_matchSet != 0);
     m_matchSet->addCreatedPointsToCanvas(&m_canvas,
       curveStyle(m_curveCmbText),
@@ -1695,7 +1694,7 @@ bool DigitDoc::matchSamplePoint(QPoint p)
 
 void DigitDoc::matchPointAccept()
 {
-  Q3ValueList<QRect> updateRectList;
+  QList<QRect> updateRectList;
 
   ASSERT_ENGAUGE(m_matchSet != 0);
   if (m_matchSet->matchPointAccept(&updateRectList))
@@ -1707,7 +1706,7 @@ void DigitDoc::matchPointAccept()
 
 void DigitDoc::matchPointReject()
 {
-  Q3ValueList<QRect> updateRectList;
+  QList<QRect> updateRectList;
 
   ASSERT_ENGAUGE(m_matchSet != 0);
   if (m_matchSet->matchPointReject(&updateRectList))
@@ -1719,7 +1718,7 @@ void DigitDoc::matchPointReject()
 
 void DigitDoc::matchPointRemove()
 {
-  Q3ValueList<QRect> updateRectList;
+  QList<QRect> updateRectList;
 
   ASSERT_ENGAUGE(m_matchSet != 0);
   if (m_matchSet->matchPointRemove(&updateRectList))
@@ -1731,7 +1730,7 @@ void DigitDoc::matchPointRemove()
 
 void DigitDoc::cleanUpAcceptedPoints(DigitizeState state)
 {
-  Q3ValueList<QPoint> acceptedPoints;
+  QList<QPoint> acceptedPoints;
   collectAcceptedPoints(&acceptedPoints);
 
   if (acceptedPoints.count() > 0)
@@ -1764,16 +1763,16 @@ void DigitDoc::cleanUpAcceptedPoints(DigitizeState state)
   clearAcceptedPoints();
 }
 
-void DigitDoc::collectAcceptedPoints(Q3ValueList<QPoint>* acceptedPoints)
+void DigitDoc::collectAcceptedPoints(QList<QPoint>* acceptedPoints)
 {
   // get accepted points in point match
   ASSERT_ENGAUGE(m_matchSet != 0);
   m_matchSet->acceptedPoints(acceptedPoints);
 }
 
-void DigitDoc::addAcceptedPoints(Q3ValueList<QPoint>* acceptedPoints)
+void DigitDoc::addAcceptedPoints(QList<QPoint>* acceptedPoints)
 {
-  Q3ValueList<QPoint>::iterator itr;
+  QList<QPoint>::iterator itr;
   ASSERT_ENGAUGE(acceptedPoints != 0);
   for (itr = acceptedPoints->begin(); itr != acceptedPoints->end(); ++itr)
     addPoint((*itr).x(), (*itr).y());
@@ -1781,7 +1780,7 @@ void DigitDoc::addAcceptedPoints(Q3ValueList<QPoint>* acceptedPoints)
 
 void DigitDoc::clearAcceptedPoints()
 {
-  Q3ValueList<QRect> updateRectList;
+  QList<QRect> updateRectList;
   m_matchSet->clear(&updateRectList);
 
   sendUpdateGeometry();

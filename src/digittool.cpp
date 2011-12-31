@@ -16,11 +16,13 @@
  *                                                                         *
  ***************************************************************************/
 
+#include <stdio.h>
+
 #include <qobject.h>
 #include <qmessagebox.h>
 #include <qapplication.h>
 //Added by qt3to4:
-#include <Q3ValueList>
+#include <QList>
 #include <QMouseEvent>
 #include <Q3PtrList>
 #include <QKeyEvent>
@@ -33,6 +35,7 @@
 #include "segment.h"
 #include "digitdebug.h"
 #include "main.h"
+
 
 // define the tool list before its members
 Q3PtrList<DigitTool> DigitTool::toolList;
@@ -607,8 +610,8 @@ void SegmentTool::contentsMousePressEvent(DigitView* view, QMouseEvent* e)
 
   if (activeSegment)
   {
-    Q3ValueList<QPoint> list = activeSegment->fillPoints(view->document()->segmentSettings());
-    Q3ValueList<QPoint>::iterator itr;
+    QList<QPoint> list = activeSegment->fillPoints(view->document()->segmentSettings());
+    QList<QPoint>::iterator itr;
     for (itr = list.begin(); itr != list.end(); ++itr)
     {
        view->document()->addPoint((*itr).x(), (*itr).y());

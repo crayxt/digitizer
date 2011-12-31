@@ -16,11 +16,11 @@
  *                                                                         *
  ***************************************************************************/
 
-#include <q3whatsthis.h>
+#include <QWhatsThis>
 #include <qtooltip.h>
 #include <qbitmap.h>
 //Added by qt3to4:
-#include <Q3ValueList>
+#include <QList>
 #include <QPixmap>
 #include <QLabel>
 
@@ -59,7 +59,7 @@ PointMatchDlg::PointMatchDlg(const QString title, PointSetStyle style,
   CHECK_PTR_ENGAUGE(editPointSeparation);
   editPointSeparation->setGeometry(220, 10, 130, 30);
   editPointSeparation->setText(QString("%1").arg(settings->pointSeparation));
-  Q3WhatsThis::add(editPointSeparation, QString(tr("Select a point separation in pixels.\n\n"
+  QWhatsThis::add(editPointSeparation, QString(tr("Select a point separation in pixels.\n\n"
     "Matched points must be separated from existing points by at least this number of pixels.\n\n"
     "This value has a lower limit")));
   validatorPointSeparation = new QIntValidator(editPointSeparation);
@@ -75,7 +75,7 @@ PointMatchDlg::PointMatchDlg(const QString title, PointSetStyle style,
   CHECK_PTR_ENGAUGE(editPointSize);
   editPointSize->setGeometry(220, 50, 130, 30);
   editPointSize->setText(QString("%1").arg(settings->pointSize));
-  Q3WhatsThis::add(editPointSize, QString(tr("Select a maximum point size in pixels.\n\n"
+  QWhatsThis::add(editPointSize, QString(tr("Select a maximum point size in pixels.\n\n"
     "Sample match points must fit within a square box, around the cursor, having width and height "
     "equal to this maximum.\n\n"
     "This size is also used to determine if a region of pixels that are on, in the processed image, "
@@ -95,7 +95,7 @@ PointMatchDlg::PointMatchDlg(const QString title, PointSetStyle style,
   comboAcceptedColor->setGeometry(220, 90, 130, 30);
   comboAcceptedColor->setEditable(false);
   comboAcceptedColor->insertStringList(PointSetStyles::instance().colorNames());
-  Q3WhatsThis::add(comboAcceptedColor, QString(tr("Select a color for matched points that are accepted")));
+  QWhatsThis::add(comboAcceptedColor, QString(tr("Select a color for matched points that are accepted")));
   connect(comboAcceptedColor, SIGNAL(activated(const QString &)), this, SLOT(slotAcceptedColor(const QString &)));
 
   labelRejectedColor = new QLabel(QString(tr("Rejected Point Color:")), this);
@@ -107,7 +107,7 @@ PointMatchDlg::PointMatchDlg(const QString title, PointSetStyle style,
   comboRejectedColor->setGeometry(220, 130, 130, 30);
   comboRejectedColor->setEditable(false);
   comboRejectedColor->insertStringList(PointSetStyles::instance().colorNames());
-  Q3WhatsThis::add(comboRejectedColor, QString(tr("Select a color for matched points that are rejected")));
+  QWhatsThis::add(comboRejectedColor, QString(tr("Select a color for matched points that are rejected")));
   connect(comboRejectedColor, SIGNAL(activated(const QString &)), this, SLOT(slotRejectedColor(const QString &)));
 
   labelCandidateColor = new QLabel(QString(tr("Candidate Color:")), this);
@@ -119,7 +119,7 @@ PointMatchDlg::PointMatchDlg(const QString title, PointSetStyle style,
   comboCandidateColor->setGeometry(220, 170, 130, 30);
   comboCandidateColor->setEditable(false);
   comboCandidateColor->insertStringList(PointSetStyles::instance().colorNames());
-  Q3WhatsThis::add(comboCandidateColor, QString(tr("Select a color for the point being decided upon")));
+  QWhatsThis::add(comboCandidateColor, QString(tr("Select a color for the point being decided upon")));
   connect(comboCandidateColor, SIGNAL(activated(const QString &)), this, SLOT(slotCandidateColor(const QString &)));
 
   // preview area
@@ -136,7 +136,7 @@ PointMatchDlg::PointMatchDlg(const QString title, PointSetStyle style,
   previewCanvasView->setGeometry(20, 230, PreviewWidth, PreviewHeight);
   previewCanvasView->setHScrollBarMode(Q3ScrollView::AlwaysOff);
   previewCanvasView->setVScrollBarMode(Q3ScrollView::AlwaysOff);
-  Q3WhatsThis::add(previewCanvasView, QString(tr("Preview window shows how current settings affect "
+  QWhatsThis::add(previewCanvasView, QString(tr("Preview window shows how current settings affect "
     "point matching, and how the marked and candidate points are displayed.\n\nThe points are separated "
     "by the point separation value, and the maximum point size is shown as a box in the center")));
 
@@ -263,7 +263,7 @@ void PointMatchDlg::makePoints()
     int y [] = {PreviewHeight / 4, PreviewHeight / 2, (3 * PreviewHeight) / 4};
     QImage* images [] = {&imageDiamond, &imageCircle, &imageSquare};
     Point* p;
-    Q3ValueList<QRect> updateRectList;
+    QList<QRect> updateRectList;
     do
     {
       // rows are top (diamonds), middle (circles) and bottom (squares)
@@ -404,5 +404,5 @@ void PointMatchDlg::slotRejectedColor(const QString &text)
 
 void PointMatchDlg::slotWhat()
 {
-  Q3WhatsThis::enterWhatsThisMode();
+  QWhatsThis::enterWhatsThisMode();
 }

@@ -16,11 +16,11 @@
  *                                                                         *
  ***************************************************************************/
 
-#include <q3whatsthis.h>
+#include <QWhatsThis>
 #include <qtooltip.h>
 #include <qregexp.h>
 //Added by qt3to4:
-#include <Q3ValueList>
+#include <QList>
 #include <QPixmap>
 #include <QLabel>
 
@@ -62,7 +62,7 @@ PointSetDlg::PointSetDlg(QString title, QString pointsetName,
   comboShape->setGeometry(145, 30, 175, 30);
   comboShape->setEditable(false);
   comboShape->insertStringList(PointSetStyles::instance().pointShapeNames());
-  Q3WhatsThis::add(comboShape, QString(tr("Select a shape for the points")));
+  QWhatsThis::add(comboShape, QString(tr("Select a shape for the points")));
   connect(comboShape, SIGNAL(activated(const QString &)), this, SLOT(slotPointShape(const QString &)));
   
   labelShapeSize = new QLabel(QString(tr("Size:")), this);
@@ -74,7 +74,7 @@ PointSetDlg::PointSetDlg(QString title, QString pointsetName,
   comboShapeSize->setGeometry(145, 70, 175, 30);
   comboShapeSize->setEditable(false);
   comboShapeSize->insertStringList(PointSetStyles::instance().pointSizeNames());
-  Q3WhatsThis::add(comboShapeSize, QString(tr("Select an overall size for the points")));
+  QWhatsThis::add(comboShapeSize, QString(tr("Select an overall size for the points")));
   connect(comboShapeSize, SIGNAL(activated(const QString &)), this, SLOT(slotPointSize(const QString &)));
 
   labelShapeLineSize = new QLabel(QString(tr("Line Size:")), this);
@@ -86,7 +86,7 @@ PointSetDlg::PointSetDlg(QString title, QString pointsetName,
   comboShapeLineSize->setGeometry(145, 110, 175, 30);
   comboShapeLineSize->setEditable(false);
   comboShapeLineSize->insertStringList(PointSetStyles::instance().pointLineSizeNames());
-  Q3WhatsThis::add(comboShapeLineSize, QString(tr("Select a size for the line used to draw the point shapes")));
+  QWhatsThis::add(comboShapeLineSize, QString(tr("Select a size for the line used to draw the point shapes")));
   connect(comboShapeLineSize, SIGNAL(activated(const QString &)), this, SLOT(slotPointLineSize(const QString &)));
 
   labelShapeLineColor = new QLabel(QString(tr("Line Color:")), this);
@@ -98,7 +98,7 @@ PointSetDlg::PointSetDlg(QString title, QString pointsetName,
   comboShapeLineColor->setGeometry(145, 150, 175, 30);
   comboShapeLineColor->setEditable(false);
   comboShapeLineColor->insertStringList(PointSetStyles::instance().colorNames());
-  Q3WhatsThis::add(comboShapeLineColor, QString(tr("Select a color for the line used to draw the point shapes")));
+  QWhatsThis::add(comboShapeLineColor, QString(tr("Select a color for the line used to draw the point shapes")));
   connect(comboShapeLineColor, SIGNAL(activated(const QString &)), this, SLOT(slotPointLineColor(const QString &)));
   
   labelShapeInColor = new QLabel(QString(tr("Interior Color:")), this);
@@ -110,7 +110,7 @@ PointSetDlg::PointSetDlg(QString title, QString pointsetName,
   comboShapeInColor->setGeometry(145, 190, 175, 30);
   comboShapeInColor->setEditable(false);
   comboShapeInColor->insertStringList(PointSetStyles::instance().colorNames());
-  Q3WhatsThis::add(comboShapeInColor, QString(tr("Select a color for the interior of the point shapes.\n\n"
+  QWhatsThis::add(comboShapeInColor, QString(tr("Select a color for the interior of the point shapes.\n\n"
     "This has no effect on points without interiors")));
   connect(comboShapeInColor, SIGNAL(activated(const QString &)), this, SLOT(slotPointInColor(const QString &)));
 
@@ -128,7 +128,7 @@ PointSetDlg::PointSetDlg(QString title, QString pointsetName,
   comboLineSize->setGeometry(145, 260, 175, 30);
   comboLineSize->setEditable(false);
   comboLineSize->insertStringList(PointSetStyles::instance().lineSizeNames());
-  Q3WhatsThis::add(comboLineSize, QString(tr("Select a size for the lines drawn between points")));
+  QWhatsThis::add(comboLineSize, QString(tr("Select a size for the lines drawn between points")));
   connect(comboLineSize, SIGNAL(activated(const QString &)), this, SLOT(slotLineSize(const QString &)));
 
   labelLineColor = new QLabel(QString(tr("Color:")), this);
@@ -140,7 +140,7 @@ PointSetDlg::PointSetDlg(QString title, QString pointsetName,
   comboLineColor->setGeometry(145, 300, 175, 30);
   comboLineColor->setEditable(false);
   comboLineColor->insertStringList(PointSetStyles::instance().colorNames());
-  Q3WhatsThis::add(comboLineColor, QString(tr("Select a color for the lines drawn between points")));
+  QWhatsThis::add(comboLineColor, QString(tr("Select a color for the lines drawn between points")));
   connect(comboLineColor, SIGNAL(activated(const QString &)), this, SLOT(slotLineColor(const QString &)));
 
   labelLineConnectAs = new QLabel(QString(tr("Connect As:")), this);
@@ -154,7 +154,7 @@ PointSetDlg::PointSetDlg(QString title, QString pointsetName,
   if (state != CurveState)               
     comboLineConnectAs->setEnabled(false); // can only change Connect As method of curves
   comboLineConnectAs->insertStringList(PointSetStyles::instance().lineConnectAsNames());
-  Q3WhatsThis::add(comboLineConnectAs, QString(tr("Select rule for connecting points with lines.\n\n"
+  QWhatsThis::add(comboLineConnectAs, QString(tr("Select rule for connecting points with lines.\n\n"
     "If the curve is connected as a single-valued function then the points are ordered by "
     "increasing value of the independent variable.\n\n"
     "If the curve is connected as a closed contour, then the points are ordered by age, except for "
@@ -178,7 +178,7 @@ PointSetDlg::PointSetDlg(QString title, QString pointsetName,
   previewCanvasView->setGeometry(10, 420, 320, 50);
   previewCanvasView->setHScrollBarMode(Q3ScrollView::AlwaysOff);
   previewCanvasView->setVScrollBarMode(Q3ScrollView::AlwaysOff);
-  Q3WhatsThis::add(previewCanvasView, QString(tr(
+  QWhatsThis::add(previewCanvasView, QString(tr(
     "Preview window shows how current settings affect the lines and points")));
 
   pointSet = new PointSet;
@@ -189,7 +189,7 @@ PointSetDlg::PointSetDlg(QString title, QString pointsetName,
   CHECK_PTR_ENGAUGE(previewLeftPoint);
   previewRightPoint = new Point(250, 25, previewCanvas);
   CHECK_PTR_ENGAUGE(previewRightPoint);
-  Q3ValueList<QRect> updateRectList;
+  QList<QRect> updateRectList;
   pointSet->addPoint(previewCanvas, previewLeftPoint, &updateRectList);
   pointSet->addPoint(previewCanvas, previewRightPoint, &updateRectList);
   previewLeftPoint->setPointSet(pointSet);
@@ -354,5 +354,5 @@ void PointSetDlg::slotLineConnectAs(const QString &text)
 
 void PointSetDlg::slotWhat()
 {
-  Q3WhatsThis::enterWhatsThisMode();
+  QWhatsThis::enterWhatsThisMode();
 }

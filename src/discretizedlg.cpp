@@ -16,12 +16,13 @@
  *                                                                         *
  ***************************************************************************/
 
-#include <q3whatsthis.h>
+
 #include <qtooltip.h>
 #include <qbitmap.h>
 //Added by qt3to4:
 #include <QPixmap>
 #include <QLabel>
+#include <QWhatsThis>
 
 #include <math.h>
 
@@ -58,14 +59,14 @@ DiscretizeDlg::DiscretizeDlg(QString title,
   buttonIntensity = new QRadioButton(QString(tr("Intensity")), groupSelection);
   CHECK_PTR_ENGAUGE(buttonIntensity);
   buttonIntensity->setGeometry(10, 20, 130, 30);
-  Q3WhatsThis::add(buttonIntensity, QString(tr("Discretize the original image using intensity")));
+  QWhatsThis::add(buttonIntensity, QString(tr("Discretize the original image using intensity")));
   connect(buttonIntensity, SIGNAL(clicked()), this, SLOT(slotIntensity()));
 
   // foreground or background
   buttonForeground = new QRadioButton(QString(tr("Foreground")), groupSelection);
   CHECK_PTR_ENGAUGE(buttonForeground);
   buttonForeground->setGeometry(10, 60, 130, 30);
-  Q3WhatsThis::add(buttonForeground, QString(tr("Discretize the original image into foreground and background.\n\n"
+  QWhatsThis::add(buttonForeground, QString(tr("Discretize the original image into foreground and background.\n\n"
     "The background color is shown on the left side of the scale bar. All pixels with approximately "
     "the background color are considered part of the background, and all other pixels are considered "
     "part of the foreground")));
@@ -75,21 +76,21 @@ DiscretizeDlg::DiscretizeDlg(QString title,
   buttonHue = new QRadioButton(QString(tr("Hue")), groupSelection);
   CHECK_PTR_ENGAUGE(buttonHue);
   buttonHue->setGeometry(10, 100, 130, 30);
-  Q3WhatsThis::add(buttonHue, QString(tr("Discretize the original image using hue")));
+  QWhatsThis::add(buttonHue, QString(tr("Discretize the original image using hue")));
   connect(buttonHue, SIGNAL(clicked()), this, SLOT(slotHue()));
 
   // saturation
   buttonSaturation = new QRadioButton(QString(tr("Saturation")), groupSelection);
   CHECK_PTR_ENGAUGE(buttonSaturation);
   buttonSaturation->setGeometry(10, 140, 130, 30);
-  Q3WhatsThis::add(buttonSaturation, QString(tr("Discretize the original image using saturation")));
+  QWhatsThis::add(buttonSaturation, QString(tr("Discretize the original image using saturation")));
   connect(buttonSaturation, SIGNAL(clicked()), this, SLOT(slotSaturation()));
 
   // value
   buttonValue = new QRadioButton(QString(tr("Value")), groupSelection);
   CHECK_PTR_ENGAUGE(buttonValue);
   buttonValue->setGeometry(10, 180, 130, 30);
-  Q3WhatsThis::add(buttonValue, QString(tr("Discretize the original image using value")));
+  QWhatsThis::add(buttonValue, QString(tr("Discretize the original image using value")));
   connect(buttonValue, SIGNAL(clicked()), this, SLOT(slotValue()));
 
   // color chooser area
@@ -110,7 +111,7 @@ DiscretizeDlg::DiscretizeDlg(QString title,
   previewCanvasView = new Q3CanvasView(previewCanvas, this);
   CHECK_PTR_ENGAUGE(previewCanvasView);
   previewCanvasView->setGeometry(30, 270, 340, 150);
-  Q3WhatsThis::add(previewCanvasView, QString(tr(
+  QWhatsThis::add(previewCanvasView, QString(tr(
     "Preview window shows how current settings affect the discretizing of the original image")));
 
   // navigation buttons
@@ -283,5 +284,5 @@ void DiscretizeDlg::slotValue()
 
 void DiscretizeDlg::slotWhat()
 {
-  Q3WhatsThis::enterWhatsThisMode();
+  QWhatsThis::enterWhatsThisMode();
 }
