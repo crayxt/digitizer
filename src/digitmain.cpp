@@ -2926,7 +2926,7 @@ void DigitMain::slotHelpAbout()
     "This is free software, and you are welcome to redistribute it under\n"
     "certain conditions according to the GNU General Public License Version 2;\n"
     "read the included LICENSE file for details.\n\n"
-    "Author\nContact: markmitch@users.sourceforge.net\n"
+    "Author\nContact: mmdigitizer@gmail.com\n"
     "(All messages are welcome, and your privacy will be respected)\n\n"
     "Engauge Digitizer\n"
     "Home Page: http://digitizer.sourceforge.net\n"
