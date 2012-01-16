@@ -873,7 +873,7 @@ void DigitDoc::trackCursor(const QPoint &p)
         (DefaultSettings::instance().getPowerMostSigMin() > powerMostSigX))
       {
         ASSERT_ENGAUGE(m_canvas.width() > 1);
-        precisionX = (int) (1 + log10(m_canvas.width()));
+        precisionX = (int) (1 + log10((double) m_canvas.width()));
         roundedX = xTheta;
         roundedXRes = xThetaRes;
         xFormat = "%.*e"; // use e since g does not have trailing zeros, causing flicker during mouse moves
@@ -882,7 +882,7 @@ void DigitDoc::trackCursor(const QPoint &p)
         (DefaultSettings::instance().getPowerMostSigMin() > powerMostSigY))
       {
         ASSERT_ENGAUGE(m_canvas.height() > 1);
-        precisionY = (int) (1 + log10(m_canvas.height()));
+        precisionY = (int) (1 + log10((double) m_canvas.height()));
         roundedY = yR;
         roundedYRes = yRRes;
         yFormat = "%.*e"; // use e since g does not have trailing zeros, causing flicker during mouse moves

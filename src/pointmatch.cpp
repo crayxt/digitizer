@@ -26,6 +26,10 @@
 #include <math.h>
 #include <stdlib.h>
 
+#ifdef WIN32
+#include <Windows.h>
+#endif
+
 #include "main.h"
 #include "mmsubs.h"
 #include "digitdebug.h"
@@ -125,7 +129,8 @@ void PointMatch::matchSamplePoint(const QImage &imageProcessed,
     qApp->processEvents();
 
 #ifdef WIN32
-    _sleep(SLEEP_IN_SECONDS);
+//    _sleep(SLEEP_IN_SECONDS);
+    Sleep(SLEEP_IN_SECONDS);
 #else
     sleep(SLEEP_IN_SECONDS);
 #endif

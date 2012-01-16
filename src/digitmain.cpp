@@ -92,7 +92,7 @@ QAction* createAction(QObject * parent, const char * name = 0)
 	QAction *f = new QAction(name, parent);
 	return f;
 }
-QAction* createAction(const QString & menuText, QKeySequence accel, QObject * parent, const char * name = 0 )
+QAction* createAction(const QString & menuText, QKeySequence accel, QObject * parent, const char * )
 {
 	QAction *f = createAction(parent, menuText);
 	f->setShortcut(accel);
