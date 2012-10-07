@@ -1,2 +1,4 @@
 Makefile
 src/.objs
+bin/engauge
+moc_*
