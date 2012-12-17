@@ -235,7 +235,8 @@ void DefaultSettings::archiveSettings()
   // windows any calls to insertSearchPath or setPath either cancel cmdSettingsText,
   // or they cause multiple files to be written out (one per group)
   //QSettings archiver(cmdSettingsText ? QSettings::Ini : QSettings::Native);
-  QSettings archiver;
+  QString organization ("engauge"); // in linux systems a .ini file with this prefix is put into home directory
+  QSettings archiver (organization);
 
   archiver.writeEntry(SESSIONS_SESSIONS, m_sessionsSettings.sessions);
   archiver.writeEntry(SESSIONS_COORDINATES, m_sessionsSettings.coordinates);
