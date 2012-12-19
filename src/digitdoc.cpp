@@ -1620,7 +1620,7 @@ void DigitDoc::highlightCandidateMatchPoint(const QPoint &p)
       PointMatch pointMatch;
       pointMatch.isolateSampleMatchPoint(&m_samplePointPixels,
         m_processedImage, m_pointMatchSettings,
-        p.x(), p.y(), p.x(), p.y());
+        p.x(), p.y());
       addSampleMatchPointToViews();
 
       QApplication::restoreOverrideCursor();
