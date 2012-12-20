@@ -92,18 +92,7 @@ bool PointMatch::isolateSampleMatchPoint(QPolygon* samplePointPixels,
   if (!discretize.processedPixelIsOn(image, x, y))
     return false; // pixel is off
 
-  // Go to the right until just after edge or the right side, whichever comes first
   int xCenter = x, yCenter = y;
-  do {
-    if (discretize.processedPixelIsOn(image, x, y)) {
-      ++x;
-    } else {
-      break;
-    }
-  } while (x < image.width ());
-  --x; // Now jump from the outside back to the inside of the right side
-
-  int xStart  = x, yStart = y;
   int xLeft   = xCenter - settings.pointSize / 2;
   int yTop    = yCenter - settings.pointSize / 2;
   int xRight  = xCenter + settings.pointSize / 2;
@@ -112,6 +101,18 @@ bool PointMatch::isolateSampleMatchPoint(QPolygon* samplePointPixels,
   int yMin = (yTop    > 0              ) ? yTop    : 0;
   int xMax = (xRight  < image.width () ) ? xRight  : image.width ();
   int yMax = (yBottom < image.height ()) ? yBottom : image.height ();
+
+  // Go to the right until just after edge or the right side, whichever comes first
+  do {
+    if (discretize.processedPixelIsOn(image, x, y)) {
+      ++x;
+    } else {
+      break;
+    }
+  } while (x < xMax);
+  --x; // Now jump from the outside back to the inside of the right side
+
+  int xStart  = x, yStart = y;
 
   // Go counterclockwise around (xCenter,yCenter), along the edge of the selected points or the
   // settings.pointSize boundary, until we reach (xStart,yStart) again
