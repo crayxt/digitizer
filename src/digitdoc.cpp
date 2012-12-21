@@ -1389,7 +1389,7 @@ void DigitDoc::print()
 
 QString DigitDoc::filterImport()
 {
-  QString filter(tr("Images (*.bmp *.gif *.jpg *.png *.pnm *.pbm *.xpm);;All Files (*.*)"));
+  QString filter(tr("Images (*.bmp *.gif *.jpg *.jpeg *.png *.pnm *.pbm *.xpm);;All Files (*.*)"));
 
   if (cmdOnlyBmp)
     filter = tr("Images (*.bmp);;All Files (*.*)");
