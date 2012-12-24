@@ -1976,7 +1976,8 @@ bool DigitMain::documentSaveAs(DigitDoc* doc)
   if (doc)
   {
     QString filename = QFileDialog::getSaveFileName(this, tr("Save"), 
-				doc->savePath(), DigitDoc::filterOpenSave());
+                                                    doc->savePath(), DigitDoc::filterOpenSave(),
+                                                    0, QFileDialog::DontConfirmOverwrite);
     if (!filename.isEmpty())
     {
       bool save = true;
@@ -2133,8 +2134,9 @@ void DigitMain::slotFileExportAs()
   DigitDoc* doc = activeDocument();
   if (doc)
   {
-    QString filename = QFileDialog::getSaveFileName(doc->exportPath(), 0, this, "export as",
-      QString(tr("Export")));
+    QString filename = QFileDialog::getSaveFileName (this, QString(tr("Export")), doc->exportPath (),
+                                                     tr("Excel (*.csv *.tsv *.txt);; All files (*.*)"),
+                                                     0, QFileDialog::DontConfirmOverwrite);
     if (!filename.isEmpty())
     {
       bool save = true;

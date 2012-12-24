@@ -403,6 +403,10 @@ bool DigitDoc::openDocument(const QString &filename)
   str >> (Q_INT32 &) m_exportSettings.layout;
   str >> (Q_INT32 &) m_exportSettings.pointsSelection;
   str >> (Q_INT32 &) m_exportSettings.header;
+  if (versionNumber > 5) {
+    str >> m_exportSettings.xLabel;
+    str >> m_exportSettings.thetaLabel;
+  }
 
   str >> (Q_INT32 &) m_gridRemovalSettings.removeThinLines;
   str >> (double &) m_gridRemovalSettings.thinThickness;
@@ -534,6 +538,8 @@ bool DigitDoc::saveDocument(const QString &filename)
   str << (Q_INT32 &) m_exportSettings.layout;
   str << (Q_INT32 &) m_exportSettings.pointsSelection;
   str << (Q_INT32 &) m_exportSettings.header;
+  str << m_exportSettings.xLabel;
+  str << m_exportSettings.thetaLabel;
 
   str << (Q_INT32 &) m_gridRemovalSettings.removeThinLines;
   str << (double &) m_gridRemovalSettings.thinThickness;
@@ -612,7 +618,7 @@ bool DigitDoc::exportDocument(const QString &filename)
 {
   QFile file(filename);
 
-  if (!file.open(QIODevice::WriteOnly | QIODevice::Text))
+  if (!file.open(QIODevice::WriteOnly | QIODevice::Truncate | QIODevice::Text))
     return false;
 
   Q3TextStream str(&file);
