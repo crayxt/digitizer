@@ -127,5 +127,6 @@ TARGET		= bin/engauge
 # tr is turkish
 TRANSLATIONS	= engauge_pt_br.ts \
 		  engauge_tr.ts
+MOC_DIR = src/.moc
 #qt3support was inserted by qt3to4. qt3support in turn requires network
 QT +=  qt3support network

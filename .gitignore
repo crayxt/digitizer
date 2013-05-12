@@ -2,3 +2,6 @@ Makefile
 src/.objs
 bin/engauge
 moc_*
+.bookmarks
+.history
+digitizer.pro.user
