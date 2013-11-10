@@ -11,6 +11,9 @@ unix {
 # 1) to fix solaris-g++ link errors, try appending "-lSM -lICE -ldl"
 # 2) to fix ugly fonts and blocky widgets, try appending "-lfreetype -lXft -lrt"
 LIBS            += -lfftw3
+# hints for QMAKE_CXXFLAGS entry:
+# 1) omit for general purpose use
+# 2) Use 'QMAKE_CXXFLAGS  += -O2 -Wp,-D_FORTIFY_SOURCE=2' to see the many warnings that debian packagers see
 }
 macx {
 DEFINES  	+= Q_OS_MACX

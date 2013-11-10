@@ -171,7 +171,7 @@ bool PointMatch::isolateSampleMatchPoint(QPolygon* samplePointPixels,
 
           // We just found the first on-pixel. Save it and exit the inner loop
           int newSize = samplePointPixels->size() + 1;
-          samplePointPixels->resize(newSize);
+          samplePointPixels->resize(newSize); // Ignore 'assuming signed overflow does not occur when assuming that (X+c)<X is always false' error here from -Wstrict-overflow
           samplePointPixels->setPoint(newSize - 1, xNext, yNext);
           x = xNext;
           y = yNext;

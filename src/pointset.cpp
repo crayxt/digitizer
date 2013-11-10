@@ -536,7 +536,7 @@ bool PointSet::pointSetScreenLimits(double *xMin, double *xMax, double *yMin, do
 }
 
 void PointSet::mergeUniqueXValues(QList<double>* list,
-  int xPrecision)
+  int /* xPrecision */)
 {
   ASSERT_ENGAUGE(list != 0);
   
@@ -694,16 +694,16 @@ bool PointSet::adjustForLogScale(Scale scale, double* pointXY)
 void PointSet::serializeWrite(QDataStream &s) const
 {
   s << m_name;
-  s << (Q_INT32 &) m_style.pointShape;
-  s << (Q_INT32 &) m_style.pointSize;
-  s << (Q_INT32 &) m_style.pointLineSize;
-  s << (Q_INT32 &) m_style.pointLineColor;
-  s << (Q_INT32 &) m_style.pointInColor;
-  s << (Q_INT32 &) m_style.lineSize;
-  s << (Q_INT32 &) m_style.lineColor;
-  s << (Q_INT32 &) m_style.lineConnectAs;
+  s << (Q_INT32) m_style.pointShape;
+  s << (Q_INT32) m_style.pointSize;
+  s << (Q_INT32) m_style.pointLineSize;
+  s << (Q_INT32) m_style.pointLineColor;
+  s << (Q_INT32) m_style.pointInColor;
+  s << (Q_INT32) m_style.lineSize;
+  s << (Q_INT32) m_style.lineColor;
+  s << (Q_INT32) m_style.lineConnectAs;
 
-  s << (const Q_INT32 &) m_points.count();
+  s << (Q_INT32) m_points.count();
   PointListIterator itr(m_points);
   Point* point;
   while ((point = itr.current()) != 0)
@@ -720,18 +720,28 @@ void PointSet::serializeRead(QDataStream &s, Q3Canvas* canvas)
 {
   ASSERT_ENGAUGE(canvas != 0);
   
-  s >> m_name;
-  s >> (Q_INT32 &) m_style.pointShape;
-  s >> (Q_INT32 &) m_style.pointSize;
-  s >> (Q_INT32 &) m_style.pointLineSize;
-  s >> (Q_INT32 &) m_style.pointLineColor;
-  s >> (Q_INT32 &) m_style.pointInColor;
-  s >> (Q_INT32 &) m_style.lineSize;
-  s >> (Q_INT32 &) m_style.lineColor;
-  s >> (Q_INT32 &) m_style.lineConnectAs;
+  Q_INT32 extractionQInt32;
 
-  int count;
-  s >> (Q_INT32 &) count;
+  s >> m_name;
+  s >> extractionQInt32;
+  m_style.pointShape = (PointShape) extractionQInt32;
+  s >> extractionQInt32;
+  m_style.pointSize = (PointSize) extractionQInt32;
+  s >> extractionQInt32;
+  m_style.pointLineSize = (PointLineSize) extractionQInt32;
+  s >> extractionQInt32;
+  m_style.pointLineColor = (Color) extractionQInt32;
+  s >> extractionQInt32;
+  m_style.pointInColor = (Color) extractionQInt32;
+  s >> extractionQInt32;
+  m_style.lineSize = (LineSize) extractionQInt32;
+  s >> extractionQInt32;
+  m_style.lineColor = (Color) extractionQInt32;
+  s >> extractionQInt32;
+  m_style.lineConnectAs = (LineConnectAs) extractionQInt32;
+
+  s >> extractionQInt32;
+  int count = extractionQInt32;
   QList<QRect> updateRectList;
   for (int i = 0; i < count; i++)
   {

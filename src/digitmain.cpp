@@ -2937,11 +2937,17 @@ void DigitMain::slotConverter()
 #else /* DEBIAN_PACKAGE */
       // QMessageBox::critical(this, tr("Error!"), tr("Environment variable ENGAUGE_BROWSER is not set! It must be set to the command used to start your browser"));
       QString cmd = QString("sh -c '/usr/bin/sensible-browser %2' &").arg(file);
-      system(cmd);
+      if (system(cmd) == -1)
+      {
+        QMessageBox::critical(this, tr("Error!"), tr("Unable to start your browser at /usr/bin/sensible-browser!"));
+      }
 #endif /* DEBIAN_PACKAGE */
    } else {
       QString cmd = QString("sh -c '%1 %2' &").arg(envValue).arg(file);
-      system(cmd);
+      if (system(cmd) == -1)
+      {
+        QMessageBox::critical(this, tr("Error!"), tr("Unable to start your browser! Check your ENGAUGE_BROWSER environment variable"));
+      }
    }
 #endif
 }
