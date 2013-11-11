@@ -25,6 +25,7 @@
 #include <QList>
 #include <QPixmap>
 
+#include <algorithm>
 #include <math.h>
 
 #include "pointset.h"
