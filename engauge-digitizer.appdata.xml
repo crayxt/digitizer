@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright 2014 Tobias Winchen <tobias@winchen.de> -->
+<application>
+ <id type="desktop">engauge-digitizer.desktop</id>
+ <metadata_license>CC0-1.0</metadata_license>
+ <project_license>GPL-2.0+</project_license>
+ <name>Engauge Digitizer</name>
+ <summary>Interactively extracts numbers from bitmap graphs or maps</summary>
+ <description>
+	 <p>
+		 This digitizing software converts an image file showing a graph or map into
+ xy data (coordinates). Some people use it for obtaining the original data
+ from graphs in scientific publications.
+  </p>
+  <p>Features:</p>
+	<ul>
+		<li> Automatic grid line removal</li>
+		<li> Automatic point matching</li>
+		<li> Automatic curve tracing</li>
+		<li> Automatic axes matching</li>
+		<li> Handles cartesian, polar, linear and logarithmic graphs</li>
+		<li> Support for drag-and-drop and copy-and-paste</li>
+		<li> Context sensitive help, user manual and tutorials explain every feature</li>
+		<li> Preview windows give immediate feedback while modifying settings</li>
+  </ul>
+ </description>
+ <screenshots>
+	 <screenshot type="default" width="800" height="600">https://a.fsdn.com/con/app/proj/digitizer/screenshots/10671.jpg</screenshot>
+	 <screenshot width="800" height="600">https://a.fsdn.com/con/app/proj/digitizer/screenshots/96714.jpg </screenshot>
+ </screenshots>
+ <url type="homepage">http://digitizer.sourceforge.net/</url>
+mmdigitizer@earthlink.net>
+ <updatecontact>digitizer-contact_at_lists.sourceforge.net</updatecontact>
+</application>
