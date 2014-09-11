@@ -719,7 +719,7 @@ QString PointSets::exportHeaderPrefix(CoordSettings coord, ExportSettings xport)
 QList<double> PointSets::ascendingXValuesList(CoordSettings coord,
   GridMeshSettings grid, ExportSettings xport, int xPrecision)
 {
-  QList<double> list;
+  std::list<double> list;
 
   switch (xport.pointsSelection)
   {
@@ -740,7 +740,7 @@ QList<double> PointSets::ascendingXValuesList(CoordSettings coord,
         double x = grid.startX;
         for (int i = 0; i < grid.countX; i++)
         {
-          list.append(x);
+          list.push_back(x);
 
           if (coord.xThetaScale == Linear)
             x += grid.stepX;
@@ -751,7 +751,7 @@ QList<double> PointSets::ascendingXValuesList(CoordSettings coord,
       break;
   }
 
-  return list;
+  return QList<double>::fromStdList(list);
 }
 
 QStringList PointSets::exportIncluded()

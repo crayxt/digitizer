@@ -27,7 +27,11 @@
 
 #include <math.h>
 #include <stdlib.h>
+#ifdef WIN32 //and VS++
+#include <io.h>
+#else
 #include <unistd.h>
+#endif
 
 #ifdef WIN32
 #include <Windows.h>

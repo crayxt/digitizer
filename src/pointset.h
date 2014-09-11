@@ -114,7 +114,7 @@ class PointSet
     // this returns numeric x values with full precision, their exported precision must be
     // specified so no adjacent exported x values will have the same value (breaks postprocessing
     // tools such as sql databases)
-    void mergeUniqueXValues(QList<double>* list, int xPrecision);
+    void mergeUniqueXValues(std::list<double>* list, int xPrecision);
 
     // serialize
     void serializeWrite(QDataStream &s) const;

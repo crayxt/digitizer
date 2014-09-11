@@ -536,13 +536,13 @@ bool PointSet::pointSetScreenLimits(double *xMin, double *xMax, double *yMin, do
   return found;
 }
 
-void PointSet::mergeUniqueXValues(QList<double>* list,
+void PointSet::mergeUniqueXValues(std::list<double>* list,
   int /* xPrecision */)
 {
   ASSERT_ENGAUGE(list != 0);
   
   Point* p = m_points.first();
-  QList<double>::iterator itr;
+  std::list<double>::iterator itr;
  
   // insert member points that should go before any points already in the list
   for (itr = list->begin(); p && (itr != list->end()); ++itr)
@@ -551,12 +551,12 @@ void PointSet::mergeUniqueXValues(QList<double>* list,
 
   // insert member points that should go after all points already in the list
   for (; p; p = m_points.next())
-    list->append(p->xThetaGraph());
+    list->push_back(p->xThetaGraph());
 
   // remove duplicate entries caused by two or more curves having points with identical
   // exported x coordinates, since these duplicates are useless and cause problems (i.e. sql
   // insert will crash)
-  qSort(list->begin(), list->end());
+  list->sort();
   itr = std::unique (list->begin(), list->end());
   list->erase(itr, list->end());
 }
