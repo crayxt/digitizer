@@ -67,6 +67,8 @@ PointSetsDlg::PointSetsDlg(bool curve, QString title, PointSets* pointSets, QStr
   pointSetNames->setGeometry(10, 50, 230, 280);
   QWhatsThis::add(pointSetNames, curveReplace("List of the curves belonging to this document"));
   connect(pointSetNames, SIGNAL(selectionChanged(Q3ListBoxItem*)), this, SLOT(slotSelectionChanged(Q3ListBoxItem*)));
+  connect(pointSetNames, SIGNAL(doubleClicked(Q3ListBoxItem*)), this, SLOT(slotItemDoubleClicked(Q3ListBoxItem*)));
+  connect(pointSetNames, SIGNAL(returnPressed(Q3ListBoxItem*)), this, SLOT(slotItemDoubleClicked(Q3ListBoxItem*)));
 
   buttonUp = new QPushButton(tr("Move Up"), this);
   CHECK_PTR_ENGAUGE(buttonUp);
@@ -296,8 +298,12 @@ void PointSetsDlg::slotNew()
       disallowedNames.append(pointSetNames->text(index));
 
       // this pointset is the most recent so far
-      name = newNameFromPreviousPointSet(pointSetNames->text(index));
+      //name = newNameFromPreviousPointSet(pointSetNames->text(index));
     }
+
+  if ( ! disallowedNames.isEmpty()) {
+    name = newNameFromPreviousPointSet(disallowedNames.last());
+  }
 
   PointSetNameDlg* dlg = new PointSetNameDlg(curve, title, &name, disallowedNames);
   CHECK_PTR_ENGAUGE(dlg);
@@ -406,6 +412,13 @@ void PointSetsDlg::slotSelectionChanged(Q3ListBoxItem* item)
   ASSERT_ENGAUGE(item != 0);
   activePointSet = item->text();
   toggleActions();
+}
+
+void PointSetsDlg::slotItemDoubleClicked(Q3ListBoxItem* item)
+{
+  ASSERT_ENGAUGE(item != 0);
+  slotProperties();
+  //toggleActions();
 }
 
 void PointSetsDlg::slotUp()

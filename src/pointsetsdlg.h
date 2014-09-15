@@ -53,6 +53,7 @@ class PointSetsDlg : public QDialog
     void slotRemove(void);
     void slotRename(void);
     void slotSelectionChanged(Q3ListBoxItem* item);
+    void slotItemDoubleClicked(Q3ListBoxItem* item);
     void slotWhat(void);
         
   private:
