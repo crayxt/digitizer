@@ -4,7 +4,7 @@
 # in the qt installation directory
 
 TEMPLATE	= app
-CONFIG		= qt warn_on thread debug
+CONFIG		= qt warn_on thread
 OBJECTS_DIR     = src/.objs
 unix {
 # hints for LIBS entry:
