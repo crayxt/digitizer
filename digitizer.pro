@@ -26,7 +26,7 @@ DEFINES  	+= WIN32
 INCLUDEPATH	+= $$(FFTW_HOME)
 LIBS            += -L$$(FFTW_HOME) -llibfftw3-3 -lshell32
 OBJECTS_DIR     = src/.objs
-CONFIG		+= windows
+CONFIG		+= windows static
 }
 HEADERS		= src/axispointdlg.h \
 		  src/clipboard.h \
