@@ -29,12 +29,9 @@
 #include <stdlib.h>
 #if defined(WIN32) && defined(VISUALSTUDIO)
 #include <io.h>
+#include <Windows.h>
 #else
 #include <unistd.h>
-#endif
-
-#ifdef WIN32
-#include <Windows.h>
 #endif
 
 #include "main.h"
