@@ -29,9 +29,12 @@
 #include <stdlib.h>
 #if defined(WIN32) && defined(VISUALSTUDIO)
 #include <io.h>
-#include <Windows.h>
 #else
 #include <unistd.h>
+#endif
+
+#ifdef WIN32
+#include <windows.h>
 #endif
 
 #include "main.h"
@@ -218,7 +221,7 @@ void PointMatch::matchSamplePoint(const QImage &imageProcessed,
   {
     qApp->processEvents();
 
-#if defined(WIN32) && defined(VISUALSTUDIO)
+#ifdef WIN32
 //    _sleep(SLEEP_IN_SECONDS);
     Sleep(SLEEP_IN_SECONDS);
 #else
