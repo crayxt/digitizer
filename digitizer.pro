@@ -24,9 +24,14 @@ QMAKE_CXXFLAGS_RELEASE += -Wno-non-virtual-dtor
 win32 {
 DEFINES  	+= WIN32
 INCLUDEPATH	+= $$(FFTW_HOME)
-LIBS            += -L$$(FFTW_HOME) -llibfftw3-3 -lshell32
-OBJECTS_DIR     = src/.objs
 CONFIG		+= windows static
+*-g++* {
+	LIBS	+= -L$$(FFTW_HOME) -lm -lfftw3 -lshell32
+}
+*-msvc* {
+	DEFINE	+= VISUALSTUDIO
+	LIB	+= -L$$(FFTW_HOME) -llibfftw3-3 -lshell32
+}
 }
 HEADERS		= src/axispointdlg.h \
 		  src/clipboard.h \
