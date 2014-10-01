@@ -1,0 +1,14 @@
+language: cpp
+compiler:
+#- clang
+- gcc
+before_install:
+- sudo apt-get update -qq
+install:
+- sudo apt-get install -qq qt4-qmake libqt4-dev libfftw3-dev build-essential
+before_script:
+- qmake-qt4
+script:
+- make
+#after_success:
+#- make -C test coverage
