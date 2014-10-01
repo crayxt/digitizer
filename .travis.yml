@@ -5,14 +5,14 @@ compiler:
   - gcc
 
 env:
-  - CXXFLAGS=-m32
-  - CXXFLAGS=-m64
-  - CC=i586-mingw32msvc-gcc CXX=i586-mingw32msvc-g++ LD=i586-mingw32msvc-ld
+  - QMAKESPEC=linux-g++-32
+  - QMAKESPEC=linux-g++-64
+#  - CC=i586-mingw32msvc-gcc CXX=i586-mingw32msvc-g++ LD=i586-mingw32msvc-ld
 #  - CC=i586-mingw32msvc-gcc CXX=i586-mingw32msvc-g++ LD=i586-mingw32msvc-ld
 
 before_install:
   - sudo apt-get update -qq
-  - sudo apt-get install -qq build-essential qt4-qmake libqt4-dev libfftw3-dev g++-multilib mingw32 #mingw-w64
+  - sudo apt-get install -qq build-essential qt4-qmake libqt4-dev libfftw3-dev g++-multilib #mingw32 mingw-w64
 
 #install:
 #  - sudo apt-get install -qq 
@@ -21,6 +21,7 @@ before_script:
   - qmake-qt4
 
 script:
-    - make
-#after_success:
-#- make -C test coverage
+  - make
+  
+after_success:
+  - file bin/*
