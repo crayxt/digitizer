@@ -4,15 +4,14 @@ compiler:
 #- clang
   - gcc
 
-env:
-  - QMAKESPEC=linux-g++-32
-  - QMAKESPEC=linux-g++-64
-#  - CC=i586-mingw32msvc-gcc CXX=i586-mingw32msvc-g++ LD=i586-mingw32msvc-ld
+#env:
+#  - QMAKESPEC=linux-g++-32
+#  - QMAKESPEC=linux-g++-64
 #  - CC=i586-mingw32msvc-gcc CXX=i586-mingw32msvc-g++ LD=i586-mingw32msvc-ld
 
 before_install:
   - sudo apt-get update -qq
-  - sudo apt-get install -qq build-essential qt4-qmake libqt4-dev libfftw3-dev g++-multilib #mingw32 mingw-w64
+  - sudo apt-get install -qq build-essential qt4-qmake libqt4-dev libfftw3-dev #g++-multilib mingw32 mingw-w64
 
 #install:
 #  - sudo apt-get install -qq 
@@ -24,4 +23,4 @@ script:
   - make
   
 after_success:
-  - file bin/*
+  - file bin/engauge*
