@@ -184,7 +184,7 @@ int Discretize::discretizeValueNotForeground(const QImage* image, int x, int y, 
     color.rgb(&r, &g, &b);
     intensity = sqrt ((double) (r * r + g * g + b * b));
     value = (int) (intensity * DiscretizeIntensityMax / sqrt((double) (255 * 255 + 255 * 255 + 255 * 255)) + 0.5);
-    break;
+      break;
   case DiscretizeForeground:
     break;
   case DiscretizeHue:

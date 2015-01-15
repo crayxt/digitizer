@@ -59,7 +59,7 @@ GridRemovalDlg::GridRemovalDlg(QString title,
     .arg(title)
     .arg(freewareCaption));
 
-  setFixedSize(430, 620);
+  setFixedSize(430, 670);
 
   // color
   checkColor = new QCheckBox(this);
@@ -83,14 +83,14 @@ GridRemovalDlg::GridRemovalDlg(QString title,
   labelColor->setGeometry(30, 50, 270, 30);
 
   // color chooser area
-  colorChooser = new ColorChooser(this, imageOriginal, 205, 50, gridSettings->color.rgb(), false);
+  colorChooser = new ColorChooser(this, imageOriginal, 205, 50, gridSettings->color.rgb(), true);
   CHECK_PTR_ENGAUGE(colorChooser);
   connect(colorChooser, SIGNAL(limitChange(bool, int)), this, SLOT(slotLimitChange(bool, int)));
 
   // gridline mesh
   checkGrid = new QCheckBox(this);
   CHECK_PTR_ENGAUGE(checkGrid);
-  checkGrid->setGeometry(10, 137, 15, 15);
+  checkGrid->setGeometry(10, 187, 15, 15);
   checkGrid->setChecked(gridSettings->removeGridlines);
   if (!transform->validAxes())
     checkGrid->setEnabled(false); // do not get users hopes up - gridline approach requires transform
@@ -101,24 +101,24 @@ GridRemovalDlg::GridRemovalDlg(QString title,
 
   labelGridMain = new QLabel(QString(tr("Remove pixels close to regularly spaced gridlines")), this);
   CHECK_PTR_ENGAUGE(labelGridMain);
-  labelGridMain->setGeometry(30, 130, 360, 30);
+  labelGridMain->setGeometry(30, 180, 360, 30);
 
   labelGridMesh = new QLabel(QString(tr("Removal gridlines:")), this);
   CHECK_PTR_ENGAUGE(labelGridMesh);
-  labelGridMesh->setGeometry(30, 170, 230, 30);
+  labelGridMesh->setGeometry(30, 220, 230, 30);
 
   buttonGridMesh = new QPushButton(tr("Gridlines..."), this);
   CHECK_PTR_ENGAUGE(buttonGridMesh);
-  buttonGridMesh->setGeometry(270, 170, 150, 30);
+  buttonGridMesh->setGeometry(270, 220, 150, 30);
   connect(buttonGridMesh, SIGNAL(clicked()), this, SLOT(slotGridlines()));
 
   labelGridDistance = new QLabel(QString(tr("Close distance (pixels):")), this);
   CHECK_PTR_ENGAUGE(labelGridDistance);
-  labelGridDistance->setGeometry(30, 210, 230, 30);
+  labelGridDistance->setGeometry(30, 260, 230, 30);
 
   editGridDistance = new QLineEdit(this);
   CHECK_PTR_ENGAUGE(editGridDistance);
-  editGridDistance->setGeometry(270, 210, 150, 30);
+  editGridDistance->setGeometry(270, 260, 150, 30);
   editGridDistance->setText(QString("%1").arg(gridSettings->gridDistance, 0, 'f', 1)); // make sure users see decimal point
   QWhatsThis::add(editGridDistance, QString(tr("Set closeness distance in pixels.\n\n"
     "Pixels that are closer to the regularly spaced gridlines, than this distance, "
@@ -133,7 +133,7 @@ GridRemovalDlg::GridRemovalDlg(QString title,
   // thin lines
   checkThin = new QCheckBox(this);
   CHECK_PTR_ENGAUGE(checkThin);
-  checkThin->setGeometry(10, 257, 15, 15);
+  checkThin->setGeometry(10, 307, 15, 15);
   ASSERT_ENGAUGE(gridSettings != 0);
   checkThin->setChecked(gridSettings->removeThinLines);
   if (!transform->validAxes())
@@ -146,15 +146,15 @@ GridRemovalDlg::GridRemovalDlg(QString title,
 
   labelThinMain = new QLabel(QString(tr("Remove thin lines parallel to the axes")), this);
   CHECK_PTR_ENGAUGE(labelThinMain);
-  labelThinMain->setGeometry(30, 250, 360, 30);
+  labelThinMain->setGeometry(30, 300, 360, 30);
 
   labelThinThickness = new QLabel(QString(tr("Minimum line thickness (pixels):")), this);
   CHECK_PTR_ENGAUGE(labelThinThickness);
-  labelThinThickness->setGeometry(30, 290, 230, 30);
+  labelThinThickness->setGeometry(30, 340, 230, 30);
 
   editThinThickness = new QLineEdit(this);
   CHECK_PTR_ENGAUGE(editThinThickness);
-  editThinThickness->setGeometry(270, 290, 150, 30);
+  editThinThickness->setGeometry(270, 340, 150, 30);
   editThinThickness->setText(QString("%1").arg(gridSettings->thinThickness, 0, 'f', 1)); // make sure users see decimal point
   QWhatsThis::add(editThinThickness, QString(tr("Select minimum thickness for lines, in pixels.\n\n"
     "Pixels will be removed wherever lines are thinner than this value.\n\n"
@@ -168,11 +168,11 @@ GridRemovalDlg::GridRemovalDlg(QString title,
   // gap
   labelGap = new QLabel(QString(tr("Maximum gap to connect (pixels):")), this);
   CHECK_PTR_ENGAUGE(labelGap);
-  labelGap->setGeometry(10, 340, 270, 30);
+  labelGap->setGeometry(10, 390, 270, 30);
 
   editGap = new QLineEdit(this);
   CHECK_PTR_ENGAUGE(editGap);
-  editGap->setGeometry(270, 340, 150, 30);
+  editGap->setGeometry(270, 390, 150, 30);
   editGap->setText(QString("%1").arg(gridSettings->gapSeparation, 0, 'f', 1)); // make sure users see decimal point
   QWhatsThis::add(editGap, QString(tr("Set maximum gap separation in pixels.\n\n"
     "Lines whose endpoints are separated by less than this distance, will be connected.\n\n"
@@ -186,14 +186,14 @@ GridRemovalDlg::GridRemovalDlg(QString title,
   // preview area
   labelPreview = new QLabel(QString(tr("Preview")), this);
   CHECK_PTR_ENGAUGE(labelPreview);
-  labelPreview->setGeometry(30, 390, 100, 30);
+  labelPreview->setGeometry(30, 440, 100, 30);
 
   previewCanvas = new Q3Canvas(this);
   CHECK_PTR_ENGAUGE(previewCanvas);
   previewCanvas->resize(imageOriginal->width(), imageOriginal->height());
   previewCanvasView = new ClickablePreview(previewCanvas, this);
   CHECK_PTR_ENGAUGE(previewCanvasView);
-  previewCanvasView->setGeometry(30, 420, 370, 150);
+  previewCanvasView->setGeometry(30, 470, 370, 150);
   QWhatsThis::add(previewCanvasView, QString(tr(
     "Preview window shows how current settings affect the gridlines.\n\n"
     "To change the selected color for the Remove By Color option, select that option and then "
@@ -202,18 +202,18 @@ GridRemovalDlg::GridRemovalDlg(QString title,
   // navigation buttons
   buttonOk = new QPushButton(tr("OK"), this);
   CHECK_PTR_ENGAUGE(buttonOk);
-  buttonOk->setGeometry(100, 580, 100, 30);
+  buttonOk->setGeometry(100, 630, 100, 30);
   connect(buttonOk, SIGNAL(clicked()), this, SLOT(accept()));
 
   buttonCancel = new QPushButton(tr("Cancel"), this);
   CHECK_PTR_ENGAUGE(buttonCancel);
-  buttonCancel->setGeometry(230, 580, 100, 30);
+  buttonCancel->setGeometry(230, 630, 100, 30);
   connect(buttonCancel, SIGNAL(clicked()), this, SLOT(reject()));
 
   buttonWhat = new QPushButton(this);
   CHECK_PTR_ENGAUGE(buttonWhat);
   buttonWhat->setPixmap(QPixmap(whatsthis_xpm));
-  buttonWhat->setGeometry(360, 580, 60, 30);
+  buttonWhat->setGeometry(360, 630, 60, 30);
   QToolTip::add(buttonWhat, QString(tr("What's this?")));
   connect(buttonWhat, SIGNAL(clicked()), this, SLOT(slotWhat()));
 

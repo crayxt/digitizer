@@ -16,7 +16,6 @@
  *                                                                         *
  ***************************************************************************/
 
-
 #include <qtooltip.h>
 #include <qbitmap.h>
 #include <qpainter.h>
